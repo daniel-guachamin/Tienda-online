@@ -12,25 +12,33 @@
 
             <ui:define name="content">
                 <h2>Juegos</h2>
+                <h:form>
+                <!--mostrara mensajes de error o exito -->
+                <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
                 <div class="container">
                     <div class="row">
-                        <div class="col text-center  ">
-                            <h:graphicImage library="img" name="hitman3.png" alt="hitman3"/>
-                            <p:commandButton value="Comprar 20$"/>
-                            <p:commandButton value="Alquilar 3$"/>
-                        </div>
+                        
                         <div class="col text-center ">
                             <h:graphicImage library="img" name="juego1.png" alt="Detroit Become Humans"/>
-                            <p:commandButton value="Comprar"/>
-                            <p:commandButton value="Alquilar"/>
+                            <p:commandButton value="Comprar 40€" update="mensaje" actionListener="#{juegosController.comprarJuego1}"/>
+                            <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego1()}"/>
                         </div>
+                        
+                        <div class="col text-center  ">
+                            <h:graphicImage library="img" name="juego2.png" alt="hitman3"/>
+                            <p:commandButton value="Comprar 35€"/>
+                            <p:commandButton value="Alquilar 10€"/>
+                        </div>
+                        
                         <div class="col text-center ">
-                            <h:graphicImage library="img" name="juego2.png" alt="Los Sims 4"/>
-                            <p:commandButton value="Comprar"/>
-                            <p:commandButton value="Alquilar"/>
+                            <h:graphicImage library="img" name="juego3.png" alt="Los Sims 4"/>
+                            <p:commandButton value="Comprar 50€"/>
+                            <p:commandButton value="Alquilar 10€"/>
                         </div>
                     </div>
                 </div>
+                </h:form>  
                 <br></br>
 
             </ui:define>

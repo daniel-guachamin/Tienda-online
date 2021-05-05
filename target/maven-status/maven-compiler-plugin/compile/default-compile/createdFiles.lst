@@ -35,6 +35,7 @@ com\danielta\ejb\MenuFacade.class
 com\danielta\model\Nota.class
 com\danielta\ejb\AbstractFacade.class
 com\danielta\model\Categoria_.class
+com\danielta\controller\JuegosController.class
 com\danielta\controller\ComentarController.class
 com\danielta\controller\ConsultarController.class
 com\danielta\controller\IndexController.class
