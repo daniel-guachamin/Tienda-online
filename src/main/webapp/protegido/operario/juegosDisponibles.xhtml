@@ -32,6 +32,15 @@
                                 <h1><h:outputText value="#{juegos.estado}" /></h1>
                             </div>
                         </p:column>
+
+                        <p:column headerText="Fecha de compra" >
+                            <div class="text-center">
+                                <h1><h:outputText value="#{juegos.fecha}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy   H:m:s" />
+                                </h:outputText></h1>                              
+                            </div>
+                        </p:column>
+
                         <p:column headerText="Acciones" >
                             <div class="text-center">
                                 <!--<p:commandButton value="Descargar" onclick="PF('dialogoIdioma').show();" icon="ui-icon-check"/>-->
