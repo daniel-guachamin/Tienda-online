@@ -25,7 +25,7 @@ public class MenuController implements Serializable {
     private List<Menu> lista;
     private MenuModel model;
 
-        //traemos la lista de menu
+    //traemos la lista de menu
     @PostConstruct
     public void init() {
         this.listarMenus();
@@ -51,36 +51,21 @@ public class MenuController implements Serializable {
 
     public void establecerPermisos() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        
+
         for (Menu m : lista) {
-            if (m.getTipo().equals("S") && m.getTipoUsuario().equals(us.getTipo())) { //segun el tipo de usuario eligira un menu diferente
-                DefaultSubMenu firstSubmenu = new DefaultSubMenu(m.getNombre());
-                for (Menu i : lista) {
-                    Menu submenu = i.getSubmenu();
-                    if (submenu != null) {
-                        if (submenu.getCodigo() == m.getCodigo()) {
-                            DefaultMenuItem item = new DefaultMenuItem(i.getNombre());
-                            item.setUrl(i.getUrl()); //para redireccion por url desde el menu de mi BBDD
-                            firstSubmenu.addElement(item);
-                        }
-                    }
-                }
-                model.addElement(firstSubmenu);
-            } else {
-                if (m.getSubmenu() == null && m.getTipoUsuario().equals(us.getTipo())) {
-                    DefaultMenuItem item = new DefaultMenuItem(m.getNombre());
-                    item.setUrl(m.getUrl());
-                    model.addElement(item);
-                }
+            if (m.getTipoUsuario().equals(us.getTipo())) {
+                DefaultMenuItem item = new DefaultMenuItem(m.getNombre());
+                item.setUrl(m.getUrl());
+                model.addElement(item);
             }
         }
     }
-    
-    public void cerrarSesion(){
+
+    public void cerrarSesion() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); //cierro sesion
     }
-    
-    public String mostrarUsuarioLogeado(){
+
+    public String mostrarUsuarioLogeado() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         return us.getUsuario();
     }

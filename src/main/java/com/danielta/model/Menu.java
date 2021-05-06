@@ -21,15 +21,8 @@ public class Menu implements Serializable {
     @Column(name = "url")
     private String url;
 
-    @Column(name = "tipo")
-    private String tipo;
-
     @Column(name = "tipoUsuario")
     private String tipoUsuario;
-
-    @ManyToOne
-    @JoinColumn(name = "codigo_submenu")
-    private Menu submenu;
 
     public int getCodigo() {
         return codigo;
@@ -54,14 +47,6 @@ public class Menu implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-        
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public String getTipoUsuario() {
         return tipoUsuario;
@@ -69,14 +54,6 @@ public class Menu implements Serializable {
 
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }
-
-    public Menu getSubmenu() {
-        return submenu;
-    }
-
-    public void setSubmenu(Menu submenu) {
-        this.submenu = submenu;
     }
 
     @Override
