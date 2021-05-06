@@ -44,20 +44,67 @@ public class JuegosController {
             this.juegos.setPersona(codigo_persona);
             this.juegos.setNombre("Detroit");
             this.juegos.setEstado("Comprado");
-            this.juegos.setImagen("juego1.png");
+            this.juegos.setImagen("Detroit.png");
             juegosEJB.create(juegos);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego comprado correctamente")); //para mostrar mensaje de registro exitoso
         }catch(Exception e){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al comprar el juego!"));            
         }
     }
-    
     public void alquilarJuego1(){
         try{
             this.juegos.setPersona(codigo_persona);
             this.juegos.setNombre("Detroit");
             this.juegos.setEstado("Alquilado disponible 3 días");
-            this.juegos.setImagen("juego1.png");
+            this.juegos.setImagen("Detroit.png");
+            juegosEJB.create(juegos);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego alquilado correctamente")); //para mostrar mensaje de registro exitoso
+        }catch(Exception e){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al alquilar el juego!"));            
+        }
+    }
+    public void comprarJuego2(){
+        try{
+            this.juegos.setPersona(codigo_persona);
+            this.juegos.setNombre("Hitman 3");
+            this.juegos.setEstado("Comprado");
+            this.juegos.setImagen("Hitman3.png");
+            juegosEJB.create(juegos);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego comprado correctamente")); //para mostrar mensaje de registro exitoso
+        }catch(Exception e){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al comprar el juego!"));            
+        }
+    }
+    public void alquilarJuego2(){
+        try{
+            this.juegos.setPersona(codigo_persona);
+            this.juegos.setNombre("Hitman 3");
+            this.juegos.setEstado("Alquilado disponible 3 días");
+            this.juegos.setImagen("Hitman3.png");
+            juegosEJB.create(juegos);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego alquilado correctamente")); //para mostrar mensaje de registro exitoso
+        }catch(Exception e){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al alquilar el juego!"));            
+        }
+    }
+    public void comprarJuego3(){
+        try{
+            this.juegos.setPersona(codigo_persona);
+            this.juegos.setNombre("Los Sims 4");
+            this.juegos.setEstado("Comprado");
+            this.juegos.setImagen("Sims4.png");
+            juegosEJB.create(juegos);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego comprado correctamente")); //para mostrar mensaje de registro exitoso
+        }catch(Exception e){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al comprar el juego!"));            
+        }
+    }
+    public void alquilarJuego3(){
+        try{
+            this.juegos.setPersona(codigo_persona);
+            this.juegos.setNombre("Los Sims 4");
+            this.juegos.setEstado("Alquilado disponible 3 días");
+            this.juegos.setImagen("Sims4.png");
             juegosEJB.create(juegos);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego alquilado correctamente")); //para mostrar mensaje de registro exitoso
         }catch(Exception e){

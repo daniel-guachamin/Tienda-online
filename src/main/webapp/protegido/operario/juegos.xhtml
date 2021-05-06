@@ -20,21 +20,21 @@
                     <div class="row">
                         
                         <div class="col text-center ">
-                            <h:graphicImage library="img" name="juego1.png" alt="Detroit Become Humans"/>
+                            <h:graphicImage library="img" name="Detroit.png" alt="Detroit Become Humans"/>
                             <p:commandButton value="Comprar 40€" update="mensaje" actionListener="#{juegosController.comprarJuego1}"/>
                             <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego1()}"/>
                         </div>
                         
                         <div class="col text-center  ">
-                            <h:graphicImage library="img" name="juego2.png" alt="hitman3"/>
-                            <p:commandButton value="Comprar 35€"/>
-                            <p:commandButton value="Alquilar 10€"/>
+                            <h:graphicImage library="img" name="Hitman3.png" alt="Hitman3"/>
+                            <p:commandButton value="Comprar 35€" update="mensaje" actionListener="#{juegosController.comprarJuego2}"/>
+                            <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego2()}"/>
                         </div>
                         
                         <div class="col text-center ">
-                            <h:graphicImage library="img" name="juego3.png" alt="Los Sims 4"/>
-                            <p:commandButton value="Comprar 50€"/>
-                            <p:commandButton value="Alquilar 10€"/>
+                            <h:graphicImage library="img" name="Sims4.png" alt="Los Sims 4"/>
+                            <p:commandButton value="Comprar 50€" update="mensaje" actionListener="#{juegosController.comprarJuego3}"/>
+                            <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego3()}"/>
                         </div>
                     </div>
                 </div>
