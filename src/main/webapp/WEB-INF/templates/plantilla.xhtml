@@ -22,8 +22,9 @@
                 <h:form>
 
                     <p:menubar model="#{menuController.model}" > <!--menu controlado desde la base de datos segun el operario o administrador-->
-                        <f:facet name="options" > <!--facet me permite establecer esta seccion dentro de menubar(otro componente)-->                       
-                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" action="/index?faces-redirect=true" title="Cerrar Sesión"/> <!--cierro sesion y rediridijo a index-->
+                        <f:facet name="options" > <!--facet me permite establecer esta seccion dentro de menubar(otro componente)-->       
+                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-cart" value="Carrito" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> <!--cierro sesion y rediridijo a index-->
                         </f:facet> 
                     </p:menubar> 
                 </h:form>                                        
