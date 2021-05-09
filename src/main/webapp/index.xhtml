@@ -28,10 +28,7 @@
                         </li>
                         <li class="nav-item">
                             <p:commandButton value="Iniciar Sesión" onclick="PF('dialogoSesion').show();" icon="ui-icon-key"/>
-                        </li>
-                        <li class="nav-item">
-                            <p:commandButton value="Registrarse" onclick="PF('dialogoRegistro').show();" icon="ui-icon-pencil"/>
-                        </li>
+                        </li>     
                     </ul>
                 </div>
             </div>
@@ -119,7 +116,7 @@
                             <li>Podrás comprar facilmente el juego que quieras y descargarlo en tu PC</li>
                             <li>Alquilar cualquier juego por 3 dias a un precio económico</li>
                             <li>Si necesitas información sobre el funcionamiento de esta aplicación tiene un chat disponible las 24
-                                horas del día para cualquier duda</li>
+                                horas del día</li>
                         </ul>
                     </div>
                 </div>
@@ -157,7 +154,7 @@
         <footer class="py-5 bg-dark">
             <div class="container">
                 <div class="row">
-                <div class="col text-center  ">
+                    <div class="col text-center  ">
                         <a href="#" title="Volver a la página principal">Inicio</a>
                     </div>
                     <div class="col text-center ">
@@ -184,19 +181,20 @@
 
                     <p:outputLabel for="txtClave" value="Clave"/>
                     <p:password id="txtClave" value="#{indexController.usuario.clave}" required="true" requiredMessage="Introduce una contraseña"/>
-
-                    <p:commandButton icon="ui-icon-key" value="Entrar" update="mensaje"  action="#{indexController.iniciarSesion()}"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-close"  onclick="PF('dialogoSesion').hide();"/>
                 </h:panelGrid>
+                <br></br>
+                <p:commandButton icon="ui-icon-key" value="Entrar" update="mensaje"  action="#{indexController.iniciarSesion()}"/>
+                <p:commandButton value="Crear cuenta nueva" onclick="PF('dialogoRegistro').show();" icon="ui-icon-pencil"/>
             </h:form>   
         </p:dialog>
 
 
         <!--Muestra mi formulario de Registro en forma de dialogo-->
-        <p:dialog id="diaolog2" widgetVar="dialogoRegistro" header="Registro" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
+        <p:dialog id="diaolog2" widgetVar="dialogoRegistro" header="Registrarte" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
+            <p>Es rápido y fácil</p>
             <h:form>
                 <!--mostrara mensajes de error o exito -->
-                <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error que he declarado en mi usuarioController-->
                 <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
 
                 <p:fieldset legend="Datos Personales" > <!--permite la separacion entre unos campos y otros-->
@@ -221,13 +219,9 @@
                         <p:calendar id="txtFecha" value="#{usuarioController.persona.fechaNacimiento}" locale="es" required="true" requiredMessage="Campo obligatorio"/>
                         <p:message for="txtFecha" />
 
-                        <p:outputLabel for="cuenta" value="Cuenta de banco" />
-                        <p:inputText id="cuenta" value="#{usuarioController.persona.cuenta}" required="true" requiredMessage="Campo obligatorio"/>
-                        <p:message for="cuenta" />
-
                     </h:panelGrid>
                 </p:fieldset>
-
+                <br></br>
                 <p:fieldset legend="Datos de la cuenta">
                     <h:panelGrid columns="3" id="DatosCuenta">
 
@@ -247,20 +241,14 @@
                         <p:message for="clave2" />
 
                     </h:panelGrid>
-                    <!--update=pgDatos, pgCuenta, mensaje me permite actulizar estos id -->
-                    <p:commandButton icon="ui-icon-check" value="Registrar" update="DatosPersonales, DatosCuenta, mensaje" actionListener="#{usuarioController.registrar()}"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-close"  onclick="PF('dialogoRegistro').hide();"/>
-                </p:fieldset>           
+
+                </p:fieldset>    
+                <br></br>
+                <!--update=DatosPersonales, DatosCuenta, mensaje me permite actulizar estos id -->
+                <p:commandButton icon="ui-icon-check" value="Registrarte" update="DatosPersonales, DatosCuenta, mensaje" actionListener="#{usuarioController.registrar()}"/>
+                <p:commandButton value="Cancelar" icon="ui-icon-close"  onclick="PF('dialogoRegistro').hide();"/>
             </h:form>   
         </p:dialog>
-
-<!--        <h:form>
-            <p:dock position="bottom">
-                <p:menuitem value="Inicio" icon="/resources/images/home.png" url="#"/>
-                <p:menuitem value="Musica" icon="/resources/images/music.png" url="#"/>
-                <p:menuitem value="Subcribete" icon="/resources/images/suscribete.png" url="#"/>
-            </p:dock>
-        </h:form>-->
 
 
         <h:outputScript library="js" name="spanishLocale.js" /> <!--script que me permitira usar un calendario español--> 
