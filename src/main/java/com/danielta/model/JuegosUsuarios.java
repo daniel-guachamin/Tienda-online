@@ -1,4 +1,3 @@
-
 package com.danielta.model;
 
 import java.io.Serializable;
@@ -17,25 +16,37 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "juegosUsuarios")
 public class JuegosUsuarios implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private int codigo;
-    
+
     @Column(name = "codigo_persona")
     private int persona;
-    
+
     @Column(name = "nombre")
     private String nombre;
-    
+
     @Column(name = "estado")
     private String estado;
-    
+
     @Column(name = "imagen")
     private String imagen;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha", insertable = false)
     private Date fecha;
+
+    @Column(name = "precio")
+    private int precio;
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
     public Date getFecha() {
         return fecha;
@@ -110,13 +121,9 @@ public class JuegosUsuarios implements Serializable {
         return true;
     }
 
-    
-
     @Override
     public String toString() {
         return "JuegosUsuarios{" + "codigo=" + codigo + '}';
     }
-    
-    
-    
+
 }
