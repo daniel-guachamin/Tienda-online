@@ -72,7 +72,7 @@ public class JuegosController {
         //esta lista va almacenar el objeto persona
         this.juego.setNombre("Detroit.png");
         this.juego.setEstado("Alquilar por:");
-        this.juego.setPrecio(10);
+        this.juego.setPrecio(5);
         JuegosController.listaJuegos.add(juego);
     }
 
