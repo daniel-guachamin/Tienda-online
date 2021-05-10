@@ -22,13 +22,12 @@
                 <h:form>
 
                     <p:menubar model="#{menuController.model}" > <!--menu controlado desde la base de datos segun el operario o administrador-->
-                        <f:facet name="options" > <!--facet me permite establecer esta seccion dentro de menubar(otro componente)-->       
-                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-cart" value="Carrito" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                        <f:facet name="options" > <!--facet me permite establecer esta seccion dentro de menubar(otro componente)-->     
+                            <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
                             <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> <!--cierro sesion y rediridijo a index-->
                         </f:facet> 
                     </p:menubar> 
                 </h:form>                                        
-
             </ui:insert>
         </div>
 
@@ -67,7 +66,20 @@
                 <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
             </ui:insert>
         </div>
-
+        
+        <!---->
+        <p:dialog id="diaolog" widgetVar="dialogoCarrito" header="Carrito de compra" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
+            <h:form>
+                <p:messages id="mensajeCredenciales" autoUpdate="false" severity="warn" showDetail="true" closable="true"/><!--closable=me permite quitar manualmente el mensaje de error-->
+                <h:panelGrid columns="3" id="Carro">
+                    
+                </h:panelGrid>
+                <br></br>
+                <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update=""  action="#{indexController.iniciarSesion()}"/>
+                <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
+            </h:form>   
+        </p:dialog>
+        
     </h:body>
 
 </html>
