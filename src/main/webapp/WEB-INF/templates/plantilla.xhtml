@@ -82,8 +82,9 @@
                     <p:column headerText="Precio" >
                         <div class="text-center">
                             <b><h:outputText value="#{juego.estado} #{juego.precio}€" /></b>
+                            <!--<h:commandLink value="Eliminar" actionListener="#{juegosController.eliminarJuego(juego)}"/>-->
+                            <p:commandButton value="Eliminar" update="carrito" actionListener="#{juegosController.eliminarJuego(juego)}"/>
                         </div>
-
                     </p:column>
                 </p:dataTable>
                 <br></br>

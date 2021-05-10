@@ -57,7 +57,10 @@ public class JuegosController {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
     }
-
+    public void eliminarJuego(Juego borrar){
+        JuegosController.listaJuegos.remove(borrar);
+    }
+    
     public void agregarCompraJuego1() {
         //esta lista va almacenar el objeto persona
         this.juego.setNombre("Detroit.png");
