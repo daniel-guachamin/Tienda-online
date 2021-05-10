@@ -63,15 +63,17 @@ public class JuegosController {
     
     public void agregarCompraJuego1() {
         //esta lista va almacenar el objeto persona
-        this.juego.setNombre("Detroit.png");
-        this.juego.setEstado("Comprar por:");
+        this.juego.setImagen("Detroit.png");
+        this.juego.setNombre("Detroit Become Human");
+        this.juego.setEstado("Comprar");
         this.juego.setPrecio(40);
         JuegosController.listaJuegos.add(juego);
     }
     public void agregarAlquilarJuego1() {
         //esta lista va almacenar el objeto persona
-        this.juego.setNombre("Detroit.png");
-        this.juego.setEstado("Alquilar por:");
+        this.juego.setImagen("Detroit.png");
+        this.juego.setNombre("Detroit Become Human");
+        this.juego.setEstado("Alquilar");
         this.juego.setPrecio(5);
         JuegosController.listaJuegos.add(juego);
     }

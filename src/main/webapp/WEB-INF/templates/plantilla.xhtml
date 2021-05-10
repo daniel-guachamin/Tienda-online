@@ -68,23 +68,31 @@
         </div>
 
         <!--Dialogo que me mostrara las compras y alquileres de mis juegos para luego comprarlos-->
-        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Carrito de compra" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
+        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
             <h:form>
                 <p:messages id="mensajeCarrito" autoUpdate="false" severity="warn" showDetail="true" closable="true"/><!--closable=me permite quitar manualmente el mensaje de error-->
                 <p:dataTable value="#{juegosController.listaJuegos}" var="juego" rendered="#{juegosController.listaJuegos.size() > 0 eq true}">
-                    <p:column headerText="Juego" >
-                        <div class="text-center">
-                            <h:graphicImage library="img" name="#{juego.nombre}"  />
-                            <!--<b><h:outputText value="#{juego.nombre}" /></b>-->
+
+                    <p:column >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center  ">
+                                    <h:graphicImage library="img" name="#{juego.imagen}"  />
+                                </div>
+                                <div class="col text-center ">
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="#{juego.nombre}" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="#{juego.estado} #{juego.precio}€" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <p:commandButton value="Eliminar" icon="ui-icon-trash" update="carrito" actionListener="#{juegosController.eliminarJuego(juego)}"/>
+                                </div>
+                            </div>
                         </div>
 
-                    </p:column>
-                    <p:column headerText="Precio" >
-                        <div class="text-center">
-                            <b><h:outputText value="#{juego.estado} #{juego.precio}€" /></b>
-                            <!--<h:commandLink value="Eliminar" actionListener="#{juegosController.eliminarJuego(juego)}"/>-->
-                            <p:commandButton value="Eliminar" update="carrito" actionListener="#{juegosController.eliminarJuego(juego)}"/>
-                        </div>
                     </p:column>
                 </p:dataTable>
                 <br></br>

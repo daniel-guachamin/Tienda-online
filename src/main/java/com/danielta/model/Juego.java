@@ -5,8 +5,17 @@ package com.danielta.model;
 public class Juego {
     private String Nombre;
     private String estado;
+    private String imagen;
     private int precio;
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
     public String getEstado() {
         return estado;
     }
