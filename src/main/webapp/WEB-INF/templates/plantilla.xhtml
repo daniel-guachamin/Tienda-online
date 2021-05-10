@@ -66,20 +66,32 @@
                 <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
             </ui:insert>
         </div>
-        
-        <!---->
-        <p:dialog id="diaolog" widgetVar="dialogoCarrito" header="Carrito de compra" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
+
+        <!--Dialogo que me mostrara las compras y alquileres de mis juegos para luego comprarlos-->
+        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Carrito de compra" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
             <h:form>
                 <p:messages id="mensajeCarrito" autoUpdate="false" severity="warn" showDetail="true" closable="true"/><!--closable=me permite quitar manualmente el mensaje de error-->
-                <h:panelGrid columns="3" id="Carro">
-                    
-                </h:panelGrid>
+                <p:dataTable value="#{juegosController.listaJuegos}" var="juego" rendered="#{juegosController.listaJuegos.size() > 0 eq true}">
+                    <p:column headerText="Juego" >
+                        <div class="text-center">
+                            <h:graphicImage library="img" name="#{juego.nombre}"  />
+                            <!--<b><h:outputText value="#{juego.nombre}" /></b>-->
+                        </div>
+
+                    </p:column>
+                    <p:column headerText="Precio" >
+                        <div class="text-center">
+                            <b><h:outputText value="#{juego.estado} #{juego.precio}€" /></b>
+                        </div>
+
+                    </p:column>
+                </p:dataTable>
                 <br></br>
                 <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCarrito"  action="#{indexController.iniciarSesion()}"/>
                 <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
             </h:form>   
         </p:dialog>
-        
+
     </h:body>
 
 </html>
