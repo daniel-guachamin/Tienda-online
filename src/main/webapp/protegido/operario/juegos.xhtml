@@ -21,8 +21,11 @@
                         
                         <div class="col text-center ">
                             <h:graphicImage library="img" name="Detroit.png" alt="Detroit Become Humans"/>
-                            <p:commandButton value="Añadir compra a carrito" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>
-                            <p:commandButton value="Añadir alquiler a carrito" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego1()}"/>
+                            <p:outputLabel for="compra1" value="Compra 40€ " /> 
+                            <p:commandButton id="compra1" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>
+                            <br></br>
+                            <p:outputLabel for="alquiler1" value="Alquilar 5€ " /> 
+                            <p:commandButton id="alquiler1" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego1()}"/>
                         </div>
                         
                         <div class="col text-center ">
