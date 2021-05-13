@@ -71,7 +71,7 @@
         <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
             <h:form>
                 <p:messages id="mensajeCarrito" autoUpdate="false" severity="warn" showDetail="true" closable="true"/><!--closable=me permite quitar manualmente el mensaje de error-->
-                <p:dataTable value="#{juegosController.listaJuegos}" var="juego" rendered="#{juegosController.listaJuegos.size() > 0 eq true}">
+                <p:dataTable id="borrar" value="#{juegosController.listaJuegos}" var="juego" rendered="#{juegosController.listaJuegos.size() >= 0 eq true}">
 
                     <p:column >
                         <div class="container">
@@ -88,7 +88,7 @@
                                     <b><h:outputText value="#{juego.estado} #{juego.precio}€" /></b>
                                     <br></br>
                                     <br></br>
-                                    <p:commandButton value="Eliminar" icon="ui-icon-trash" update="carrito" actionListener="#{juegosController.eliminarJuego(juego)}"/>
+                                    <p:commandButton value="Eliminar" icon="ui-icon-trash" update="borrar" actionListener="#{juegosController.eliminarJuego(juego)}"/>
                                 </div>
                             </div>
                         </div>

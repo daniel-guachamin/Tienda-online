@@ -15,24 +15,18 @@
                 <h:form>
                 <!--mostrara mensajes de error o exito -->
                 <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
-                <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
+                <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" closable="true"/>
                 <div class="container">
                     <div class="row">
                         
                         <div class="col text-center ">
                             <h:graphicImage library="img" name="Detroit.png" alt="Detroit Become Humans"/>
-                            <p:outputLabel for="compra1" value="Compra 40€ " /> 
+                            <p:outputLabel for="compra1" value="Comprar 40€ " /> 
                             <p:commandButton id="compra1" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>
-                            <br></br>
-                            <p:outputLabel for="alquiler1" value="Alquilar 5€ " /> 
+                            <br></br><br></br>
+                            <p:outputLabel for="alquiler1" value="Alquilar 5€ " />                             
                             <p:commandButton id="alquiler1" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego1()}"/>
-                        </div>
-                        
-                        <div class="col text-center ">
-                            <h:graphicImage library="img" name="Detroit.png" alt="Detroit Become Humans"/>
-                            <p:commandButton value="Comprar 40€" update="mensaje" actionListener="#{juegosController.comprarJuego1}"/>
-                            <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego1}"/>
-                        </div>
+                        </div>                    
                         
                         <div class="col text-center  ">
                             <h:graphicImage library="img" name="Hitman3.png" alt="Hitman3"/>

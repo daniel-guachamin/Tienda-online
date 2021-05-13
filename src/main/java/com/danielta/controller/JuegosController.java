@@ -57,25 +57,43 @@ public class JuegosController {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
     }
-    public void eliminarJuego(Juego borrar){
-        JuegosController.listaJuegos.remove(borrar);
+
+    public void eliminarJuego(Juego borrar) {
+        
+        try {
+            JuegosController.listaJuegos.remove(borrar);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego eliminado de tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al eliminar!"));
+        }
     }
-    
+
     public void agregarCompraJuego1() {
-        //esta lista va almacenar el objeto persona
-        this.juego.setImagen("Detroit.png");
-        this.juego.setNombre("Detroit Become Human");
-        this.juego.setEstado("Comprar");
-        this.juego.setPrecio(40);
-        JuegosController.listaJuegos.add(juego);
+        try {
+            this.juego.setImagen("Detroit.png");
+            this.juego.setNombre("Detroit Become Human");
+            this.juego.setEstado("Comprar");
+            this.juego.setPrecio(40);
+            JuegosController.listaJuegos.add(juego);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
     }
+
     public void agregarAlquilarJuego1() {
-        //esta lista va almacenar el objeto persona
-        this.juego.setImagen("Detroit.png");
-        this.juego.setNombre("Detroit Become Human");
-        this.juego.setEstado("Alquilar");
-        this.juego.setPrecio(5);
-        JuegosController.listaJuegos.add(juego);
+        try {
+            this.juego.setImagen("Detroit.png");
+            this.juego.setNombre("Detroit Become Human");
+            this.juego.setEstado("Alquilar");
+            this.juego.setPrecio(5);
+            JuegosController.listaJuegos.add(juego);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
     }
 
     public void comprarJuego1() {
