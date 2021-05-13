@@ -70,7 +70,7 @@
         <!--Dialogo que me mostrara las compras y alquileres de mis juegos para luego comprarlos-->
         <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode" width="800px" height="400px">
             <h:form>
-                <p:messages id="mensajeCarrito" autoUpdate="false" severity="warn" showDetail="true" closable="true"/><!--closable=me permite quitar manualmente el mensaje de error-->
+                <p:growl id="mensajeCarrito" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
                 <p:dataTable id="borrar" value="#{juegosController.listaJuegos}" var="juego" rendered="#{juegosController.listaJuegos.size() >= 0 eq true}">
 
                     <p:column >
@@ -96,7 +96,7 @@
                     </p:column>
                 </p:dataTable>
                 <br></br>
-                <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCarrito"  action="#{indexController.iniciarSesion()}"/>
+                <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCarrito"  action="#{juegosController.finalizarCompra()}"/>
                 <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
             </h:form>   
         </p:dialog>
