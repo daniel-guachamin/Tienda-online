@@ -49,6 +49,14 @@ public class JuegosController {
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
     }
 
+    public int totalPrecio() {
+        int total=0;
+        for (JuegosUsuarios juego : misJuegos) {
+            total=total+juego.getPrecio();
+        }
+        return total;
+    }
+
     public void eliminarJuego(JuegosUsuarios borrar) {
 
         try {
@@ -60,7 +68,7 @@ public class JuegosController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al eliminar!"));
         }
     }
-    
+
     public void finalizarCompra() {
         try {
             if (misJuegos.size() > 0) { //solo entrara si el array no esta vacio
