@@ -28,9 +28,9 @@ public class JuegosController {
     private static List<Juego> listaJuegos = new ArrayList();
     //Array que guardara los juegos que quiera el usuario en la base de datos
     private static List<JuegosUsuarios> misJuegos = new ArrayList();
-    
+
     private Juego juego = new Juego();
-    
+
     public List<JuegosUsuarios> getMisJuegos() {
         return misJuegos;
     }
@@ -38,11 +38,9 @@ public class JuegosController {
     public void setMisJuegos(List<JuegosUsuarios> misJuegos) {
         this.misJuegos = misJuegos;
     }
-    
-    
 
     public List<Juego> getListaJuegos() {
-        return listaJuegos; 
+        return listaJuegos;
     }
 
     public void setListaJuegos(List<Juego> listaJuegos) {
@@ -88,14 +86,14 @@ public class JuegosController {
             this.juego.setImagen("Detroit.png");
             this.juego.setPrecio(40);
             JuegosController.listaJuegos.add(juego);
-            
+
             this.juegos.setPersona(codigo_persona);
             this.juegos.setNombre(juego.getNombre());
             this.juegos.setEstado(juego.getEstado());
             this.juegos.setImagen(juego.getImagen());
             this.juegos.setPrecio(juego.getPrecio());
             JuegosController.misJuegos.add(juegos);
-            
+
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
@@ -110,14 +108,14 @@ public class JuegosController {
             this.juego.setImagen("Detroit.png");
             this.juego.setPrecio(40);
             JuegosController.listaJuegos.add(juego);
-            
+
             this.juegos.setPersona(codigo_persona);
             this.juegos.setNombre(juego.getNombre());
             this.juegos.setEstado(juego.getEstado());
             this.juegos.setImagen(juego.getImagen());
             this.juegos.setPrecio(juego.getPrecio());
             JuegosController.misJuegos.add(juegos);
-            
+
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
@@ -127,13 +125,18 @@ public class JuegosController {
 
     public void finalizarCompra() {
         try {
-            for (JuegosUsuarios juegosCarrito : misJuegos) {
-                juegosEJB.create(juegosCarrito);
+            if (misJuegos.size() > 0) {
+                for (JuegosUsuarios juegosCarrito : misJuegos) {
+                    juegosEJB.create(juegosCarrito);
+                }
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Compra realizada correctamente")); //para mostrar mensaje de registro exitoso
+            }else{
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Nos añadido ningun juego a tu cesta!"));
             }
+
             
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Compra realizada correctamente")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error realizar la compra!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al realizar la compra!"));
         }
 
     }
