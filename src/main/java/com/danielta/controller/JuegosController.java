@@ -1,7 +1,6 @@
 package com.danielta.controller;
 
 import com.danielta.ejb.JuegosUsuariosFacadeLocal;
-import com.danielta.model.Juego;
 import com.danielta.model.JuegosUsuarios;
 import com.danielta.model.Usuario;
 import java.io.Serializable;
@@ -28,22 +27,12 @@ public class JuegosController {
     //Array que guardara los juegos que quiera el usuario en la base de datos
     private static List<JuegosUsuarios> misJuegos = new ArrayList();
 
-    private Juego juego = new Juego();
-
     public List<JuegosUsuarios> getMisJuegos() {
         return misJuegos;
     }
 
     public void setMisJuegos(List<JuegosUsuarios> misJuegos) {
         this.misJuegos = misJuegos;
-    }
-
-    public Juego getJuego() {
-        return juego;
-    }
-
-    public void setJuego(Juego juego) {
-        this.juego = juego;
     }
 
     public JuegosUsuarios getJuegos() {
@@ -70,6 +59,25 @@ public class JuegosController {
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al eliminar!"));
         }
+    }
+    
+    public void finalizarCompra() {
+        try {
+            if (misJuegos.size() > 0) { //solo entrara si el array no esta vacio
+                for (JuegosUsuarios juegosCarrito : misJuegos) {
+                    juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
+                }
+
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Compra realizada correctamente")); //para mostrar mensaje de registro exitoso
+                JuegosController.misJuegos.clear();//reinicio el array una vez que el usuario haya pulsado el boton finalizar compra
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "No has añadido ningun juego a tu cesta!"));
+            }
+
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al realizar la compra!"));
+        }
+
     }
 
     public void agregarCompraJuego1() {
@@ -100,25 +108,6 @@ public class JuegosController {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void finalizarCompra() {
-        try {
-            if (misJuegos.size() > 0) { //solo entrara si el array no esta vacio
-                for (JuegosUsuarios juegosCarrito : misJuegos) {
-                    juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
-                }
-
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Compra realizada correctamente")); //para mostrar mensaje de registro exitoso
-                JuegosController.misJuegos.clear();//reinicio el array una vez que el usuario haya pulsado el boton finalizar compra
-            } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "No has añadido ningun juego a tu cesta!"));
-            }
-
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al realizar la compra!"));
         }
 
     }
