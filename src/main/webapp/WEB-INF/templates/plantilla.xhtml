@@ -71,7 +71,7 @@
         <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode" width="800px" height="400px">
             <h:form id="Juegos_comprados">
                 <p:growl id="mensajeCarrito" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
-                <p:dataTable value="#{juegosController.misJuegos}" var="juego" rendered="#{juegosController.misJuegos.size() >= 0 eq true}">
+                <p:dataTable value="#{juegosController.juegosList}" var="juego" rendered="#{juegosController.juegosList.size() >= 0 eq true}">
 
                     <p:column >
                         <div class="container">
