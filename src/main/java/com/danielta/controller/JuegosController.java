@@ -97,7 +97,11 @@ public class JuegosController {
                     juegos=new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
                     this.juegos.setPersona(codigo_persona);
                     this.juegos.setNombre(listaJuegos.getNombre());
-                    this.juegos.setEstado(listaJuegos.getEstado());
+                    if(listaJuegos.getEstado().equals("Alquilar")){
+                        this.juegos.setEstado("Alquilado");
+                    }else{
+                        this.juegos.setEstado("Comprado");
+                    } 
                     this.juegos.setImagen(listaJuegos.getImagen());
                     this.juegos.setPrecio(listaJuegos.getPrecio());
                     JuegosController.misJuegos.add(juegos);
