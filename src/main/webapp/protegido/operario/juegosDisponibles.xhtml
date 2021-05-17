@@ -20,7 +20,7 @@
                     <p:dataTable value="#{juegosUsuariosController.misJuegos}" var="juegos" paginator="true" rows="3"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
-                        <p:column headerText="Buscar por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">
+                        <p:column headerText="Buscar videojuego por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">
                             <div class="text-center">
                                 <b><h:outputText value="#{juegos.nombre}" /></b>
                                 <br></br>
@@ -29,7 +29,7 @@
 
                         </p:column>
 
-                        <p:column headerText="Buscar por tipo" filterBy="#{juegos.estado}" filterMatchMode="contains">
+                        <p:column headerText="Buscar videojuego por estado" filterBy="#{juegos.estado}" filterMatchMode="contains">
                             <div class="text-center">
                                 <!--<p:commandButton value="Descargar" onclick="PF('dialogoIdioma').show();" icon="ui-icon-check"/>-->
                                 <h1><h:outputText value="#{juegos.estado}" /></h1>
