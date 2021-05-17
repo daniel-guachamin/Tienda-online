@@ -11,7 +11,7 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h1 class="text-center">Juegos de los que dispones ahora mismo</h1>
+                <h1 class="text-center">Recuerda que solo podrás jugar los juegos alquilados durante un día</h1>
 
                 <h:form>
                     <!--<p:messages autoUpdate="true" showSummary="false" showDetail="true"/>-->
@@ -19,7 +19,7 @@
                     <p:dataTable value="#{juegosUsuariosController.misJuegos}" var="juegos" paginator="true" rows="3"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
-                        <p:column headerText="Juego" >
+                        <p:column >
                             <div class="text-center">
                                 <b><h:outputText value="#{juegos.nombre}" /></b>
                                 <br></br>
@@ -27,15 +27,11 @@
                             </div>
 
                         </p:column>
-                        <p:column headerText="Estado" >
-                            <div class="text-center">
-                                <h1><h:outputText value="#{juegos.estado}" /></h1>
-                            </div>
-                        </p:column>
 
-                        <p:column headerText="Acciones" >
+                        <p:column>
                             <div class="text-center">
                                 <!--<p:commandButton value="Descargar" onclick="PF('dialogoIdioma').show();" icon="ui-icon-check"/>-->
+                                <h1><h:outputText value="#{juegos.estado}" /></h1>
                                 <p:commandButton value="Jugar juego" onclick="PF('dialogoIdioma').show();" icon="ui-icon-check"/>
                             </div>
                         </p:column>

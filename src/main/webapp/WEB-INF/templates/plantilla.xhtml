@@ -56,19 +56,19 @@
                     <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
                     <!-- cierre de /.container -->
                 </footer>
-                <h:form>
+<!--                <h:form>
                     <p:dock position="bottom">
                         <p:menuitem value="Inicio" icon="/resources/img/home.png" url="#"/>
                         <p:menuitem value="Musica" icon="/resources/img/music.png" url="#"/>
                         <p:menuitem value="Subcribete" icon="/resources/img/suscribete.png" url="#"/>
                     </p:dock>
-                </h:form>
+                </h:form>-->
                 <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
             </ui:insert>
         </div>
 
         <!--Dialogo que me mostrara las compras y alquileres de mis juegos para luego comprarlos-->
-        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode" width="800px" height="800px">
+        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode" width="800px" height="650px">
             <h:form id="Juegos_comprados">
                 <p:growl id="mensajeCarrito" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
                 <p:dataTable value="#{juegosController.juegosList}" var="juego" rendered="#{juegosController.juegosList.size() >= 0 eq true}">

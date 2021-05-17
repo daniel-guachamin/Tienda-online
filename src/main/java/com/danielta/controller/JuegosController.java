@@ -235,5 +235,213 @@ public class JuegosController implements Serializable  {
         }
 
     }
+    
+    public void agregarCompraJuego4() {
+        try {
+            this.juego.setNombre("Fallout 76");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Fallout.png");
+            this.juego.setPrecio(40);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego4() {
+        try {
+            this.juego.setNombre("Fallout 76");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Fallout.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    
+    public void agregarCompraJuego5() {
+        try {
+            this.juego.setNombre("Dark Alliange");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("DarkAlliange.png");
+            this.juego.setPrecio(60);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego5() {
+        try {
+            this.juego.setNombre("Dark Alliange");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("DarkAlliange.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    public void agregarCompraJuego6() {
+        try {
+            this.juego.setNombre("Beyond two souls");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Beyond.png");
+            this.juego.setPrecio(20);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego6() {
+        try {
+            this.juego.setNombre("Beyond two souls");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Beyond.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    
+    public void agregarCompraJuego7() {
+        try {
+            this.juego.setNombre("Chronos Before The Ashes");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Chronos.png");
+            this.juego.setPrecio(15);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego7() {
+        try {
+            this.juego.setNombre("Chronos Before The Ashes");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Chronos.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    
+    public void agregarCompraJuego8() {
+        try {
+            this.juego.setNombre("Hunt");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Hunt.png");
+            this.juego.setPrecio(12);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego8() {
+        try {
+            this.juego.setNombre("Hunt");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Hunt.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    public void agregarCompraJuego9() {
+        try {
+            this.juego.setNombre("Mafia Trilogy");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Mafia.png");
+            this.juego.setPrecio(10);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego9() {
+        try {
+            this.juego.setNombre("Mafia Trilogy");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Mafia.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    
+    public void agregarCompraJuego10() {
+        try {
+            this.juego.setNombre("Fifa 2020");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Fifa.png");
+            this.juego.setPrecio(16);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarAlquilarJuego10() {
+        try {
+            this.juego.setNombre("Fifa 2020");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Fifa.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
 
 }
