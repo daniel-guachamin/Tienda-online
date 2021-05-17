@@ -31,29 +31,6 @@ public class JuegosUsuarios implements Serializable {
     @Column(name = "imagen")
     private String imagen;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "fecha", insertable = false)
-    private Date fecha;
-
-    @Column(name = "precio")
-    private int precio;
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
     public int getCodigo() {
         return codigo;
     }

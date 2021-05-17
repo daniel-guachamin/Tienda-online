@@ -119,10 +119,11 @@ public class JuegosController {
                         this.juegos.setEstado("Comprado");
                     } 
                     this.juegos.setImagen(listaJuegos.getImagen());
-                    this.juegos.setPrecio(listaJuegos.getPrecio());
                     JuegosController.misJuegos.add(juegos);
+                    //guardo todos los nombres d elos juegos seleccionados en una variable
                     todosJuegos=todosJuegos + listaJuegos.getNombre();
                 }
+                    //Introducciendo datos a mi tabla detallesCompra
                     this.detalles.setPersona(codigo_persona);
                     this.detalles.setJuegos(todosJuegos);
                     this.detalles.setPrecioTotal(totalPrecio());
