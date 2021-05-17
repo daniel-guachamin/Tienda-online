@@ -1,6 +1,8 @@
 package com.danielta.controller;
 
+import com.danielta.ejb.DetallesJuegosFacadeLocal;
 import com.danielta.ejb.JuegosUsuariosFacadeLocal;
+import com.danielta.model.DetallesJuegos;
 import com.danielta.model.Juegos;
 import com.danielta.model.JuegosUsuarios;
 import com.danielta.model.Usuario;
@@ -21,8 +23,12 @@ public class JuegosController {
 
     @EJB
     private JuegosUsuariosFacadeLocal juegosEJB;
+    @EJB
+    private DetallesJuegosFacadeLocal detallesEJB;
     @Inject
     private JuegosUsuarios juegos;
+    @Inject
+    private DetallesJuegos detalles;
     
     private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
     //Array que guardara los juegos que quiera el usuario en la base de datos
@@ -42,6 +48,14 @@ public class JuegosController {
 
     public List<JuegosUsuarios> getMisJuegos() {
         return misJuegos;
+    }
+
+    public DetallesJuegos getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(DetallesJuegos detalles) {
+        this.detalles = detalles;
     }
 
     public Juegos getJuego() {
@@ -91,7 +105,9 @@ public class JuegosController {
     }
 
     public void finalizarCompra() {
+        
         try {
+            String todosJuegos="";
             if (juegosList.size() > 0) { //solo entrara si el array listaJuegos no esta vacio
                 for (Juegos listaJuegos : juegosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
                     juegos=new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
@@ -105,8 +121,12 @@ public class JuegosController {
                     this.juegos.setImagen(listaJuegos.getImagen());
                     this.juegos.setPrecio(listaJuegos.getPrecio());
                     JuegosController.misJuegos.add(juegos);
+                    todosJuegos=todosJuegos + listaJuegos.getNombre();
                 }
-                
+                    this.detalles.setPersona(codigo_persona);
+                    this.detalles.setJuegos(todosJuegos);
+                    this.detalles.setPrecioTotal(totalPrecio());
+                    detallesEJB.create(detalles);
                 for (JuegosUsuarios juegosCarrito : misJuegos) {
                     juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
                 }

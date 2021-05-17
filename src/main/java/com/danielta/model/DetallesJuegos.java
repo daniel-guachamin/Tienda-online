@@ -1,5 +1,5 @@
-package com.danielta.model;
 
+package com.danielta.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -12,9 +12,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "juegosUsuarios")
-public class JuegosUsuarios implements Serializable {
-
+@Table(name = "detallesCompra")
+public class DetallesJuegos implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private int codigo;
@@ -22,37 +21,15 @@ public class JuegosUsuarios implements Serializable {
     @Column(name = "codigo_persona")
     private int persona;
 
-    @Column(name = "nombre")
-    private String nombre;
-
-    @Column(name = "estado")
-    private String estado;
-
-    @Column(name = "imagen")
-    private String imagen;
+    @Column(name = "juegos")
+    private String juegos;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha", insertable = false)
     private Date fecha;
 
-    @Column(name = "precio")
-    private int precio;
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+    @Column(name = "precioTotal")
+    private int precioTotal;
 
     public int getCodigo() {
         return codigo;
@@ -70,34 +47,34 @@ public class JuegosUsuarios implements Serializable {
         this.persona = persona;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getJuegos() {
+        return juegos;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setJuegos(String juegos) {
+        this.juegos = juegos;
     }
 
-    public String getEstado() {
-        return estado;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
-    public String getImagen() {
-        return imagen;
+    public int getPrecioTotal() {
+        return precioTotal;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setPrecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.codigo;
+        hash = 71 * hash + this.codigo;
         return hash;
     }
 
@@ -112,7 +89,7 @@ public class JuegosUsuarios implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final JuegosUsuarios other = (JuegosUsuarios) obj;
+        final DetallesJuegos other = (DetallesJuegos) obj;
         if (this.codigo != other.codigo) {
             return false;
         }
@@ -121,7 +98,6 @@ public class JuegosUsuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "JuegosUsuarios{" + "codigo=" + codigo + '}';
+        return "DetallesJuegos{" + "codigo=" + codigo + '}';
     }
-
 }
