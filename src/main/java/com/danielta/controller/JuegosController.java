@@ -175,56 +175,65 @@ public class JuegosController implements Serializable  {
         }
 
     }
-
-    public void comprarJuego2() {
+    
+     public void agregarCompraJuego2() {
         try {
-            this.juegos.setPersona(codigo_persona);
-            this.juegos.setNombre("Hitman 3");
-            this.juegos.setEstado("Comprado");
-            this.juegos.setImagen("Hitman3.png");
-            juegosEJB.create(juegos);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego comprado correctamente")); //para mostrar mensaje de registro exitoso
+            this.juego.setNombre("Hitman 3");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Hitman3.png");
+            this.juego.setPrecio(50);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al comprar el juego!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
         }
+
     }
 
-    public void alquilarJuego2() {
+    public void agregarAlquilarJuego2() {
         try {
-            this.juegos.setPersona(codigo_persona);
-            this.juegos.setNombre("Hitman 3");
-            this.juegos.setEstado("Alquilado disponible 3 días");
-            this.juegos.setImagen("Hitman3.png");
-            juegosEJB.create(juegos);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego alquilado correctamente")); //para mostrar mensaje de registro exitoso
+            this.juego.setNombre("Hitman 3");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Hitman3.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al alquilar el juego!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
         }
+
+    }
+    
+    public void agregarCompraJuego3() {
+        try {
+            this.juego.setNombre("Los Sims 4");
+            this.juego.setEstado("Comprar");
+            this.juego.setImagen("Sims4.png");
+            this.juego.setPrecio(35);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
     }
 
-    public void comprarJuego3() {
+    public void agregarAlquilarJuego3() {
         try {
-            this.juegos.setPersona(codigo_persona);
-            this.juegos.setNombre("Los Sims 4");
-            this.juegos.setEstado("Comprado");
-            this.juegos.setImagen("Sims4.png");
-            juegosEJB.create(juegos);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego comprado correctamente")); //para mostrar mensaje de registro exitoso
+            this.juego.setNombre("Los Sims 4");
+            this.juego.setEstado("Alquilar");
+            this.juego.setImagen("Sims4.png");
+            this.juego.setPrecio(5);
+            JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al comprar el juego!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
         }
+
     }
 
-    public void alquilarJuego3() {
-        try {
-            this.juegos.setPersona(codigo_persona);
-            this.juegos.setNombre("Los Sims 4");
-            this.juegos.setEstado("Alquilado disponible 3 días");
-            this.juegos.setImagen("Sims4.png");
-            juegosEJB.create(juegos);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego alquilado correctamente")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al alquilar el juego!"));
-        }
-    }
 }

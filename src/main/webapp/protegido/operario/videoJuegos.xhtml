@@ -11,36 +11,48 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h1 class="text-center">Juegos</h1>
+
                 <h:form>
-                <!--mostrara mensajes de error o exito -->
-                <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
-                <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
-                <div class="container">
-                    <div class="row">
-                        
-                        <div class="col text-center ">
-                            <h:graphicImage library="img" name="Detroit.png" alt="Detroit Become Humans"/>
-                            <p:outputLabel for="compra1" value="Comprar 40€ " /> 
-                            <p:commandButton id="compra1" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>
-                            <br></br><br></br>
-                            <p:outputLabel for="alquiler1" value="Alquilar 5€ " />                             
-                            <p:commandButton id="alquiler1" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego1()}"/>
-                        </div>                    
-                        
-                        <div class="col text-center  ">
-                            <h:graphicImage library="img" name="Hitman3.png" alt="Hitman3"/>
-                            <p:commandButton value="Comprar 35€" update="mensaje" actionListener="#{juegosController.comprarJuego2}"/>
-                            <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego2()}"/>
-                        </div>
-                        
-                        <div class="col text-center ">
-                            <h:graphicImage library="img" name="Sims4.png" alt="Los Sims 4"/>
-                            <p:commandButton value="Comprar 50€" update="mensaje" actionListener="#{juegosController.comprarJuego3}"/>
-                            <p:commandButton value="Alquilar 10€" update="mensaje" actionListener="#{juegosController.alquilarJuego3()}"/>
+                    <!--mostrara mensajes de error o exito -->
+                    <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                    <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col text-center ">
+                                <h:graphicImage library="img" name="Detroit.png" alt="Detroit Become Humans"/>
+                                <br></br>
+                                    <p:commandButton id="compra1" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>            
+                                    <p:commandButton id="alquiler1" value="Alquilar 5€ " icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego1()}"/>          
+                            </div>                    
+
+                            <div class="col text-center  ">
+                                <h:graphicImage library="img" name="Hitman3.png" alt="Hitman3"/>
+                                <br></br>
+                                    <p:commandButton id="compra2" value="Comprar 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego2()}"/>                     
+                                    <p:commandButton id="alquiler2" value="Alquilar 5€ " icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego2()}"/>
+                            </div>
+
+                            <div class="col text-center ">
+                                <h:graphicImage library="img" name="Sims4.png" alt="Los Sims 4"/>
+                                <br></br>
+                                    <p:commandButton id="compra3" value="Comprar 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego3()}"/>                        
+                                    <p:commandButton id="alquiler3" value="Alquilar 5€ " icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego3()}"/>
+                            </div>
+                            <div class="col text-center ">
+                                <h:graphicImage library="img" name="Sims4.png" alt="Los Sims 4"/>
+                                <br></br>
+                                    <p:commandButton id="compra4" value="Comprar 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego3()}"/>                       
+                                    <p:commandButton id="alquiler4" value="Alquilar 5€ " icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego3()}"/>
+                            </div>
+                            <div class="col text-center ">
+                                <h:graphicImage library="img" name="Sims4.png" alt="Los Sims 4"/>
+                                <br></br>
+                                    <p:commandButton id="compra5" value="Comprar 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego3()}"/>                        
+                                    <p:commandButton id="alquiler5" value="Alquilar 5€ " icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarAlquilarJuego3()}"/>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </h:form>  
                 <br></br>
 
