@@ -34,7 +34,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
             query.setParameter(2, us.getClave());
 
             List<Usuario> lista = query.getResultList();
-            if (!lista.isEmpty()) {
+            if (!lista.isEmpty()) { //si la lista es diferente de vacia,es decir hay un elemento, usuario es igual a el primer elemento
                 usuario = lista.get(0);
             }
         } catch (Exception e) {

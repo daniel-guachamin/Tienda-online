@@ -13,11 +13,10 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
-import org.primefaces.model.menu.DefaultSubMenu;
 import org.primefaces.model.menu.MenuModel;
 
 @Named
-@SessionScoped //para mantener la sesion(verificar no estoy seguro)
+@SessionScoped //los datos se mantendrán vivos hasta que el cliente cierre la sesión.
 public class MenuController implements Serializable {
 
     @EJB
