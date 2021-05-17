@@ -10,25 +10,39 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
         <title>Facelets Template</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
         <h:outputStylesheet library="css" name="index.css" /><!--llamamos a mi archivo css-->
         <!--verificamos que la variable almacenada en mi session este activa si no lo esta no mostrara esta pagina nunca-->
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />        
     </h:head>
 
     <h:body>
-
+        <!-- Menu de nagegación -->
         <div id="top">
             <ui:insert name="top">
-                <h:form>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+                    <div class="container">
 
-                    <p:menubar model="#{menuController.model}" > <!--menu controlado desde la base de datos segun el operario o administrador-->
-                        <f:facet name="options" > <!--facet me permite establecer esta seccion dentro de menubar(otro componente)-->     
-                            <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
-                            <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> <!--cierro sesion y rediridijo a index-->
-                        </f:facet> 
-                    </p:menubar> 
-                </h:form>                                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <p:menubar style="background-color: blue"  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
+                                </li>
+                                <li class="nav-item">
+                                    <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                                </li>     
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                
             </ui:insert>
+            <br></br><br></br>
         </div>
 
         <div id="content" class="center_content">
@@ -56,13 +70,13 @@
                     <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
                     <!-- cierre de /.container -->
                 </footer>
-<!--                <h:form>
-                    <p:dock position="bottom">
-                        <p:menuitem value="Inicio" icon="/resources/img/home.png" url="#"/>
-                        <p:menuitem value="Musica" icon="/resources/img/music.png" url="#"/>
-                        <p:menuitem value="Subcribete" icon="/resources/img/suscribete.png" url="#"/>
-                    </p:dock>
-                </h:form>-->
+                <!--                <h:form>
+                                    <p:dock position="bottom">
+                                        <p:menuitem value="Inicio" icon="/resources/img/home.png" url="#"/>
+                                        <p:menuitem value="Musica" icon="/resources/img/music.png" url="#"/>
+                                        <p:menuitem value="Subcribete" icon="/resources/img/suscribete.png" url="#"/>
+                                    </p:dock>
+                                </h:form>-->
                 <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
             </ui:insert>
         </div>
@@ -93,12 +107,12 @@
                             </div>
                         </div>
                     </p:column>
-                    
-                    
+
+
                 </p:dataTable>
                 <br></br>
                 <b><p class="text-center">Total a pagar: #{juegosController.totalPrecio()}€</p></b>
-                
+
                 <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCarrito,Juegos_comprados" onclick="PF('dialogoCarrito').hide();" action="#{juegosController.finalizarCompra()}"/>
                 <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
             </h:form>   
