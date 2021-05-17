@@ -19,7 +19,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class JuegosController {
+public class JuegosController implements Serializable  {
 
     @EJB
     private JuegosUsuariosFacadeLocal juegosEJB;
@@ -32,11 +32,11 @@ public class JuegosController {
     
     private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
     //Array que guardara los juegos que quiera el usuario en la base de datos
-    private static List<JuegosUsuarios> misJuegos = new ArrayList();
+    static List<JuegosUsuarios> misJuegos = new ArrayList();
 
     private Juegos juego = new Juegos();
     //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
-    private static List<Juegos> juegosList = new ArrayList();
+    static List<Juegos> juegosList = new ArrayList();
 
     public List<Juegos> getJuegosList() {
         return juegosList;
