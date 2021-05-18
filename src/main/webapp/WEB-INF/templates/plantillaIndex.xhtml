@@ -168,20 +168,21 @@
                 <footer class="py-5 bg-dark">
                     <div class="container">
                         <div class="row">
-                            <div class="col text-center  ">
-                                <a href="/Drivergames/footer/footerIndex/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
-                            </div>
-                            <div class="col text-center ">
-                                <a href="/Drivergames/footer/footerIndex/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
-                            </div>
-                            <div class="col text-center ">
-                                <a href="/Drivergames/footer/footerIndex/legal.xhtml" title="Volver a la página principal">Información legal</a>
-                            </div>
+                            <ui:insert name="enlacesFooter">
+                                <div class="col text-center  ">
+                                    <a href="/Drivergames/footer/footerIndex/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="/Drivergames/footer/footerIndex/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="/Drivergames/footer/footerIndex/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                </div>
+                            </ui:insert>
                         </div>
                     </div>
                     <br></br>
                     <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
-                    <!-- cierre de /.container -->
                 </footer>
             </ui:insert>
         </div>
