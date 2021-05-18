@@ -12,9 +12,32 @@
         <ui:composition template="/WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content"> 
-                <br></br>
-                hola
+                <section id="privacidad">
+                    <div class="container">
+                        <h1 class="text-center">1. Tipos de cookies</h1>
+                        <p>Según quien sea la entidad que gestione el dominio desde donde se envían las cookies y trate los datos que se obtengan se pueden distinguir dos tipos: cookies propias y cookies de terceros. Existe también una segunda clasificación según el plazo de tiempo que permanecen almacenadas en el navegador del cliente, pudiendo tratarse de cookies de sesión o cookies persistentes. </p>
+                        <p>datos obtenidos: cookies técnicas, cookies de personalización, cookies de análisis, cookies publicitarias y cookies de publicidad basada en comportamientos. Para más información a este respecto puede consultar la Guía sobre el uso de las cookies de la Agencia Española de Protección de Datos. </p>
 
+                        <br></br>
+
+                        <h2 class="text-center"> 2. Cookies utilizadas en la web</h2>
+                        <p>A través de la analítica web se obtiene información relativa a la audiencia que accede a la web y su composición, dispositivos y navegadores utilizados, intereses y hábitos de comportamiento, así como información indicativa del rendimiento del sitio web que nos permite analizar y mejorar los servicios prestados por parte de este portal. </p>
+
+                        <p>Otra de las cookies que utilizamos es de las llamadas Persistentes, que nos permite identificar usuarios aunque estos no estén logados, con el fin de recordar hábitos de consumo y navegación.</p>
+                        <br></br>
+
+                        <h2 class="text-center"> 3. Ajustes del navegador</h2>
+                        <p>La mayoría de navegadores indican en la función ayuda cómo configurar su navegador para que no acepte cookies, para ser notificado cada vez que reciba una nueva cookie o para desactivarlas completamente. También puede eliminar, deshabilitar o revocar datos similares que son utilizados por las extensiones de su navegador (add-on), tales como las Flash Cookies. Para ello puede cambiar la configuración de dichas extensiones o visitar el sitio web de su fabricante. </p>
+                        
+                        <br></br>
+
+                        <h2 class="text-center"> 4. Aceptación de la Política de cookies</h2>
+                        <p>Drivergames asume que usted acepta el uso de cookies. No obstante, muestra información sobre su Política de cookies en la parte inferior de cualquier página del portal y con cada inicio de sesión con el objeto de que usted sea consciente. </p>
+                        <p>Ante esta información es posible llevar a cabo las siguientes acciones: Cerrar la ventana supone aceptar la política de cookies. No se volverá a visualizar este aviso al acceder a cualquier página del portal durante la presente sesión. Modificar su configuración de su navegador para no permitir el uso de cookies, lo que no permitirá el uso de la web de Drivergames correctamente. Tenga en cuenta que eliminar las cookies puede afectar a su experiencia de navegación y limitar nuestra capacidad para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias. </p>
+                        <br></br>
+
+                    </div>
+                </section>  
             </ui:define>
 
             <div id="bottom" style="text-align: center">
@@ -30,13 +53,12 @@
                                     <a href="privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
                                 </div>
                                 <div class="col text-center ">
-                                    <a href="#" title="Volver a la página principal">Información legal</a>
+                                    <a href="legal.xhtml" title="Volver a la página principal">Información legal</a>
                                 </div>
                             </div>
                         </div>
                         <br></br>
-                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
-                        <!-- cierre de /.container -->
+                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>¡
                     </footer>
 
                     <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
