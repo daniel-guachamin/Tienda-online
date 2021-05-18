@@ -28,7 +28,7 @@
 
                         <h2 class="text-center"> 3. Ajustes del navegador</h2>
                         <p>La mayoría de navegadores indican en la función ayuda cómo configurar su navegador para que no acepte cookies, para ser notificado cada vez que reciba una nueva cookie o para desactivarlas completamente. También puede eliminar, deshabilitar o revocar datos similares que son utilizados por las extensiones de su navegador (add-on), tales como las Flash Cookies. Para ello puede cambiar la configuración de dichas extensiones o visitar el sitio web de su fabricante. </p>
-                        
+
                         <br></br>
 
                         <h2 class="text-center"> 4. Aceptación de la Política de cookies</h2>
@@ -40,30 +40,18 @@
                 </section>  
             </ui:define>
 
-            <div id="bottom" style="text-align: center">
-                <ui:define name="bottom" >
-                    <!-- Footer -->
-                    <footer class="py-5 bg-dark">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col text-center  ">
-                                    <a href="#" title="Volver a la página principal">Política de cookies</a>
-                                </div>
-                                <div class="col text-center ">
-                                    <a href="privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
-                                </div>
-                                <div class="col text-center ">
-                                    <a href="legal.xhtml" title="Volver a la página principal">Información legal</a>
-                                </div>
-                            </div>
-                        </div>
-                        <br></br>
-                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>¡
-                    </footer>
+            <ui:define name="enlacesFooter" >
+                <div class="col text-center  ">
+                    <a href="#" title="Volver a la página principal">Política de cookies</a>
+                </div>
+                <div class="col text-center ">
+                    <a href="privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                </div>
+                <div class="col text-center ">
+                    <a href="legal.xhtml" title="Volver a la página principal">Información legal</a>
+                </div>
+            </ui:define>
 
-                    <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
-                </ui:define>
-            </div>
 
         </ui:composition>
 

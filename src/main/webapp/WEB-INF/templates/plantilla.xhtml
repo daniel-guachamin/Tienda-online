@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </nav>
-                
+
             </ui:insert>
             <br></br><br></br>
         </div>
@@ -55,15 +55,17 @@
                 <footer class="py-5 bg-dark">
                     <div class="container">
                         <div class="row">
-                            <div class="col text-center  ">
-                                <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
-                            </div>
-                            <div class="col text-center ">
-                                <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
-                            </div>
-                            <div class="col text-center ">
-                                <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
-                            </div>
+                            <ui:insert name="enlacesFooter" >
+                                <div class="col text-center  ">
+                                    <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                </div>
+                            </ui:insert>
                         </div>
                     </div>
                     <br></br>
