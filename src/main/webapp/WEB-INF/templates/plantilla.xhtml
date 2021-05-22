@@ -102,13 +102,17 @@
                             </div>
                         </div>
                     </p:column>
-
-
                 </p:dataTable>
+                <br></br>
+                <h:panelGrid columns="3" id="DatosCuenta">
+                    <p:outputLabel for="cuenta" value="Cuenta de banco" />
+                    <p:inputText id="cuenta" maxlength="4" value="#{juegosController.persona.cuenta}" required="true" requiredMessage="Obligatorio"/>
+                    <p:message for="cuenta" />
+                </h:panelGrid>
                 <br></br>
                 <b><p class="text-center">Total a pagar: #{juegosController.totalPrecio()}€</p></b>
 
-                <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCarrito,Juegos_comprados" onclick="PF('dialogoCarrito').hide();" action="#{juegosController.finalizarCompra()}"/>
+                <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCarrito,Juegos_comprados" action="#{juegosController.finalizarCompra()}"/>
                 <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
             </h:form>   
         </p:dialog>

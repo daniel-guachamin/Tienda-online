@@ -2,9 +2,11 @@ package com.danielta.controller;
 
 import com.danielta.ejb.DetallesJuegosFacadeLocal;
 import com.danielta.ejb.JuegosUsuariosFacadeLocal;
+import com.danielta.ejb.PersonaFacadeLocal;
 import com.danielta.model.DetallesJuegos;
 import com.danielta.model.Juegos;
 import com.danielta.model.JuegosUsuarios;
+import com.danielta.model.Persona;
 import com.danielta.model.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,17 +21,30 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class JuegosController implements Serializable  {
+public class JuegosController implements Serializable {
 
     @EJB
     private JuegosUsuariosFacadeLocal juegosEJB;
     @EJB
     private DetallesJuegosFacadeLocal detallesEJB;
+
+    @EJB
+    private PersonaFacadeLocal nueva;
+
+    @Inject
+    private Persona persona;
+
     @Inject
     private JuegosUsuarios juegos;
     @Inject
     private DetallesJuegos detalles;
-    
+
+    private List<Persona> datosPersona;
+
+    public List<Persona> getDatosPersona() {
+        return datosPersona;
+    }
+
     private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
     //Array que guardara los juegos que quiera el usuario en la base de datos
     static List<JuegosUsuarios> misJuegos = new ArrayList();
@@ -37,6 +52,18 @@ public class JuegosController implements Serializable  {
     private Juegos juego = new Juegos();
     //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
     static List<Juegos> juegosList = new ArrayList();
+
+    public void setDatosPersona(List<Persona> datosPersona) {
+        this.datosPersona = datosPersona;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
 
     public List<Juegos> getJuegosList() {
         return juegosList;
@@ -82,6 +109,7 @@ public class JuegosController implements Serializable  {
     public void init() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
+        datosPersona = nueva.encuentraDatosPersona(codigo_persona);
     }
 
     public int totalPrecio() {
@@ -105,29 +133,38 @@ public class JuegosController implements Serializable  {
     }
 
     public void finalizarCompra() {
-        
+
         try {
-            String todosJuegos="";
+            String todosJuegos = "";
             if (juegosList.size() > 0) { //solo entrara si el array listaJuegos no esta vacio
                 for (Juegos listaJuegos : juegosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
-                    juegos=new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
+                    for (Persona datos : datosPersona) {
+                        this.persona.setCodigo(codigo_persona);
+                        this.persona.setNombres(datos.getNombres());
+                        this.persona.setApellidos(datos.getApellidos());
+                        this.persona.setSexo(datos.getSexo());
+                        this.persona.setFechaNacimiento(datos.getFechaNacimiento());
+                    }
+                    nueva.edit(persona);
+
+                    juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
                     this.juegos.setPersona(codigo_persona);
                     this.juegos.setNombre(listaJuegos.getNombre());
-                    if(listaJuegos.getEstado().equals("Alquilar")){
+                    if (listaJuegos.getEstado().equals("Alquilar")) {
                         this.juegos.setEstado("Alquilado");
-                    }else{
+                    } else {
                         this.juegos.setEstado("Comprado");
-                    } 
+                    }
                     this.juegos.setImagen(listaJuegos.getImagen());
                     JuegosController.misJuegos.add(juegos);
                     //guardo todos los nombres d elos juegos seleccionados en una variable
-                    todosJuegos=todosJuegos + listaJuegos.getNombre();
+                    todosJuegos = todosJuegos + listaJuegos.getNombre();
                 }
-                    //Introducciendo datos a mi tabla detallesCompra
-                    this.detalles.setPersona(codigo_persona);
-                    this.detalles.setJuegos(todosJuegos);
-                    this.detalles.setPrecioTotal(totalPrecio());
-                    detallesEJB.create(detalles);
+                //Introducciendo datos a mi tabla detallesCompra
+                this.detalles.setPersona(codigo_persona);
+                this.detalles.setJuegos(todosJuegos);
+                this.detalles.setPrecioTotal(totalPrecio());
+                detallesEJB.create(detalles);
                 for (JuegosUsuarios juegosCarrito : misJuegos) {
                     juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
                 }
@@ -175,8 +212,8 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
-     public void agregarCompraJuego2() {
+
+    public void agregarCompraJuego2() {
         try {
             this.juego.setNombre("Hitman 3");
             this.juego.setEstado("Comprar");
@@ -205,7 +242,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
+
     public void agregarCompraJuego3() {
         try {
             this.juego.setNombre("Los Sims 4");
@@ -235,7 +272,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
+
     public void agregarCompraJuego4() {
         try {
             this.juego.setNombre("Fallout 76");
@@ -265,7 +302,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
+
     public void agregarCompraJuego5() {
         try {
             this.juego.setNombre("Dark Alliange");
@@ -295,6 +332,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
+
     public void agregarCompraJuego6() {
         try {
             this.juego.setNombre("Beyond two souls");
@@ -324,7 +362,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
+
     public void agregarCompraJuego7() {
         try {
             this.juego.setNombre("Chronos Before The Ashes");
@@ -354,7 +392,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
+
     public void agregarCompraJuego8() {
         try {
             this.juego.setNombre("Hunt");
@@ -384,6 +422,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
+
     public void agregarCompraJuego9() {
         try {
             this.juego.setNombre("Mafia Trilogy");
@@ -413,7 +452,7 @@ public class JuegosController implements Serializable  {
         }
 
     }
-    
+
     public void agregarCompraJuego10() {
         try {
             this.juego.setNombre("Fifa 2020");

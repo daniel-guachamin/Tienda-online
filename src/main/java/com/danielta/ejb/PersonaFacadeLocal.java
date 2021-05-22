@@ -17,6 +17,8 @@ public interface PersonaFacadeLocal {
     Persona find(Object id);
 
     List<Persona> findAll(); //imporatantre para traer todos los datos necesrios del menu que tenemos
+    
+    List<Persona> encuentraDatosPersona(int entra_codigo_persona);
 
     List<Persona> findRange(int[] range);
 

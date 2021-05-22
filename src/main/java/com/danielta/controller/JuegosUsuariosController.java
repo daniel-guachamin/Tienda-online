@@ -41,7 +41,6 @@ public class JuegosUsuariosController implements Serializable {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         codigo_persona=us.getCodigo().getCodigo();//guardo una variable 
         misJuegos = juegosUsuariosEJB.encuentraJuegosUsuario(codigo_persona); //Utilizo mi metodo encuentraJuegosUsuario guardar los juegos de mi usuario en sesion en un array List
-
     }
 
 }
