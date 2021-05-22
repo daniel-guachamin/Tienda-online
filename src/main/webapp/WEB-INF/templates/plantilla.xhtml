@@ -106,7 +106,9 @@
                 <br></br>
                 <h:panelGrid columns="3" id="DatosCuenta">
                     <p:outputLabel for="cuenta" value="Cuenta de banco" />
-                    <p:inputText id="cuenta" maxlength="4" value="#{juegosController.persona.cuenta}" required="true" requiredMessage="Obligatorio"/>
+                    <p:inputText id="cuenta" maxlength="9" value="#{juegosController.persona.cuenta}" required="true" requiredMessage="Obligatorio">
+                        <f:validateLength minimum="9"/>
+                    </p:inputText>
                     <p:message for="cuenta" />
                 </h:panelGrid>
                 <br></br>

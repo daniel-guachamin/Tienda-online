@@ -27,31 +27,30 @@ public class JuegosController implements Serializable {
     private JuegosUsuariosFacadeLocal juegosEJB;
     @EJB
     private DetallesJuegosFacadeLocal detallesEJB;
-
     @EJB
-    private PersonaFacadeLocal nueva;
+    private PersonaFacadeLocal personaEJB;
 
     @Inject
     private Persona persona;
-
     @Inject
     private JuegosUsuarios juegos;
     @Inject
     private DetallesJuegos detalles;
+    
+    private Juegos juego = new Juegos();
+    
+    //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
+    private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
+    //Array que guardara los juegos que quiera el usuario en la base de datos
+    static List<JuegosUsuarios> misJuegos = new ArrayList();
 
+    static List<Juegos> juegosList = new ArrayList();
+    
     private List<Persona> datosPersona;
 
     public List<Persona> getDatosPersona() {
         return datosPersona;
     }
-
-    private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
-    //Array que guardara los juegos que quiera el usuario en la base de datos
-    static List<JuegosUsuarios> misJuegos = new ArrayList();
-
-    private Juegos juego = new Juegos();
-    //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
-    static List<Juegos> juegosList = new ArrayList();
 
     public void setDatosPersona(List<Persona> datosPersona) {
         this.datosPersona = datosPersona;
@@ -109,7 +108,7 @@ public class JuegosController implements Serializable {
     public void init() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
-        datosPersona = nueva.encuentraDatosPersona(codigo_persona);
+        datosPersona = personaEJB.encuentraDatosPersona(codigo_persona);
     }
 
     public int totalPrecio() {
@@ -138,6 +137,7 @@ public class JuegosController implements Serializable {
             String todosJuegos = "";
             if (juegosList.size() > 0) { //solo entrara si el array listaJuegos no esta vacio
                 for (Juegos listaJuegos : juegosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
+
                     for (Persona datos : datosPersona) {
                         this.persona.setCodigo(codigo_persona);
                         this.persona.setNombres(datos.getNombres());
@@ -145,7 +145,7 @@ public class JuegosController implements Serializable {
                         this.persona.setSexo(datos.getSexo());
                         this.persona.setFechaNacimiento(datos.getFechaNacimiento());
                     }
-                    nueva.edit(persona);
+                    personaEJB.edit(persona); //edito mi cuenta de banco a la que añade el usuario al comprar un juego
 
                     juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
                     this.juegos.setPersona(codigo_persona);
