@@ -33,12 +33,13 @@
                             <div class="text-center">
                                 <!--<p:commandButton value="Descargar" onclick="PF('dialogoIdioma').show();" icon="ui-icon-check"/>-->
                                 <h1><h:outputText value="#{juegos.estado}" /></h1>
-                                <p:commandButton value="Jugar juego" onclick="PF('dialogoIdioma').show();" icon="ui-icon-check"/>
+                                <p:commandButton value="Jugar juego" action="#{principal.main()}" icon="ui-icon-check"/>
                             </div>
                         </p:column>
 
                     </p:dataTable>
                 </h:form>
+                <p:commandLink value="Jugar juego"  action="#{principal.main()}"/>
             </ui:define>
 
         </ui:composition>

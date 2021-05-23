@@ -145,7 +145,7 @@ public class JuegosController implements Serializable {
                         this.persona.setSexo(datos.getSexo());
                         this.persona.setFechaNacimiento(datos.getFechaNacimiento());
                     }
-                    personaEJB.edit(persona); //edito mi cuenta de banco a la que añade el usuario al comprar un juego
+                    personaEJB.edit(persona); //introdusco la cuenta de banco que el usuario usa para comprar un juego
 
                     juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
                     this.juegos.setPersona(codigo_persona);
