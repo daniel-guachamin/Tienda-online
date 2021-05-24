@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
         <h:outputStylesheet library="css" name="index.css" /><!--llamamos a mi archivo css-->
+        <h:outputStylesheet library="css" name="snake.css" />
         <!--verificamos que la variable almacenada en mi session este activa si no lo esta no mostrara esta pagina nunca-->
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />        
     </h:head>
