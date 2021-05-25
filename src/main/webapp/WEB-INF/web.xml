@@ -7,7 +7,7 @@
     <!--param-value aqui colocar el tema que quiero usar-->
     <context-param>  
         <param-name>primefaces.THEME</param-name>  
-        <param-value>rocket</param-value>  
+        <param-value>afterdark</param-value>  
     </context-param>
     <!--v-->
     <context-param>
