@@ -1,3 +1,4 @@
+
 package com.danielta.model;
 
 import java.io.Serializable;
@@ -9,11 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+/**
+ *
+ * @author danie
+ */
 @Entity
-@Table(name = "juegosUsuarios")
-public class JuegosUsuarios implements Serializable {
-
+@Table(name = "chat")
+public class Mensaje implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private int codigo;
@@ -21,14 +25,8 @@ public class JuegosUsuarios implements Serializable {
     @Column(name = "codigo_persona")
     private int persona;
 
-    @Column(name = "nombre")
-    private String nombre;
-
-    @Column(name = "estado")
-    private String estado;
-
-    @Column(name = "imagen")
-    private String imagen;
+    @Column(name = "mensaje")
+    private String mensaje;
 
     public int getCodigo() {
         return codigo;
@@ -46,30 +44,14 @@ public class JuegosUsuarios implements Serializable {
         this.persona = persona;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getMensaje() {
+        return mensaje;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -88,7 +70,7 @@ public class JuegosUsuarios implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final JuegosUsuarios other = (JuegosUsuarios) obj;
+        final Mensaje other = (Mensaje) obj;
         if (this.codigo != other.codigo) {
             return false;
         }
@@ -97,7 +79,12 @@ public class JuegosUsuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "JuegosUsuarios{" + "codigo=" + codigo + '}';
+        return "Mensaje{" + "codigo=" + codigo + '}';
     }
+
+
+    
+
+    
 
 }

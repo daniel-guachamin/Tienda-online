@@ -17,6 +17,7 @@ public class JuegosUsuariosController implements Serializable {
 
     @EJB
     private JuegosUsuariosFacadeLocal juegosUsuariosEJB; //
+    
     private List<JuegosUsuarios> misJuegos; //variable que me permitira mostrar los juegos disponibles del usuario
     private JuegosUsuarios juegos;
     private int codigo_persona;

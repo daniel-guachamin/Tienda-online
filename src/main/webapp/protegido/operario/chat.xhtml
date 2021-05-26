@@ -11,27 +11,34 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h2>Nueva Nota</h2>
-                
-                <h:form>
-                    <p:messages autoUpdate="true" showDetail="true" showSummary="false"/>
-                    
-                    <h:panelGrid columns="2" >
-                        <p:outputLabel for="cboCategoria" value="Categoria" />
-                        <p:selectOneMenu id="cboCategoria" value="#{notaController.categoria.codigo}">
-                            <f:selectItems value="#{notaController.categorias}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.codigo}" />
-                        </p:selectOneMenu>
-                        
-                        <p:outputLabel for="txtEncabezado" value="Encabezado" />
-                        <p:inputText id="txtEncabezado" value="#{notaController.nota.encabezado}"/>
-                        
-                        <p:outputLabel for="txtCuerpo" value="Contenido" />
-                        <p:inputTextarea id="txtCuerpo" value="#{notaController.nota.cuerpo}"/>
-                        
-                        <h:column />
-                        <p:commandButton value="Registrar" actionListener="#{notaController.registrar()}"/>
-                    </h:panelGrid>
-                </h:form>
+                <h2>Pagina de soporte web</h2>
+                <div class="container">
+                    <h:form id="Form_Mensaje">
+                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" >
+                            <p:column>
+                                <div class="text-center">
+                                    <b><h:outputText value="#{mensaje.mensaje}" /></b>
+                                    <br></br>
+                                </div>
+                            </p:column>
+
+                        </p:dataTable>
+
+
+                    </h:form>
+                    <h:form id="lol">
+                        <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
+
+                        <h:panelGrid columns="2" >
+
+                            <p:outputLabel for="txtCuerpo" value="Mensaje a enviar" />
+                            <p:inputTextarea id="txtCuerpo" value="#{mensajeController.mensaje.mensaje}"/>
+
+
+                            <p:commandButton value="Enviar" update="mensajes,Form_Mensaje" action="#{mensajeController.enviarMensaje()}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
             </ui:define>
 
         </ui:composition>
