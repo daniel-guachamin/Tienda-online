@@ -185,9 +185,9 @@ public class JuegosController implements Serializable {
 
     public void agregarCompraJuego1() {
         try {
-            this.juego.setNombre("Detroit Become Human");
+            this.juego.setNombre("Farcry new dawn");
             this.juego.setEstado("Comprar");
-            this.juego.setImagen("Detroit.png");
+            this.juego.setImagen("Farcry.png");
             this.juego.setPrecio(40);
             JuegosController.juegosList.add(this.juego);
 
@@ -200,9 +200,9 @@ public class JuegosController implements Serializable {
 
     public void agregarAlquilarJuego1() {
         try {
-            this.juego.setNombre("Detroit Become Human");
+            this.juego.setNombre("Farcry new dawn");
             this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Detroit.png");
+            this.juego.setImagen("Farcry.png");
             this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
@@ -335,9 +335,9 @@ public class JuegosController implements Serializable {
 
     public void agregarCompraJuego6() {
         try {
-            this.juego.setNombre("Beyond two souls");
+            this.juego.setNombre("Nier Replicant");
             this.juego.setEstado("Comprar");
-            this.juego.setImagen("Beyond.png");
+            this.juego.setImagen("Nier.png");
             this.juego.setPrecio(20);
             JuegosController.juegosList.add(this.juego);
 
@@ -350,9 +350,9 @@ public class JuegosController implements Serializable {
 
     public void agregarAlquilarJuego6() {
         try {
-            this.juego.setNombre("Beyond two souls");
+            this.juego.setNombre("Nier Replicant");
             this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Beyond.png");
+            this.juego.setImagen("Nier.png");
             this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
@@ -455,9 +455,9 @@ public class JuegosController implements Serializable {
 
     public void agregarCompraJuego10() {
         try {
-            this.juego.setNombre("Fifa 2020");
+            this.juego.setNombre("Fifa 2021");
             this.juego.setEstado("Comprar");
-            this.juego.setImagen("Fifa.png");
+            this.juego.setImagen("Fifa2.png");
             this.juego.setPrecio(16);
             JuegosController.juegosList.add(this.juego);
 
@@ -470,9 +470,9 @@ public class JuegosController implements Serializable {
 
     public void agregarAlquilarJuego10() {
         try {
-            this.juego.setNombre("Fifa 2020");
+            this.juego.setNombre("Fifa 2021");
             this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Fifa.png");
+            this.juego.setImagen("Fifa2.png");
             this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
