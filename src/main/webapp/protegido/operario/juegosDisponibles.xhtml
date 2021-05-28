@@ -12,12 +12,12 @@
 
             <ui:define name="content">
                 <br></br>
-                <h1 class="text-center">Recuerda que solo podrás jugar los juegos alquilados durante un día</h1>
+                <h1 class="text-center">Videojuegos Comprados</h1>
 
                 <h:form>
                     <!--<p:messages autoUpdate="true" showSummary="false" showDetail="true"/>-->
 
-                    <p:dataTable value="#{juegosUsuariosController.misJuegos}" var="juegos" paginator="true" rows="3"
+                    <p:dataTable value="#{juegosUsuariosController.misJuegosComprados}" var="juegos" paginator="true" rows="3"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
                         <p:column headerText="Buscar videojuego por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">
@@ -29,7 +29,7 @@
 
                         </p:column>
 
-                        <p:column headerText="Buscar videojuego por estado" filterBy="#{juegos.estado}" filterMatchMode="contains">
+                        <p:column>
                             <div class="text-center">
                                 <h1><h:outputText value="#{juegos.estado}" /></h1>
                                 <a href="./snake.xhtml" >Jugar juego</a>
@@ -37,10 +37,34 @@
                         </p:column>
 
                     </p:dataTable>
+
+                    <br></br><br></br><br></br>
+                    <h1 class="text-center">Videojuegos alquilados</h1>
+                    <h1 class="text-center">Recuerda que solo podrás jugar los juegos alquilados durante un día</h1>
+                    <p:dataTable value="#{juegosUsuariosController.misJuegosAlquilados}" var="juegos" paginator="true" rows="3"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
+                        <p:column headerText="Buscar videojuego por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">
+                            <div class="text-center">
+                                <b><h:outputText value="#{juegos.nombre}" /></b>
+                                <br></br>
+                                <h:graphicImage library="img" name="#{juegos.imagen}"  /> 
+
+                            </div>
+
+                        </p:column>
+
+                        <p:column>
+                            <div class="text-center">
+                                <h1><h:outputText value="#{juegos.estado}"/></h1>
+                                <div id="clock"></div>
+                                <a href="./snake.xhtml" >Jugar juego</a>
+                            </div>
+                        </p:column>
+
+                    </p:dataTable>
                 </h:form>
-
             </ui:define>
-
         </ui:composition>
 
     </body>

@@ -68,10 +68,10 @@
                                 </div>
                             </ui:insert>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col">
-                                
+
                                 <p:link href="https://www.facebook.com/" target="_blank">
                                     <h:graphicImage library="img" name="face3.png" alt="Facebook"/>
                                 </p:link>
@@ -83,7 +83,7 @@
                                 </p:link> 
                             </div>
                         </div>
-                        
+
                     </div>
                     <br></br>
                     <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
@@ -133,12 +133,12 @@
                     <p:message for="cuenta" />
                 </h:panelGrid>
                 <br></br>
-                
+
                 <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCompra,pagar,Juegos_comprados" action="#{juegosController.finalizarCompra()}"/>
                 <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
             </h:form>
         </p:dialog>
-
+        <h:outputScript library="js" name="hora.js" /> 
     </h:body>
 
 </html>
