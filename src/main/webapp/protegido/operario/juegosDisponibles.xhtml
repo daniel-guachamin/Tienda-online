@@ -17,7 +17,7 @@
                 <h:form>
                     <!--<p:messages autoUpdate="true" showSummary="false" showDetail="true"/>-->
 
-                    <p:dataTable value="#{juegosUsuariosController.misJuegosComprados}" var="juegos" paginator="true" rows="3"
+                    <p:dataTable value="#{juegosUsuariosController.misJuegosComprados}" var="juegos" paginator="true" rows="3" emptyMessage="¡No has comprado ningun juego!"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
                         <p:column headerText="Buscar videojuego por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">
@@ -41,7 +41,7 @@
                     <br></br><br></br><br></br>
                     <h1 class="text-center">Videojuegos alquilados</h1>
                     <h1 class="text-center">Recuerda que solo podrás jugar los juegos alquilados durante un día</h1>
-                    <p:dataTable value="#{juegosUsuariosController.misJuegosAlquilados}" var="juegos" paginator="true" rows="3"
+                    <p:dataTable value="#{juegosUsuariosController.misJuegosAlquilados}" var="juegos" paginator="true" rows="3" emptyMessage="¡No has alquilado ningun juego!"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
                         <p:column headerText="Buscar videojuego por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">

@@ -14,7 +14,7 @@
                 <h2>Pagina de soporte web</h2>
                 <div class="container">
                     <h:form id="Form_Mensaje">
-                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" >
+                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" emptyMessage="No has enviado ningun mensaje">
                             <p:column>
                                 <div class="text-center" style="color: aqua">
                                     <b><h:outputText value="#{usuarioController.mostrarUsuarioLogeado()}: #{mensaje.mensaje}" /></b>
@@ -39,7 +39,7 @@
                             <p:inputTextarea id="txtCuerpo" value="#{mensajeController.mensaje.mensaje}"/>
 
 
-                            <p:commandButton value="Enviar nuevo mensaje" update="mensajes,Form_Mensaje" action="#{mensajeController.enviarMensaje()}"/>
+                            <p:commandButton icon="ui-icon-mail-closed" actionListener="#{mensajeController.reload()}" value="Enviar nuevo mensaje" update="mensajes,Form_Mensaje" action="#{mensajeController.enviarMensaje()}"/>
                         </h:panelGrid>
                     </h:form>
                 </div>

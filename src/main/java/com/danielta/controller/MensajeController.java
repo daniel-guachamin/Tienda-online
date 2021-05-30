@@ -3,15 +3,18 @@ package com.danielta.controller;
 import com.danielta.ejb.MensajeFacadeLocal;
 import com.danielta.model.Mensaje;
 import com.danielta.model.Usuario;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 @Named
 @RequestScoped
@@ -51,14 +54,14 @@ public class MensajeController implements Serializable {
 
     }
 
-    public void enviarMensajeAdmin(int codigo,int per,String men) {
+    public void enviarMensajeAdmin(int codigo, int per, String men) {
 
         try {
 
-                this.mensaje.setCodigo(codigo);
-                this.mensaje.setPersona(per);
-                this.mensaje.setMensaje(men);
-                
+            this.mensaje.setCodigo(codigo);
+            this.mensaje.setPersona(per);
+            this.mensaje.setMensaje(men);
+
             mensajeEJB.edit(mensaje);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso
 
@@ -66,6 +69,11 @@ public class MensajeController implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al enviar el mensaje!"));
         }
 
+    }
+
+    public void reload() throws IOException {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
     }
 
     public List<Mensaje> getMiMensaje() {
