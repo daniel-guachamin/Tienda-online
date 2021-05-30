@@ -32,26 +32,35 @@ public class MensajeController implements Serializable {
     public void init() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
-        nombre_usuario= us.getUsuario();
+        nombre_usuario = us.getUsuario();
         miMensaje = mensajeEJB.encuentraMensaje(codigo_persona);
     }
 
     public void enviarMensaje() {
 
         try {
-            if (miMensaje.size() == 0) { //cuando se envie un mensaje por primera vez 
-                this.mensaje.setPersona(codigo_persona);
-                mensajeEJB.create(mensaje);
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso
-            }else{
-                for(Mensaje men : miMensaje){ //entra cuando el usuario ya ha escrito un mensaje en el pasado
-                    this.mensaje.setCodigo(men.getCodigo());
-                    this.mensaje.setPersona(men.getPersona());
-                    this.mensaje.setMensaje(men.getMensaje() + "  " + mensaje.getMensaje());
-                }
-                mensajeEJB.edit(mensaje);
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje2 enviado correctamente")); //para mostrar mensaje de registro exitoso
-            }
+
+            this.mensaje.setPersona(codigo_persona);
+            this.mensaje.setMensajeAdmin("Te responderemos lo antes posible");
+            mensajeEJB.create(mensaje);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso
+
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al enviar el mensaje!"));
+        }
+
+    }
+
+    public void enviarMensajeAdmin(int codigo,int per,String men) {
+
+        try {
+
+                this.mensaje.setCodigo(codigo);
+                this.mensaje.setPersona(per);
+                this.mensaje.setMensaje(men);
+                
+            mensajeEJB.edit(mensaje);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso
 
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al enviar el mensaje!"));
@@ -74,8 +83,6 @@ public class MensajeController implements Serializable {
     public void setNombre_usuario(String nombre_usuario) {
         this.nombre_usuario = nombre_usuario;
     }
-    
-    
 
     public Mensaje getMensaje() {
         return mensaje;

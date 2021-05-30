@@ -27,6 +27,17 @@ public class Mensaje implements Serializable {
 
     @Column(name = "mensaje")
     private String mensaje;
+    
+    @Column(name = "mensajeAdmin")
+    private String mensajeAdmin;
+
+    public String getMensajeAdmin() {
+        return mensajeAdmin;
+    }
+
+    public void setMensajeAdmin(String mensajeAdmin) {
+        this.mensajeAdmin = mensajeAdmin;
+    }
 
     public int getCodigo() {
         return codigo;

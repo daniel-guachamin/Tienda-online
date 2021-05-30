@@ -4,6 +4,7 @@ import com.danielta.ejb.UsuarioFacadeLocal;
 import com.danielta.model.Persona;
 import com.danielta.model.Usuario;
 import java.io.Serializable;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -23,11 +24,20 @@ public class UsuarioController implements Serializable{
     private Usuario usuario;
     @Inject
     private Persona persona;
+    
+    private List<Usuario> misUsuarios;
 
     @PostConstruct
     public void init() {
-        //usuario = new Usuario();
-        //persona = new Persona();
+        misUsuarios=usuarioEJB.findAll();
+    }
+
+    public List<Usuario> getMisUsuarios() {
+        return misUsuarios;
+    }
+
+    public void setMisUsuarios(List<Usuario> misUsuarios) {
+        this.misUsuarios = misUsuarios;
     }
 
     public Usuario getUsuario() {
@@ -54,6 +64,26 @@ public class UsuarioController implements Serializable{
         }catch(Exception e){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al registrar!"));            
         }
+    }
+    
+    public String verMensajes(int codigo) {
+        misUsuarios.clear();
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        Persona lol=new Persona();
+        lol.setCodigo(codigo);
+        Usuario tu=new Usuario();
+        tu.setCodigo(lol);
+        us.setCodigo(tu.getCodigo());
+        
+        
+        String redireccion = "chatAdmin?faces-redirect=true";          
+        
+        return redireccion;
+    }
+    
+    public String mostrarUsuarioLogeado() {
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        return us.getUsuario();
     }
 
 }
