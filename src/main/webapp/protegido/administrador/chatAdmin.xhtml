@@ -20,21 +20,19 @@
                             <p:column headerText="Mensajes Usuario">
                                 <div class="text-center" style="color: aqua">
                                     <b><h:outputText value="#{mensaje.mensaje}" /></b>
-                                    
-                                    <br></br>
-                                </div>
-                                <div class="text-center" style="color: activeborder">
-                                    <b><h:outputText value="Admin: #{mensaje.mensajeAdmin}"  /></b>
-                                    <br></br>
                                 </div>
                             </p:column>
                             <p:column headerText="Mensaje Admin">
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <p:outputLabel value="#{mensaje.mensajeAdmin}"/>
+                                        <div class="text-center" style="color: activeborder">
+                                            <b><p:outputLabel value="#{mensaje.mensajeAdmin}" styleClass="scroll"/></b> 
+                                        </div>
                                     </f:facet>
                                     <f:facet name="input">
+                                        <div class="text-center" style="color: activeborder">
                                         <p:inputText value="#{mensaje.mensajeAdmin}"/>
+                                        </div>
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>

@@ -31,3 +31,8 @@ section {
     text-align: center;
     margin: 1em;
 }
+
+.scroll {
+    display: block;
+    overflow-y: auto;
+}

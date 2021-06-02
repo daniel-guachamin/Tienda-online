@@ -14,12 +14,12 @@
                 <div class="container">
                     <h:form id="admin">
                         <h1 class="text-center">Clientes registrados</h1>
-                        <p:dataTable value="#{usuarioController.misUsuarios}" var="usuario" rendered="#{usuarioController.misUsuarios.size() >= 0 eq true}" emptyMessage="¡No se encontro ningun usuario registrado!">
+                        <!--first me permite no mostrar mi usuario admin en esta tabla-->
+                        <p:dataTable value="#{usuarioController.misUsuarios}" var="usuario" rendered="#{usuarioController.misUsuarios.size() >= 0 eq true}" emptyMessage="¡No se encontro ningun usuario registrado!" first="1">
                             <h1>Clientes registrados</h1>
                             <p:column>
                                 <div class="text-center">
                                     <b><h:outputText value="#{usuario.usuario}" /></b>
-                                    <b><h:outputText value="#{usuario.codigo.codigo}" /></b>
                                     <br></br>
                                 </div> 
                             </p:column>
