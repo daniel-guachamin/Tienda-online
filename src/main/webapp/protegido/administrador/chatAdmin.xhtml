@@ -13,30 +13,37 @@
             <ui:define name="content">
                 <h2>Pagina de soporte web</h2>
                 <div class="container">
+                    <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+
                     <h:form id="Form_Mensaje">
-                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" emptyMessage="¡El usuario no ha enviado ningun mensaje!">
-                            <p:column>
+                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" emptyMessage="¡El usuario no ha enviado ningun mensaje!" editable="true">
+                            <p:column headerText="Mensajes Usuario">
                                 <div class="text-center" style="color: aqua">
                                     <b><h:outputText value="#{mensaje.mensaje}" /></b>
+                                    
                                     <br></br>
                                 </div>
                                 <div class="text-center" style="color: activeborder">
-                                    <b><h:outputText value="Admin: #{mensaje.mensajeAdmin}" /></b>
+                                    <b><h:outputText value="Admin: #{mensaje.mensajeAdmin}"  /></b>
                                     <br></br>
                                 </div>
                             </p:column>
-                            <p:column>
-                                <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
-
-                                <h:panelGrid columns="3" >
-
-
-                                    <p:inputTextarea id="txtCuerpo" value="#{mensajeController.mensaje.mensajeAdmin}"/>
-
-
-                                    <p:commandButton icon="ui-icon-mail-closed" actionListener="#{mensajeController.reload()}" value="Enviar mensaje" update="mensajes,Form_Mensaje" action="#{mensajeController.enviarMensajeAdmin(mensaje.codigo,mensaje.persona,mensaje.mensaje)}"/>
-                                </h:panelGrid>
+                            <p:column headerText="Mensaje Admin">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <p:outputLabel value="#{mensaje.mensajeAdmin}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{mensaje.mensajeAdmin}"/>
+                                    </f:facet>
+                                </p:cellEditor>
                             </p:column>
+                            <p:column style="width: 12em;" visible="true" headerText="Responder mensaje">
+                                
+                                <p:rowEditor />
+                                
+                            </p:column>
+                            <p:ajax event="rowEdit" listener="#{mensajeController.enviarMensajeAdmin(mensaje)}" update="mensajes"/>
 
                         </p:dataTable>
 

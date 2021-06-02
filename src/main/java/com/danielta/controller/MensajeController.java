@@ -54,15 +54,15 @@ public class MensajeController implements Serializable {
 
     }
 
-    public void enviarMensajeAdmin(int codigo, int per, String men) {
+    public void enviarMensajeAdmin(Mensaje men) {
 
         try {
+//
+//            this.mensaje.setCodigo(codigo);
+//            this.mensaje.setPersona(per);
+//            this.mensaje.setMensaje(men);
 
-            this.mensaje.setCodigo(codigo);
-            this.mensaje.setPersona(per);
-            this.mensaje.setMensaje(men);
-
-            mensajeEJB.edit(mensaje);
+            mensajeEJB.edit(men);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso
 
         } catch (Exception e) {
