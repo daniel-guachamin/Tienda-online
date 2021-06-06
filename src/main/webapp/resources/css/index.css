@@ -36,3 +36,16 @@ section {
     display: block;
     overflow-y: auto;
 }
+
+.separador{
+    width: 100%;
+    height: 40px;
+    background-color: gray;
+}
+
+.pcfondo{
+/*    background-image: url("../resources/img/ju.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;*/
+background-color: darkgrey;
+}

@@ -11,14 +11,14 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <br></br>
+                
                 <h:form>
                     <!--mostrara mensajes de error o exito -->
                     <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
                     <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
-                    <div class="container-fluid">
-                        <h1 class="text-center rojo">¡LO MÁS VENDIDO!</h1>
-                        <div class="row">
+                    <div class="container-fluid pcfondo">
+                        <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+                        <div class="row ">
 
                             <div class="col text-center ">
                                 <h:graphicImage library="img" name="pc/Farcry.png" alt="Farcry new dawn"/>
@@ -48,8 +48,8 @@
                                     <p:commandButton id="compra5" value="Comprar 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego5()}"/>                        
                             </div>
                         </div>
-                        <br></br><br></br>
-                        <h1 class="text-center rojo">JUEGOS POR MENOS DE 20€</h1>
+                        <div class="separador"></div>
+                        <h1 class="text-center">JUEGOS POR MENOS DE 20€</h1>
                         <div class="row">
 
                             <div class="col text-center ">
@@ -82,7 +82,6 @@
                         </div>
                     </div>
                 </h:form>  
-                <br></br>
 
             </ui:define>
 
