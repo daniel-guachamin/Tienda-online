@@ -23,6 +23,29 @@ public class Menu implements Serializable {
 
     @Column(name = "tipoUsuario")
     private String tipoUsuario;
+    
+    @Column(name = "tipo")
+    private String tipo;
+    
+    @ManyToOne
+    @JoinColumn(name = "codigo_submenu")
+    private Menu submenu;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Menu getSubmenu() {
+        return submenu;
+    }
+
+    public void setSubmenu(Menu submenu) {
+        this.submenu = submenu;
+    }
 
     public int getCodigo() {
         return codigo;

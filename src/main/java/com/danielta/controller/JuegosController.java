@@ -36,16 +36,16 @@ public class JuegosController implements Serializable {
     private JuegosUsuarios juegos;
     @Inject
     private DetallesJuegos detalles;
-    
+
     private Juegos juego = new Juegos();
-    
+
     //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
     private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
     //Array que guardara los juegos que quiera el usuario en la base de datos
     static List<JuegosUsuarios> misJuegos = new ArrayList();
 
     static List<Juegos> juegosList = new ArrayList();
-    
+
     private List<Persona> datosPersona;
 
     public List<Persona> getDatosPersona() {
@@ -150,11 +150,6 @@ public class JuegosController implements Serializable {
                     juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
                     this.juegos.setPersona(codigo_persona);
                     this.juegos.setNombre(listaJuegos.getNombre());
-                    if (listaJuegos.getEstado().equals("Alquilar")) {
-                        this.juegos.setEstado("Alquilado");
-                    } else {
-                        this.juegos.setEstado("Comprado");
-                    }
                     this.juegos.setImagen(listaJuegos.getImagen());
                     JuegosController.misJuegos.add(juegos);
                     //guardo todos los nombres d elos juegos seleccionados en una variable
@@ -183,27 +178,13 @@ public class JuegosController implements Serializable {
 
     }
 
+
+
     public void agregarCompraJuego1() {
         try {
             this.juego.setNombre("Farcry new dawn");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Farcry.png");
             this.juego.setPrecio(40);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego1() {
-        try {
-            this.juego.setNombre("Farcry new dawn");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Farcry.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -216,24 +197,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego2() {
         try {
             this.juego.setNombre("Hitman 3");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Hitman3.png");
             this.juego.setPrecio(50);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego2() {
-        try {
-            this.juego.setNombre("Hitman 3");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Hitman3.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -246,24 +211,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego3() {
         try {
             this.juego.setNombre("Los Sims 4");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Sims4.png");
             this.juego.setPrecio(35);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego3() {
-        try {
-            this.juego.setNombre("Los Sims 4");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Sims4.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -276,24 +225,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego4() {
         try {
             this.juego.setNombre("Fallout 76");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Fallout.png");
             this.juego.setPrecio(40);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego4() {
-        try {
-            this.juego.setNombre("Fallout 76");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Fallout.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -306,24 +239,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego5() {
         try {
             this.juego.setNombre("Dark Alliange");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("DarkAlliange.png");
             this.juego.setPrecio(60);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego5() {
-        try {
-            this.juego.setNombre("Dark Alliange");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("DarkAlliange.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -336,24 +253,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego6() {
         try {
             this.juego.setNombre("Nier Replicant");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Nier.png");
             this.juego.setPrecio(20);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego6() {
-        try {
-            this.juego.setNombre("Nier Replicant");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Nier.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -366,24 +267,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego7() {
         try {
             this.juego.setNombre("Chronos Before The Ashes");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Chronos.png");
             this.juego.setPrecio(15);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego7() {
-        try {
-            this.juego.setNombre("Chronos Before The Ashes");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Chronos.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -396,24 +281,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego8() {
         try {
             this.juego.setNombre("Hunt");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Hunt.png");
             this.juego.setPrecio(12);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego8() {
-        try {
-            this.juego.setNombre("Hunt");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Hunt.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -426,24 +295,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego9() {
         try {
             this.juego.setNombre("Mafia Trilogy");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Mafia.png");
             this.juego.setPrecio(10);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego9() {
-        try {
-            this.juego.setNombre("Mafia Trilogy");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Mafia.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
@@ -456,24 +309,8 @@ public class JuegosController implements Serializable {
     public void agregarCompraJuego10() {
         try {
             this.juego.setNombre("Fifa 2021");
-            this.juego.setEstado("Comprar");
             this.juego.setImagen("Fifa2.png");
             this.juego.setPrecio(16);
-            JuegosController.juegosList.add(this.juego);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
-        }
-
-    }
-
-    public void agregarAlquilarJuego10() {
-        try {
-            this.juego.setNombre("Fifa 2021");
-            this.juego.setEstado("Alquilar");
-            this.juego.setImagen("Fifa2.png");
-            this.juego.setPrecio(5);
             JuegosController.juegosList.add(this.juego);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso

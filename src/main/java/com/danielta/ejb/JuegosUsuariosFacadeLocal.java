@@ -20,7 +20,6 @@ public interface JuegosUsuariosFacadeLocal {
     List<JuegosUsuarios> findAll();
     
     List<JuegosUsuarios> encuentraJuegosUsuarioComprado(int entra_codigo_persona);
-    List<JuegosUsuarios> encuentraJuegosUsuarioAlquilado(int entra_codigo_persona);
     
     List<JuegosUsuarios> findRange(int[] range);
 
