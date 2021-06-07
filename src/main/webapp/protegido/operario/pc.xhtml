@@ -10,8 +10,39 @@
 
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
+            <ui:define name="top">
+
+            </ui:define>
+
             <ui:define name="content">
+
+                
+                <!-- Menu de nagegación -->
                 <div class="container-fluid fondopc">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
+                        <div class="container">
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                                    </li>     
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    
+                    <div class="separadorBlanco container"></div>
+                    
                     <h:form>
                         <!--mostrara mensajes de error o exito -->
                         <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
@@ -82,8 +113,54 @@
                             </div>
                         </div>
                     </h:form>  
+                    
+                    <div class="separadorBlanco container"></div>
+
+
+                    <!-- Footer --> 
+                    <footer class="py-5 bg-dark container" style="text-align: center">
+
+                        <div class="container">
+                            <div class="row">
+                                <ui:insert name="enlacesFooter" >
+                                    <div class="col text-center  ">
+                                        <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                    </div>
+                                </ui:insert>
+                            </div>
+                            <br></br>
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <p:link href="https://www.facebook.com/" target="_blank">
+                                        <h:graphicImage library="img" name="face.png" alt="Facebook"/>
+                                    </p:link>
+                                    <p:link href="https://www.instagram.com/" target="_blank"> 
+                                        <h:graphicImage library="img" name="insta2.png" alt="Instagram"/>
+                                    </p:link>
+                                    <p:link href="https://www.twitter.com/" target="_blank">
+                                        <h:graphicImage library="img" name="twiter.png" alt="Twitter"/>
+                                    </p:link> 
+                                </div>
+                            </div>
+
+                        </div>
+                        <br></br>
+                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
+                    </footer>
+                    <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
                 </div>
 
+            </ui:define>
+            <ui:define name="bottom">
+                <!--vacio por la plantilla--> 
             </ui:define>
 
         </ui:composition>

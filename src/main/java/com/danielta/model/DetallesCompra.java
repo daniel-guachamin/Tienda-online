@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "detallesCompra")
-public class DetallesJuegos implements Serializable{
+public class DetallesCompra implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private int codigo;
@@ -21,15 +21,26 @@ public class DetallesJuegos implements Serializable{
     @Column(name = "codigo_persona")
     private int persona;
 
-    @Column(name = "juegos")
-    private String juegos;
+    @Column(name = "producto")
+    private String producto;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha", insertable = false)
     private Date fecha;
 
-    @Column(name = "precioTotal")
-    private int precioTotal;
+    @Column(name = "precio")
+    private int precio;
+    
+    @Column(name = "cantidad")
+    private int cantidad;
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -47,14 +58,6 @@ public class DetallesJuegos implements Serializable{
         this.persona = persona;
     }
 
-    public String getJuegos() {
-        return juegos;
-    }
-
-    public void setJuegos(String juegos) {
-        this.juegos = juegos;
-    }
-
     public Date getFecha() {
         return fecha;
     }
@@ -63,12 +66,20 @@ public class DetallesJuegos implements Serializable{
         this.fecha = fecha;
     }
 
-    public int getPrecioTotal() {
-        return precioTotal;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setPrecioTotal(int precioTotal) {
-        this.precioTotal = precioTotal;
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     @Override
@@ -89,7 +100,7 @@ public class DetallesJuegos implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final DetallesJuegos other = (DetallesJuegos) obj;
+        final DetallesCompra other = (DetallesCompra) obj;
         if (this.codigo != other.codigo) {
             return false;
         }

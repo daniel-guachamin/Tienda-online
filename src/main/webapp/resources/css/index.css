@@ -41,17 +41,18 @@ section {
     display: block;
     overflow-y: auto;
 }
+.separadorBlanco{
+    height: 55px;
+    background-color: aliceblue;
+}
 
 .separador{
-    width: 100%;
+
     height: 40px;
     background-color: gray;
 }
 
 .fondoContainer{
-    /*    background-image: url("../resources/img/ju.jpg") ;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;*/
     background-color: aliceblue;
 }
 @media screen and (max-width: 767px) {
@@ -83,19 +84,32 @@ section {
 }
 
 @media screen and (max-width: 767px) {
-			.fondops5 {
-				background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
-				background-color: #ffffff;
-			}
-		}
+    .fondops5 {
+        background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
 
-		@media screen and (min-width: 768px) {
-			.fondops5 {
-				background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
-				background-color: #ffffff;
-			}
-		}
+@media screen and (min-width: 768px) {
+    .fondops5 {
+        background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
 
+@media screen and (max-width: 767px) {
+    .fondoxbox {
+        background: url(https://media.game.es/Skin/xone-seccion-xboxone-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondoxbox {
+        background: url(https://media.game.es/Skin/xone-seccion-xboxone-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
 
 .enfrente{
     z-index: 1;

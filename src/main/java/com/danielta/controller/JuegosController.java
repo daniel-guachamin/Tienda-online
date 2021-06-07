@@ -1,9 +1,10 @@
 package com.danielta.controller;
 
-import com.danielta.ejb.DetallesJuegosFacadeLocal;
+
+import com.danielta.ejb.DetallesCompraFacadeLocal;
 import com.danielta.ejb.JuegosUsuariosFacadeLocal;
 import com.danielta.ejb.PersonaFacadeLocal;
-import com.danielta.model.DetallesJuegos;
+import com.danielta.model.DetallesCompra;
 import com.danielta.model.Juegos;
 import com.danielta.model.JuegosUsuarios;
 import com.danielta.model.Persona;
@@ -26,7 +27,7 @@ public class JuegosController implements Serializable {
     @EJB
     private JuegosUsuariosFacadeLocal juegosEJB;
     @EJB
-    private DetallesJuegosFacadeLocal detallesEJB;
+    private DetallesCompraFacadeLocal detallesEJB;
     @EJB
     private PersonaFacadeLocal personaEJB;
 
@@ -35,7 +36,7 @@ public class JuegosController implements Serializable {
     @Inject
     private JuegosUsuarios juegos;
     @Inject
-    private DetallesJuegos detalles;
+    private DetallesCompra detalles;
 
     private Juegos juego = new Juegos();
 
@@ -76,11 +77,11 @@ public class JuegosController implements Serializable {
         return misJuegos;
     }
 
-    public DetallesJuegos getDetalles() {
+    public DetallesCompra getDetalles() {
         return detalles;
     }
 
-    public void setDetalles(DetallesJuegos detalles) {
+    public void setDetalles(DetallesCompra detalles) {
         this.detalles = detalles;
     }
 
@@ -155,11 +156,10 @@ public class JuegosController implements Serializable {
                     //guardo todos los nombres d elos juegos seleccionados en una variable
                     todosJuegos = todosJuegos + listaJuegos.getNombre();
                 }
-                //Introducciendo datos a mi tabla detallesCompra
-                this.detalles.setPersona(codigo_persona);
-                this.detalles.setJuegos(todosJuegos);
-                this.detalles.setPrecioTotal(totalPrecio());
-                detallesEJB.create(detalles);
+//                //Introducciendo datos a mi tabla detallesCompra
+//                this.detalles.setPersona(codigo_persona);
+//                
+//                detallesEJB.create(detalles);
                 for (JuegosUsuarios juegosCarrito : misJuegos) {
                     juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
                 }
