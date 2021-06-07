@@ -32,6 +32,11 @@ section {
     margin: 1em;
 }
 
+.navegacion{
+    clear: both;
+    float: left;
+}
+
 .scroll {
     display: block;
     overflow-y: auto;
@@ -43,9 +48,56 @@ section {
     background-color: gray;
 }
 
-.pcfondo{
-/*    background-image: url("../resources/img/ju.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;*/
-background-color: darkgrey;
+.fondoContainer{
+    /*    background-image: url("../resources/img/ju.jpg") ;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;*/
+    background-color: aliceblue;
+}
+@media screen and (max-width: 767px) {
+    .fondoindex {
+        background: url(https://media.game.es/Skin/mult-Daysofplay-skin-s0522-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondoindex {
+        background: url(https://media.game.es/Skin/mult-Daysofplay-skin-s0522-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fondopc {
+        background: url(https://media.game.es/Skin/pchsw-seccion-gamepcdigital-s3518-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondopc {
+        background: url(https://media.game.es/Skin/pchsw-seccion-gamepcdigital-s3518-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 767px) {
+			.fondops5 {
+				background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
+				background-color: #ffffff;
+			}
+		}
+
+		@media screen and (min-width: 768px) {
+			.fondops5 {
+				background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
+				background-color: #ffffff;
+			}
+		}
+
+
+.enfrente{
+    z-index: 1;
+    background-color: #ffffff;
 }

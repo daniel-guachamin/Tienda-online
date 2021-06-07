@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body >
+
+        <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                
+                <div class="container-fluid fondops5">
+                    <h:form>
+                        <!--mostrara mensajes de error o exito -->
+                        <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                        <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+
+                        <div class="container enfrente">
+                            <!-- Galeria de imagenes -->
+                            <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+                            <!--demo me permite que funcionen mis botones del carrusel-->
+                            <div id="demo" class="carousel slide" data-ride="carousel">
+
+                                <!-- La presentación de imagenes -->
+                                <div class="carousel-inner text-center"> 
+                                    <div class="carousel-item active">
+                                        <h:graphicImage library="img" name="ps5/spiderman.png" alt="Spiderman"/><br></br>
+
+                                        <p:commandButton id="ps1" value="Comprar 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Spiderman', 'Fifa2.png', 50)}"/>  
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h:graphicImage library="img" name="ps5/assassin.png" alt="Assassin valhalla"/><br></br>
+                                        <p:commandButton id="ps2" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h:graphicImage library="img" name="ps5/terminator.png" alt="Los Sims 4"/><br></br>
+                                        <p:commandButton id="ps3" value="Comprar 32€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h:graphicImage library="img" name="ps5/final.png" alt="Fifa 2020"/><br></br>
+                                        <p:commandButton id="ps4" value="Comprar 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h:graphicImage library="img" name="ps5/chivalry.png" alt="Fallout 76"/><br></br>
+                                        <p:commandButton id="ps5" value="Comprar 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h:graphicImage library="img" name="ps5/tales.png" alt="Cyberpunk"/><br></br>
+                                        <p:commandButton id="ps6" value="Comprar 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
+                                    </div>
+                                </div>
+
+                                <!-- Controles izquierdo y derecho -->
+                                <a class="carousel-control-prev bg-dark" href="#demo" data-slide="prev" style="height: 40px; width: 10%;">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </a>
+                                <a class="carousel-control-next bg-dark" href="#demo" data-slide="next" style="height: 40px; width: 10%;">
+                                    <span class="carousel-control-next-icon"></span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </h:form>  
+                    
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+

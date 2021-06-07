@@ -11,77 +11,78 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                
-                <h:form>
-                    <!--mostrara mensajes de error o exito -->
-                    <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
-                    <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
-                    <div class="container-fluid pcfondo">
-                        <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
-                        <div class="row ">
+                <div class="container-fluid fondopc">
+                    <h:form>
+                        <!--mostrara mensajes de error o exito -->
+                        <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                        <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+                        <div class="container fondoContainer">
+                            <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+                            <div class="row ">
 
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Farcry.png" alt="Farcry new dawn"/>
-                                <br></br>
-                                    <p:commandButton id="compra1" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>                  
-                            </div>                    
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Farcry.png" alt="Farcry new dawn"/>
+                                    <br></br>
+                                    <p:commandButton id="compra1" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Farcry new dawn', 'Farcry.png', 40)}"/>                  
+                                </div>                    
 
-                            <div class="col text-center  ">
-                                <h:graphicImage library="img" name="pc/Hitman3.png" alt="Hitman3"/>
-                                <br></br>
-                                    <p:commandButton id="compra2" value="Comprar 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego2()}"/>                     
-                            </div>
+                                <div class="col text-center  ">
+                                    <h:graphicImage library="img" name="pc/Hitman3.png" alt="Hitman3"/>
+                                    <br></br>
+                                    <p:commandButton id="compra2" value="Comprar 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Hitman 3', 'Hitman3.png', 50)}"/>                     
+                                </div>
 
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Sims4.png" alt="Los Sims 4"/>
-                                <br></br>
-                                    <p:commandButton id="compra3" value="Comprar 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego3()}"/>                        
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Sims4.png" alt="Los Sims 4"/>
+                                    <br></br>
+                                    <p:commandButton id="compra3" value="Comprar 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Los Sims 4', 'Sims4.png', 35)}"/>                        
+                                </div>
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Fallout.png" alt="Fallout 76"/>
+                                    <br></br>
+                                    <p:commandButton id="compra4" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fallout 76', 'Fallout.png', 40)}"/>                       
+                                </div>
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/DarkAlliange.png" alt="Dark Alliange"/>
+                                    <br></br>
+                                    <p:commandButton id="compra5" value="Comprar 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Dark Alliange', 'DarkAlliange.png', 60)}"/>                        
+                                </div>
                             </div>
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Fallout.png" alt="Fallout 76"/>
-                                <br></br>
-                                    <p:commandButton id="compra4" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego4()}"/>                       
-                            </div>
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/DarkAlliange.png" alt="Dark Alliange"/>
-                                <br></br>
-                                    <p:commandButton id="compra5" value="Comprar 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego5()}"/>                        
+                            <div class="separador"></div>
+                            <h1 class="text-center">JUEGOS POR MENOS DE 20€</h1>
+                            <div class="row">
+
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Nier.png" alt="Nier Replicant"/>
+                                    <br></br>
+                                    <p:commandButton id="compra6" value="Comprar 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Nier Replicant', 'Nier.png', 20)}"/>            
+                                </div>                    
+
+                                <div class="col text-center  ">
+                                    <h:graphicImage library="img" name="pc/Chronos.png" alt="Chronos"/>
+                                    <br></br>
+                                    <p:commandButton id="compra7" value="Comprar 15€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Chronos', 'Chronos.png', 15)}"/>                     
+                                </div>
+
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Hunt.png" alt="Hunt"/>
+                                    <br></br>
+                                    <p:commandButton id="compra8" value="Comprar 12€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Hunt', 'Hunt.png', 12)}"/>                        
+                                </div>
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Mafia.png" alt="Mafia Trilogy"/>
+                                    <br></br>
+                                    <p:commandButton id="compra9" value="Comprar 10€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Mafia Trilogy', 'Mafia.png', 10)}"/>                       
+                                </div>
+                                <div class="col text-center ">
+                                    <h:graphicImage library="img" name="pc/Fifa2.png" alt="Fifa 2021"/>
+                                    <br></br>
+                                    <p:commandButton id="compra10" value="Comprar 16€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fifa 2021', 'Fifa2.png', 16)}"/>                        
+                                </div>
                             </div>
                         </div>
-                        <div class="separador"></div>
-                        <h1 class="text-center">JUEGOS POR MENOS DE 20€</h1>
-                        <div class="row">
-
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Nier.png" alt="Nier Replicant"/>
-                                <br></br>
-                                    <p:commandButton id="compra6" value="Comprar 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego6()}"/>            
-                            </div>                    
-
-                            <div class="col text-center  ">
-                                <h:graphicImage library="img" name="pc/Chronos.png" alt="Chronos"/>
-                                <br></br>
-                                    <p:commandButton id="compra7" value="Comprar 15€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego7()}"/>                     
-                            </div>
-
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Hunt.png" alt="Hunt"/>
-                                <br></br>
-                                    <p:commandButton id="compra8" value="Comprar 12€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego8()}"/>                        
-                            </div>
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Mafia.png" alt="Mafia Trilogy"/>
-                                <br></br>
-                                    <p:commandButton id="compra9" value="Comprar 10€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego9()}"/>                       
-                            </div>
-                            <div class="col text-center ">
-                                <h:graphicImage library="img" name="pc/Fifa2.png" alt="Fifa 2021"/>
-                                <br></br>
-                                    <p:commandButton id="compra10" value="Comprar 16€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego10()}"/>                        
-                            </div>
-                        </div>
-                    </div>
-                </h:form>  
+                    </h:form>  
+                </div>
 
             </ui:define>
 
