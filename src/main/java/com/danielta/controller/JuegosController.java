@@ -1,6 +1,5 @@
 package com.danielta.controller;
 
-
 import com.danielta.ejb.DetallesCompraFacadeLocal;
 import com.danielta.ejb.JuegosUsuariosFacadeLocal;
 import com.danielta.ejb.PersonaFacadeLocal;
@@ -45,9 +44,19 @@ public class JuegosController implements Serializable {
     //Array que guardara los juegos que quiera el usuario en la base de datos
     static List<JuegosUsuarios> misJuegos = new ArrayList();
 
+    static List<DetallesCompra> misPedidos = new ArrayList();
+
     static List<Juegos> juegosList = new ArrayList();
 
     private List<Persona> datosPersona;
+
+    public List<DetallesCompra> getMisPedidos() {
+        return misPedidos;
+    }
+
+    public void setMisPedidos(List<DetallesCompra> misPedidos) {
+        JuegosController.misPedidos = misPedidos;
+    }
 
     public List<Persona> getDatosPersona() {
         return datosPersona;
@@ -132,6 +141,18 @@ public class JuegosController implements Serializable {
         }
     }
 
+    public void eliminarPedido(DetallesCompra borrar) {
+
+        try {
+
+            JuegosController.misPedidos.remove(borrar);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego eliminado de tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al eliminar!"));
+        }
+    }
+
     public void finalizarCompra() {
 
         try {
@@ -156,10 +177,11 @@ public class JuegosController implements Serializable {
                     //guardo todos los nombres d elos juegos seleccionados en una variable
                     todosJuegos = todosJuegos + listaJuegos.getNombre();
                 }
-//                //Introducciendo datos a mi tabla detallesCompra
-//                this.detalles.setPersona(codigo_persona);
-//                
-//                detallesEJB.create(detalles);
+                //Introducciendo datos a mi tabla detallesCompra
+                for (DetallesCompra pedidosVarios : misPedidos) {
+                    detallesEJB.create(pedidosVarios);//guarda mis juegos en mi bbdd
+                }
+
                 for (JuegosUsuarios juegosCarrito : misJuegos) {
                     juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
                 }
@@ -168,6 +190,7 @@ public class JuegosController implements Serializable {
                 //reinicio mis arrays una vez que el usuario haya pulsado el boton finalizar compra
                 JuegosController.misJuegos.clear();
                 JuegosController.juegosList.clear();
+                JuegosController.misPedidos.clear();
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "No has añadido ningun juego a tu cesta!"));
             }
@@ -177,13 +200,29 @@ public class JuegosController implements Serializable {
         }
 
     }
-    
-    public void agregarJuegoAlCarrito(String nombre,String imagen,int precio) {
+
+    public void agregarJuegoAlCarrito(String nombre, String imagen, int precio) {
         try {
             this.juego.setNombre(nombre);
             this.juego.setImagen(imagen);
             this.juego.setPrecio(precio);
             JuegosController.juegosList.add(this.juego);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+
+    public void agregarPedidoAlCarrito(String nombre, String imagen, int precio, int can) {
+        try {
+            this.detalles.setPersona(codigo_persona);
+            this.detalles.setProducto(nombre);
+            this.detalles.setImagen(imagen);
+            this.detalles.setPrecio(precio);
+            this.detalles.setCantidad(can);
+            JuegosController.misPedidos.add(detalles);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {

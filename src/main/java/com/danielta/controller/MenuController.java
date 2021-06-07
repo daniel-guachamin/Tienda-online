@@ -87,6 +87,7 @@ public class MenuController implements Serializable {
     public void cerrarSesion() {
         JuegosController.misJuegos.clear();
         JuegosController.juegosList.clear();
+        JuegosController.misPedidos.clear();
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); //cierro sesion
     }
 

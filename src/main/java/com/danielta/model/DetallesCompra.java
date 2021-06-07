@@ -23,6 +23,9 @@ public class DetallesCompra implements Serializable{
 
     @Column(name = "producto")
     private String producto;
+    
+    @Column(name = "imagen")
+    private String imagen;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha", insertable = false)
@@ -34,6 +37,14 @@ public class DetallesCompra implements Serializable{
     @Column(name = "cantidad")
     private int cantidad;
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
     public int getCantidad() {
         return cantidad;
     }

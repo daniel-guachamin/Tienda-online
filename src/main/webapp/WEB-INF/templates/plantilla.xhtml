@@ -116,6 +116,27 @@
                         </div>
                     </p:column>
                 </p:dataTable>
+                
+                <p:dataTable value="#{juegosController.misPedidos}" var="pedido" rendered="#{juegosController.misPedidos.size() >= 0 eq true}" emptyMessage="No has añadido ningun pedido a tu carrito">
+
+                    <p:column >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center  ">
+                                    <h:graphicImage library="img_min" name="#{pedido.imagen}"  />
+                                </div>
+                                <div class="col text-center ">
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="#{pedido.producto} #{pedido.precio}€" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarPedido(pedido)}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </p:column>
+                </p:dataTable>
                 <br></br>
                 <b><p class="text-center">Total a pagar: #{juegosController.totalPrecio()}€</p></b>
             </h:form>   
