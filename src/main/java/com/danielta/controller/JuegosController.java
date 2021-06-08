@@ -39,7 +39,7 @@ public class JuegosController implements Serializable {
     private DetallesCompra detalles;
 
     private Juegos juego = new Juegos();
-    
+
     private pedidos pedido = new pedidos();
 
     //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
@@ -50,7 +50,7 @@ public class JuegosController implements Serializable {
     static List<DetallesCompra> misPedidos = new ArrayList();
 
     static List<Juegos> juegosList = new ArrayList();
-    
+
     static List<pedidos> pedidosList = new ArrayList();
 
     private List<Persona> datosPersona;
@@ -61,6 +61,14 @@ public class JuegosController implements Serializable {
 
     public List<pedidos> getPedidosList() {
         return pedidosList;
+    }
+
+    public pedidos getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(pedidos pedido) {
+        this.pedido = pedido;
     }
 
     public void setPedidosList(List<pedidos> pedidosList) {
@@ -140,12 +148,12 @@ public class JuegosController implements Serializable {
             total = total + juegoPrecio.getPrecio();
         }
         for (pedidos pedidoPrecio : pedidosList) {
-            if(pedidoPrecio.getCantidad() > 1){
+            if (pedidoPrecio.getCantidad() > 1) {
                 total = total + (pedidoPrecio.getPrecio() * pedidoPrecio.getCantidad());
-            }else{
+            } else {
                 total = total + pedidoPrecio.getPrecio();
             }
-            
+
         }
         return total;
     }
@@ -177,7 +185,7 @@ public class JuegosController implements Serializable {
     public void finalizarCompra() {
 
         try {
-    
+
             if (juegosList.size() > 0 || pedidosList.size() > 0) { //solo entrara si el array listaJuegos no esta vacio
                 for (Juegos listaJuegos : juegosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
 
@@ -189,7 +197,7 @@ public class JuegosController implements Serializable {
                     JuegosController.misJuegos.add(juegos);
 
                 }
-                
+
                 for (pedidos listaPedidos : pedidosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
 
                     detalles = new DetallesCompra();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
@@ -202,19 +210,19 @@ public class JuegosController implements Serializable {
                 }
                 //introdusco la cuenta de banco que el usuario usa para comprar un juego
                 for (Persona datos : datosPersona) {
-                        this.persona.setCodigo(codigo_persona);
-                        this.persona.setNombres(datos.getNombres());
-                        this.persona.setApellidos(datos.getApellidos());
-                        this.persona.setSexo(datos.getSexo());
-                        this.persona.setFechaNacimiento(datos.getFechaNacimiento());
-                    }
-                    personaEJB.edit(persona); 
-                    
+                    this.persona.setCodigo(codigo_persona);
+                    this.persona.setNombres(datos.getNombres());
+                    this.persona.setApellidos(datos.getApellidos());
+                    this.persona.setSexo(datos.getSexo());
+                    this.persona.setFechaNacimiento(datos.getFechaNacimiento());
+                }
+                personaEJB.edit(persona);
+
                 //Introducciendo datos a mi tabla juegosUsuarios
                 for (JuegosUsuarios juegosCarrito : misJuegos) {
                     juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
                 }
-                
+
                 //Introducciendo datos a mi tabla detallesCompra
                 for (DetallesCompra pedidosVarios : misPedidos) {
                     detallesEJB.create(pedidosVarios);//guarda mis pedidos en mi bbdd
@@ -250,18 +258,49 @@ public class JuegosController implements Serializable {
 
     }
 
-    public void agregarPedidoAlCarrito(String nombre, String imagen, int precio, int can) {
+    public void agregarPedidoAlCarrito(String nombre, String imagen, int precio) {
         try {
-            
+
             this.pedido.setProducto(nombre);
             this.pedido.setImagen(imagen);
             this.pedido.setPrecio(precio);
-            this.pedido.setCantidad(can);
+            
+
             JuegosController.pedidosList.add(this.pedido);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al añadir a tu cesta!"));
+        }
+
+    }
+    
+    public void sumarUnProducto() {
+        try {
+
+            this.pedido.setCantidad(this.pedido.getCantidad()+1);
+            
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "+1 producto")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al sumar!"));
+        }
+
+    }
+    
+    public void restarUnProducto() {
+        try {
+            if(this.pedido.getCantidad() <=1){
+                this.pedido.setCantidad(1);
+            }else{
+                this.pedido.setCantidad(this.pedido.getCantidad()-1);
+            }
+            
+            
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "-1 producto")); //para mostrar mensaje de registro exitoso
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al restar"));
         }
 
     }

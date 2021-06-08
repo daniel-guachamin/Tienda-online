@@ -96,7 +96,7 @@
         <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" hideEffect="clip" width="600px"  height="400px" fitViewport="true" showEffect="blind">
             <h:form id="Juegos_comprados">
                 <p:growl class="ui-growl" id="mensajeCarrito" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
-                <p:dataTable value="#{juegosController.juegosList}" var="juego" rendered="#{juegosController.juegosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun juego a tu carrito">
+                <p:dataTable value="#{juegosController.juegosList}" var="juego" rendered="#{juegosController.juegosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun juego digital a tu carrito">
 
                     <p:column >
                         <div class="container">
@@ -117,7 +117,7 @@
                     </p:column>
                 </p:dataTable>
                 
-                <p:dataTable value="#{juegosController.pedidosList}" var="pedido" rendered="#{juegosController.pedidosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun pedido a tu carrito">
+                <p:dataTable value="#{juegosController.pedidosList}" var="pedido" rendered="#{juegosController.pedidosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun producto a tu carrito">
 
                     <p:column >
                         <div class="container">
@@ -150,6 +150,7 @@
                     <p:inputText id="cuenta" maxlength="9" value="#{juegosController.persona.cuenta}" required="true" requiredMessage="Obligatorio">
                         <f:validateLength minimum="9"/>
                     </p:inputText>
+                    
                     <p:message for="cuenta" />
                 </h:panelGrid>
                 <br></br>

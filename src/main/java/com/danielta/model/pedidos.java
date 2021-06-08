@@ -6,7 +6,7 @@ public class pedidos {
     private String producto;
     private String imagen;
     private int precio;
-    private int cantidad;
+    private int cantidad=1;
 
     public String getProducto() {
         return producto;
