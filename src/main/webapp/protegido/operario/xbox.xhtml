@@ -40,63 +40,92 @@
                             </div>
                         </div>
                     </nav>
-                    
+
                     <div class="separadorBlanco container"></div>
 
 
-                    <h:form>
-                        <!--mostrara mensajes de error o exito -->
-                        <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
-                        <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
 
-                        <div class="container enfrente">
-                            <!-- Galeria de imagenes -->
-                            <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
-                            <!--demo me permite que funcionen mis botones del carrusel-->
-                            <div id="demo" class="carousel slide" data-ride="carousel">
+                    <!--mostrara mensajes de error o exito -->
+                    <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                    <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
 
-                                <!-- La presentación de imagenes -->
-                                <div class="carousel-inner text-center"> 
-                                    <div class="carousel-item active">
-                                        <h:graphicImage library="img" name="ps5/spiderman.png" alt="Spiderman"/><br></br>
+                    <div class="container enfrente">
+                        <!-- Galeria de imagenes -->
+                        <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+                        <!--demo me permite que funcionen mis botones del carrusel-->
+                        <div id="demo" class="carousel" data-ride="carousel">
 
-                                        <p:commandButton id="ps1" value="Comprar 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Spiderman', 'Fifa2.png', 50)}"/>  
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h:graphicImage library="img" name="ps5/assassin.png" alt="Assassin valhalla"/><br></br>
-                                        <p:commandButton id="ps2" value="Comprar 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h:graphicImage library="img" name="ps5/terminator.png" alt="Los Sims 4"/><br></br>
-                                        <p:commandButton id="ps3" value="Comprar 32€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h:graphicImage library="img" name="ps5/final.png" alt="Fifa 2020"/><br></br>
-                                        <p:commandButton id="ps4" value="Comprar 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h:graphicImage library="img" name="ps5/chivalry.png" alt="Fallout 76"/><br></br>
-                                        <p:commandButton id="ps5" value="Comprar 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h:graphicImage library="img" name="ps5/tales.png" alt="Cyberpunk"/><br></br>
-                                        <p:commandButton id="ps6" value="Comprar 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarCompraJuego1()}"/>  
-                                    </div>
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner text-center"> 
+                                <div class="carousel-item active">
+                                    <h:form id="xbox_1" >
+                                        <h:graphicImage library="img" name="xboxOne/nightmares2.png" alt="Nightmares 2"/><br></br>
+                                        <p:commandButton id="xbox1" value="Comprar 53€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Nightmares 2', 'xboxOne/nightmares2.png', 53)}"/> 
+                                        <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                        <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                        <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                    </h:form>
                                 </div>
-
-                                <!-- Controles izquierdo y derecho -->
-                                <a class="carousel-control-prev bg-dark" href="#demo" data-slide="prev" style="height: 40px; width: 10%;">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </a>
-                                <a class="carousel-control-next bg-dark" href="#demo" data-slide="next" style="height: 40px; width: 10%;">
-                                    <span class="carousel-control-next-icon"></span>
-                                </a>
-
+                                <div class="carousel-item">
+                                    <h:form id="xbox_2" >
+                                        <h:graphicImage library="img" name="xboxOne/halo.png" alt="Halo Infinite"/><br></br>
+                                        <p:commandButton id="xbox2" value="Comprar 42€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Halo Infinite', 'xboxOne/halo.png', 42)}"/>  
+                                        <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                        <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                        <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                    </h:form>
+                                </div>
+                                <div class="carousel-item">
+                                    <h:form id="xbox_3" >
+                                        <h:graphicImage library="img" name="xboxOne/grand.png" alt="Grand theft auto"/><br></br>
+                                        <p:commandButton id="xbox3" value="Comprar 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Grand theft auto', 'xboxOne/grand.png', 27)}"/>  
+                                        <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                        <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                        <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                    </h:form>
+                                </div>
+                                <div class="carousel-item">
+                                    <h:form id="xbox_4" >
+                                        <h:graphicImage library="img" name="xboxOne/farcry6.png" alt="Farcry 6"/><br></br>
+                                        <p:commandButton id="xbox4" value="Comprar 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Farcry 6', 'xboxOne/farcry6.png', 60)}"/>  
+                                        <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                        <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                        <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                    </h:form>
+                                </div>
+                                <div class="carousel-item">
+                                    <h:form id="xbox_5" >
+                                        <h:graphicImage library="img" name="xboxOne/prince.png" alt="Prince of persia"/><br></br>
+                                        <p:commandButton id="xbox5" value="Comprar 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Prince of persia', 'xboxOne/prince.png', 33)}"/>  
+                                        <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                        <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                        <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                    </h:form>
+                                </div>
+                                <div class="carousel-item">
+                                    <h:form id="xbox_6" >
+                                        <h:graphicImage library="img" name="xboxOne/red.png" alt="Red dead redemption"/><br></br>
+                                        <p:commandButton id="xbox6" value="Comprar 55€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Red dead redemption', 'xboxOne/red.png', 55)}"/>  
+                                        <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                        <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                        <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                    </h:form>
+                                </div>
                             </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev bg-dark" href="#demo" data-slide="prev" style="height: 40px; width: 10%;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next bg-dark" href="#demo" data-slide="next" style="height: 40px; width: 10%;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
 
                         </div>
 
-                    </h:form>  
+                    </div>
+
+
 
                     <!-- Footer --> 
                     <footer class="py-5 bg-dark container" style="text-align: center">
