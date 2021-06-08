@@ -25,6 +25,8 @@ public interface DetallesCompraFacadeLocal {
     DetallesCompra find(Object id);
 
     List<DetallesCompra> findAll();
+    
+    List<DetallesCompra> encuentraPedidosUsuario(int entra_codigo_persona);
 
     List<DetallesCompra> findRange(int[] range);
 

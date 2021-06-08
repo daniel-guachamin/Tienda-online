@@ -2,58 +2,49 @@
 package com.danielta.controller;
 
 import com.danielta.ejb.DetallesCompraFacadeLocal;
+import com.danielta.ejb.JuegosUsuariosFacadeLocal;
 import com.danielta.model.DetallesCompra;
+import com.danielta.model.JuegosUsuarios;
 import com.danielta.model.Usuario;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
 @RequestScoped
 public class PedidosController  implements Serializable{
     @EJB
-    private DetallesCompraFacadeLocal detallesEJB;
+    private DetallesCompraFacadeLocal detallesUsuariosEJB; //
     
-    @Inject
+    private List<DetallesCompra> misPedidos; //variable que me permitira mostrar los juegos comprados del usuario
     private DetallesCompra detalles;
-    
-    static List<DetallesCompra> misPedidos = new ArrayList();
+    private int codigo_persona;
 
     public List<DetallesCompra> getMisPedidos() {
         return misPedidos;
     }
-    
-    private int codigo_persona;
 
     public void setMisPedidos(List<DetallesCompra> misPedidos) {
-        PedidosController.misPedidos = misPedidos;
+        this.misPedidos = misPedidos;
+    }
+
+    public DetallesCompra getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(DetallesCompra detalles) {
+        this.detalles = detalles;
     }
     
     @PostConstruct
     public void init() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
+        codigo_persona=us.getCodigo().getCodigo();//guardo una variable 
+        misPedidos = detallesUsuariosEJB.encuentraPedidosUsuario(codigo_persona); //Utilizo mi metodo encuentraPedidosUsuario para guardar los pedidos de mi usuario en un array List
     }
-    
-    public void eliminarJuego(DetallesCompra borrar) {
 
-        try {
-
-            PedidosController.misPedidos.remove(borrar);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego eliminado de tu cesta")); //para mostrar mensaje de registro exitoso
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al eliminar!"));
-        }
-    }
-    
-    
-    
 }

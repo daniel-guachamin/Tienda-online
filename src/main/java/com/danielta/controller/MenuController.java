@@ -52,14 +52,6 @@ public class MenuController implements Serializable {
     public void establecerPermisos() {
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
-//        for (Menu m : lista) {
-//            if (m.getTipoUsuario().equals(us.getTipo())) {
-//                DefaultMenuItem item = new DefaultMenuItem(m.getNombre());
-//                item.setUrl(m.getUrl());
-//                model.addElement(item);
-//            }
-//        }
-        
         for (Menu m : lista) {
             if (m.getTipo().equals("S") && m.getTipoUsuario().equals(us.getTipo())) {
                 DefaultSubMenu firstSubmenu = new DefaultSubMenu(m.getNombre());
@@ -86,6 +78,7 @@ public class MenuController implements Serializable {
 
     public void cerrarSesion() {
         JuegosController.misJuegos.clear();
+        JuegosController.pedidosList.clear();
         JuegosController.juegosList.clear();
         JuegosController.misPedidos.clear();
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); //cierro sesion

@@ -49,6 +49,15 @@ public abstract class AbstractFacade<T> { //utiliza datos de tipo generico para 
         cq.where(cb.equal(c.get("persona"), codigo_persona)); //consulta al campo codigo_persona dependiendo del tipo de usuario que este logeado
         return getEntityManager().createQuery(cq).getResultList();
     }
+    
+    public List<T> encuentraPedidosUsuario(int codigo_persona) {
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery();
+        Root<T> c = cq.from(entityClass);
+        cq.select(c);
+        cq.where(cb.equal(c.get("persona"), codigo_persona)); //consulta al campo codigo_persona dependiendo del tipo de usuario que este logeado
+        return getEntityManager().createQuery(cq).getResultList();
+    }
  
     public List<T> encuentraMensaje(int codigo_persona) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();

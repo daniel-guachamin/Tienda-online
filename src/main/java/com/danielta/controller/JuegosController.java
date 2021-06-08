@@ -8,6 +8,7 @@ import com.danielta.model.Juegos;
 import com.danielta.model.JuegosUsuarios;
 import com.danielta.model.Persona;
 import com.danielta.model.Usuario;
+import com.danielta.model.pedidos;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,8 @@ public class JuegosController implements Serializable {
     private DetallesCompra detalles;
 
     private Juegos juego = new Juegos();
+    
+    private pedidos pedido = new pedidos();
 
     //Array que guardara los juegos que quiera el usuario en un arrayList para poder eliminarlos antes de enviarlos a la bbdd
     private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
@@ -47,11 +50,21 @@ public class JuegosController implements Serializable {
     static List<DetallesCompra> misPedidos = new ArrayList();
 
     static List<Juegos> juegosList = new ArrayList();
+    
+    static List<pedidos> pedidosList = new ArrayList();
 
     private List<Persona> datosPersona;
 
     public List<DetallesCompra> getMisPedidos() {
         return misPedidos;
+    }
+
+    public List<pedidos> getPedidosList() {
+        return pedidosList;
+    }
+
+    public void setPedidosList(List<pedidos> pedidosList) {
+        JuegosController.pedidosList = pedidosList;
     }
 
     public void setMisPedidos(List<DetallesCompra> misPedidos) {
@@ -126,6 +139,14 @@ public class JuegosController implements Serializable {
         for (Juegos juegoPrecio : juegosList) {
             total = total + juegoPrecio.getPrecio();
         }
+        for (pedidos pedidoPrecio : pedidosList) {
+            if(pedidoPrecio.getCantidad() > 1){
+                total = total + (pedidoPrecio.getPrecio() * pedidoPrecio.getCantidad());
+            }else{
+                total = total + pedidoPrecio.getPrecio();
+            }
+            
+        }
         return total;
     }
 
@@ -141,11 +162,11 @@ public class JuegosController implements Serializable {
         }
     }
 
-    public void eliminarPedido(DetallesCompra borrar) {
+    public void eliminarPedido(pedidos borrar) {
 
         try {
 
-            JuegosController.misPedidos.remove(borrar);
+            JuegosController.pedidosList.remove(borrar);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego eliminado de tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
@@ -156,39 +177,53 @@ public class JuegosController implements Serializable {
     public void finalizarCompra() {
 
         try {
-            String todosJuegos = "";
-            if (juegosList.size() > 0) { //solo entrara si el array listaJuegos no esta vacio
+    
+            if (juegosList.size() > 0 || pedidosList.size() > 0) { //solo entrara si el array listaJuegos no esta vacio
                 for (Juegos listaJuegos : juegosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
 
-                    for (Persona datos : datosPersona) {
+                    juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
+                    this.juegos.setPersona(codigo_persona);
+                    this.juegos.setNombre(listaJuegos.getNombre());
+                    this.juegos.setImagen(listaJuegos.getImagen());
+                    this.juegos.setPrecio(listaJuegos.getPrecio());
+                    JuegosController.misJuegos.add(juegos);
+
+                }
+                
+                for (pedidos listaPedidos : pedidosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
+
+                    detalles = new DetallesCompra();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
+                    this.detalles.setPersona(codigo_persona);
+                    this.detalles.setProducto(listaPedidos.getProducto());
+                    this.detalles.setImagen(listaPedidos.getImagen());
+                    this.detalles.setPrecio(listaPedidos.getPrecio());
+                    this.detalles.setCantidad(listaPedidos.getCantidad());
+                    JuegosController.misPedidos.add(detalles);
+                }
+                //introdusco la cuenta de banco que el usuario usa para comprar un juego
+                for (Persona datos : datosPersona) {
                         this.persona.setCodigo(codigo_persona);
                         this.persona.setNombres(datos.getNombres());
                         this.persona.setApellidos(datos.getApellidos());
                         this.persona.setSexo(datos.getSexo());
                         this.persona.setFechaNacimiento(datos.getFechaNacimiento());
                     }
-                    personaEJB.edit(persona); //introdusco la cuenta de banco que el usuario usa para comprar un juego
-
-                    juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
-                    this.juegos.setPersona(codigo_persona);
-                    this.juegos.setNombre(listaJuegos.getNombre());
-                    this.juegos.setImagen(listaJuegos.getImagen());
-                    JuegosController.misJuegos.add(juegos);
-                    //guardo todos los nombres d elos juegos seleccionados en una variable
-                    todosJuegos = todosJuegos + listaJuegos.getNombre();
-                }
-                //Introducciendo datos a mi tabla detallesCompra
-                for (DetallesCompra pedidosVarios : misPedidos) {
-                    detallesEJB.create(pedidosVarios);//guarda mis juegos en mi bbdd
-                }
-
+                    personaEJB.edit(persona); 
+                    
+                //Introducciendo datos a mi tabla juegosUsuarios
                 for (JuegosUsuarios juegosCarrito : misJuegos) {
                     juegosEJB.create(juegosCarrito);//guarda mis juegos en mi bbdd
+                }
+                
+                //Introducciendo datos a mi tabla detallesCompra
+                for (DetallesCompra pedidosVarios : misPedidos) {
+                    detallesEJB.create(pedidosVarios);//guarda mis pedidos en mi bbdd
                 }
 
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Compra realizada correctamente")); //para mostrar mensaje de registro exitoso
                 //reinicio mis arrays una vez que el usuario haya pulsado el boton finalizar compra
                 JuegosController.misJuegos.clear();
+                JuegosController.pedidosList.clear();
                 JuegosController.juegosList.clear();
                 JuegosController.misPedidos.clear();
             } else {
@@ -217,12 +252,12 @@ public class JuegosController implements Serializable {
 
     public void agregarPedidoAlCarrito(String nombre, String imagen, int precio, int can) {
         try {
-            this.detalles.setPersona(codigo_persona);
-            this.detalles.setProducto(nombre);
-            this.detalles.setImagen(imagen);
-            this.detalles.setPrecio(precio);
-            this.detalles.setCantidad(can);
-            JuegosController.misPedidos.add(detalles);
+            
+            this.pedido.setProducto(nombre);
+            this.pedido.setImagen(imagen);
+            this.pedido.setPrecio(precio);
+            this.pedido.setCantidad(can);
+            JuegosController.pedidosList.add(this.pedido);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Juego añadido a tu cesta")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {

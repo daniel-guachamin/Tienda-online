@@ -102,7 +102,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center  ">
-                                    <h:graphicImage library="img_min" name="#{juego.imagen}"  />
+                                    <h:graphicImage library="img" name="pc/#{juego.imagen}"  width="200px"/>
                                 </div>
                                 <div class="col text-center ">
                                     <br></br>
@@ -117,18 +117,21 @@
                     </p:column>
                 </p:dataTable>
                 
-                <p:dataTable value="#{juegosController.misPedidos}" var="pedido" rendered="#{juegosController.misPedidos.size() >= 0 eq true}" emptyMessage="No has añadido ningun pedido a tu carrito">
+                <p:dataTable value="#{juegosController.pedidosList}" var="pedido" rendered="#{juegosController.pedidosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun pedido a tu carrito">
 
                     <p:column >
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center  ">
-                                    <h:graphicImage library="img_min" name="#{pedido.imagen}"  />
+                                    <h:graphicImage library="img" name="#{pedido.imagen}" width="200px"/>
                                 </div>
                                 <div class="col text-center ">
                                     <br></br>
                                     <br></br>
                                     <b><h:outputText value="#{pedido.producto} #{pedido.precio}€" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value=" unid:#{pedido.cantidad}" /></b>
                                     <br></br>
                                     <br></br>
                                     <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarPedido(pedido)}"/>

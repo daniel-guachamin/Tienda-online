@@ -15,21 +15,45 @@
 
                 <h:form>
 
-                    <p:dataTable value="#{juegosUsuariosController.misJuegosComprados}" var="juegos" paginator="true" rows="3" emptyMessage="¡No has comprado ningun articulo!"
+                    <p:dataTable value="#{pedidosController.misPedidos}" var="pedidos" paginator="true" rows="3" emptyMessage="¡No has comprado ningun articulo!"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
                         <p:column headerText="Producto">
                             <div class="text-center">
-                                <b><h:outputText value="#{juegos.nombre}" /></b>
+                                <b><h:outputText value="#{pedidos.producto}" /></b>
                                 <br></br>
-                                <h:graphicImage library="img" name="pc/#{juegos.imagen}"  />    
+                                <h:graphicImage library="img" name="#{pedidos.imagen}"  />    
                             </div>
 
                         </p:column>
 
-                        <p:column>
+                        <p:column headerText="Precio">
                             <div class="text-center">
-                                <p:commandButton icon="ui-icon-play" value="Jugar juego" action="snake?faces-redirect=true"/>
+                                <b><h:outputText value="#{pedidos.precio}€" /></b>
+                            </div>
+                        </p:column>
+                        
+                        <p:column headerText="Cantidad">
+                            <div class="text-center">
+                                <b><h:outputText value="#{pedidos.cantidad}" /></b>
+                            </div>
+                        </p:column>
+                        
+                        <p:column headerText="Cantidad">
+                            <div class="text-center">
+                                <b><h:outputText value="#{pedidos.cantidad}" /></b>
+                            </div>
+                        </p:column>
+                        
+                        <p:column headerText="Fecha" >
+                            <h:outputText value="#{pedidos.fecha}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy H:m:s" />
+                            </h:outputText>
+                        </p:column>
+                        
+                        <p:column headerText="Estado" >
+                            <div class="text-center">
+                                <b><h:outputText value="En camino" /></b>
                             </div>
                         </p:column>
                     </p:dataTable>                 

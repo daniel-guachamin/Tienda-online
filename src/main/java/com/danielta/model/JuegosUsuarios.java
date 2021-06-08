@@ -26,6 +26,17 @@ public class JuegosUsuarios implements Serializable {
 
     @Column(name = "imagen")
     private String imagen;
+    
+    @Column(name = "precio")
+    private int precio;
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
     public int getCodigo() {
         return codigo;
