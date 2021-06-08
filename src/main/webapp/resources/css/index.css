@@ -111,7 +111,30 @@ section {
     }
 }
 
+@media screen and (max-width: 767px) {
+    .fondoswitch {
+        background: url(https://media.game.es/Skin/nsw-seccion-nintendoswitch-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondoswitch {
+        background: url(https://media.game.es/Skin/nsw-seccion-nintendoswitch-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
 .enfrente{
     z-index: 1;
     background-color: #ffffff;
+}
+
+.centrarChat{
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.colorGris{
+    background-color: gray;
 }

@@ -11,7 +11,7 @@
         <ui:composition template="./../../WEB-INF/templates/plantillaAdmin.xhtml">
 
             <ui:define name="content">
-                <h2>Pagina de soporte web</h2>
+                <h2 class="text-center text-white">Pagina de soporte web</h2>
                 <div class="container">
                     <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
 
@@ -31,7 +31,7 @@
                                     </f:facet>
                                     <f:facet name="input">
                                         <div class="text-center" style="color: activeborder">
-                                        <p:inputText value="#{mensaje.mensajeAdmin}"/>
+                                            <p:inputText value="#{mensaje.mensajeAdmin}"/>
                                         </div>
                                     </f:facet>
                                 </p:cellEditor>

@@ -13,7 +13,7 @@
             <ui:define name="content">
                 <div class="container">
                     <h:form id="admin">
-                        <h1 class="text-center">Clientes registrados</h1>
+                        <h1 class="text-center text-white">Clientes registrados</h1>
                         <!--first me permite no mostrar mi usuario admin en esta tabla-->
                         <p:dataTable value="#{usuarioController.misUsuarios}" var="usuario" rendered="#{usuarioController.misUsuarios.size() >= 0 eq true}" emptyMessage="¡No se encontro ningun usuario registrado!" first="1">
                             <h1>Clientes registrados</h1>

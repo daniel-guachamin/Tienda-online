@@ -93,12 +93,12 @@
         </div>
 
         <!--Dialogo que me mostrara las compras y alquileres de mis juegos para luego comprarlos-->
-        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Juegos añadidos a tu cesta" closeOnEscape="true" modal="true" hideEffect="clip" width="600px"  height="400px" fitViewport="true" showEffect="blind">
+        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Productos añadidos a tu cesta" closeOnEscape="true" modal="true" hideEffect="clip" width="600px"  height="400px" fitViewport="true" showEffect="blind">
             <h:form id="Juegos_comprados">
                 <p:growl class="ui-growl" id="mensajeCarrito" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
                 <p:dataTable value="#{juegosController.juegosList}" var="juego" rendered="#{juegosController.juegosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun juego digital a tu carrito">
 
-                    <p:column >
+                    <p:column headerText="Juegos digitales">
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center  ">
@@ -107,7 +107,10 @@
                                 <div class="col text-center ">
                                     <br></br>
                                     <br></br>
-                                    <b><h:outputText value="#{juego.nombre} #{juego.precio}€" /></b>
+                                    <b><h:outputText value="#{juego.nombre}" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="Precio: #{juego.precio}€" /></b>
                                     <br></br>
                                     <br></br>
                                     <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarJuego(juego)}"/>
@@ -119,7 +122,7 @@
                 
                 <p:dataTable value="#{juegosController.pedidosList}" var="pedido" rendered="#{juegosController.pedidosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun producto a tu carrito">
 
-                    <p:column >
+                    <p:column  headerText="Productos que enviaremos a tu casa">
                         <div class="container">
                             <div class="row">
                                 <div class="col text-center  ">
@@ -128,12 +131,16 @@
                                 <div class="col text-center ">
                                     <br></br>
                                     <br></br>
-                                    <b><h:outputText value="#{pedido.producto} #{pedido.precio}€" /></b>
+                                    <b><h:outputText value="#{pedido.producto}" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="Precio: #{pedido.precio}€" /></b>
                                     <br></br>
                                     <br></br>
                                     <b><h:outputText value=" Und: #{pedido.cantidad}" /></b>
                                     <br></br>
                                     <br></br>
+                                    
                                     <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarPedido(pedido)}"/>
                                 </div>
                             </div>

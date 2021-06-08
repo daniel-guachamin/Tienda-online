@@ -11,39 +11,41 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                
-                <div class="container-fluid fondoindex">
-                    <div class="container enfrente">
-                    <h1 class="text-center">Pagina de soporte web</h1>
-                    <h:form id="Form_Mensaje">
-                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" emptyMessage="No has enviado ningun mensaje">
-                            <p:column>
-                                <div class="text-center" style="color: aqua">
-                                    <b><h:outputText value="#{usuarioController.mostrarUsuarioLogeado()}: #{mensaje.mensaje}" /></b>
-                                    <br></br>
-                                </div>
-                                <div class="text-center" style="color: activeborder">
-                                    <b><h:outputText value="Admin: #{mensaje.mensajeAdmin}" /></b>
-                                    <br></br>
-                                </div>
-                            </p:column>
 
-                        </p:dataTable>
+                <div class="container-fluid fondoindex centrarChat">
+                    <div class="container enfrente colorGris">
+                        <h1 class="text-center">Pagina de soporte web</h1>
+                        <h:form id="Form_Mensaje">
+                            <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" emptyMessage="No has enviado ningun mensaje">
+                                <p:column>
+                                    <div class="text-center" style="color: aqua">
+                                        <b><h:outputText value="#{usuarioController.mostrarUsuarioLogeado()}: #{mensaje.mensaje}" /></b>
+                                        <br></br>
+                                    </div>
+                                    <div class="text-center" style="color: activeborder">
+                                        <b><h:outputText value="Admin: #{mensaje.mensajeAdmin}" /></b>
+                                        <br></br>
+                                    </div>
+                                </p:column>
 
-
-                    </h:form>
-                    <h:form id="enviar">
-                        <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
-
-                        <h:panelGrid columns="2" >
-
-                            <p:outputLabel for="txtCuerpo" value="Escribir un mensaje" />
-                            <p:inputTextarea id="txtCuerpo" value="#{mensajeController.mensaje.mensaje}"/>
+                            </p:dataTable>
 
 
+                        </h:form>
+                        <h:form id="enviar">
+                            <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
+
+                            <h:panelGrid columns="4">
+                                <b><h:outputText class="text-white" value="Escribir un mensaje" /></b>
+                                
+                                <p:inputTextarea id="txtCuerpo" value="#{mensajeController.mensaje.mensaje}"/>
+
+
+                                
+                            </h:panelGrid>
                             <p:commandButton icon="ui-icon-mail-closed" actionListener="#{mensajeController.reload()}" value="Enviar nuevo mensaje" update="mensajes,Form_Mensaje" action="#{mensajeController.enviarMensaje()}"/>
-                        </h:panelGrid>
-                    </h:form>
+                        </h:form>
+                        <br></br>
                     </div>
                 </div>
             </ui:define>
