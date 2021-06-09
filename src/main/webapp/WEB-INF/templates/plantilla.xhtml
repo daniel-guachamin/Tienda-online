@@ -45,9 +45,9 @@
         </ui:insert>
 
 
-
-        <ui:insert name="content">Content</ui:insert>
-
+        
+            <ui:insert name="content">Content</ui:insert>
+        
 
         <div id="bottom" style="text-align: center">
             <ui:insert name="bottom" >
@@ -119,7 +119,7 @@
                         </div>
                     </p:column>
                 </p:dataTable>
-                
+
                 <p:dataTable value="#{juegosController.pedidosList}" var="pedido" rendered="#{juegosController.pedidosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun producto a tu carrito">
 
                     <p:column  headerText="Productos que enviaremos a tu casa">
@@ -140,7 +140,7 @@
                                     <b><h:outputText value=" Und: #{pedido.cantidad}" /></b>
                                     <br></br>
                                     <br></br>
-                                    
+
                                     <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarPedido(pedido)}"/>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
                     <p:inputText id="cuenta" maxlength="9" value="#{juegosController.persona.cuenta}" required="true" requiredMessage="Obligatorio">
                         <f:validateLength minimum="9"/>
                     </p:inputText>
-                    
+
                     <p:message for="cuenta" />
                 </h:panelGrid>
                 <br></br>
