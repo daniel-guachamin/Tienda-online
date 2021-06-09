@@ -12,45 +12,50 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
         <h:outputStylesheet library="css" name="index.css" /><!--llamamos a mi archivo css-->
+        <h:outputStylesheet library="css" name="snake.css" />
         <!--verificamos que la variable almacenada en mi session este activa si no lo esta no mostrara esta pagina nunca-->
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />        
     </h:head>
 
     <h:body class="fondoxbox centrarChat">
         <!-- Menu de nagegación -->
-        <div id="top">
-            <ui:insert name="top">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
-                    <div class="container">
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarResponsive">
-                            <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
-                                </li>     
-                            </ul>
-                        </div>
+        <ui:insert name="top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
+                <div class="container">
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item">
+                                <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                            </li>     
+                        </ul>
                     </div>
-                </nav>
+                </div>
+            </nav>
 
-            </ui:insert>
-            <br></br><br></br>
-        </div>
+        </ui:insert>
 
-        <div class=" container">
-            <ui:insert name="content">Content</ui:insert>
-       </div>
 
-        <div id="bottom" style="text-align: center">
-            <ui:insert name="bottom" >
-                
-            </ui:insert>
-        </div>
+
+        <ui:insert name="content">Content</ui:insert>
+
+
+        <ui:insert name="bottom" >
+
+
+            <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
+        </ui:insert>
+
+
+
     </h:body>
 
 </html>
+
