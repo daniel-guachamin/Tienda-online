@@ -57,60 +57,70 @@
 
                             <!-- La presentación de imagenes -->
                             <div class="carousel-inner"> 
-                                <div class="carousel-item active scroll text-center">
-                                    <h:panelGrid columns="3" id="juegosps51">
-                                        <h:form id="ps5_1" >
-                                            <h:graphicImage library="img" name="ps5/spiderman.png" alt="Spiderman"/><br></br>
-                                            <p:commandButton id="ps1" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Spiderman', 'ps5/spiderman.png', 50)}"/> 
-                                            <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_1" actionListener="#{juegosController.restarUnProducto()}" /> 
-                                            <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
-                                            <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_1" actionListener="#{juegosController.sumarUnProducto()}" /> 
-                                        </h:form>
+                                <div class="carousel-item active text-center">
 
-                                        <h:form id="ps5_2" >
-                                            <h:graphicImage library="img" name="ps5/assassin.png" alt="Assassin valhalla"/><br></br>
-                                            <p:commandButton id="ps2" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Assassin valhalla', 'ps5/assassin.png', 40)}"/>  
-                                            <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_2" actionListener="#{juegosController.restarUnProducto()}" /> 
-                                            <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
-                                            <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_2" actionListener="#{juegosController.sumarUnProducto()}" /> 
-                                        </h:form>
+                                    <div class="row ">
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_1" >
+                                                <h:graphicImage library="img" name="ps5/spiderman.png" alt="Spiderman"/><br></br>
+                                                <p:commandButton id="ps1" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Spiderman', 'ps5/spiderman.png', 50)}"/> 
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_2" >
+                                                <h:graphicImage library="img" name="ps5/assassin.png" alt="Assassin valhalla"/><br></br>
+                                                <p:commandButton id="ps2" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Assassin valhalla', 'ps5/assassin.png', 40)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_3" >
+                                                <h:graphicImage library="img" name="ps5/terminator.png" alt="Terminator resistance"/><br></br>
+                                                <p:commandButton id="ps3" value="Añadir 32€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Terminator resistance', 'ps5/terminator.png', 32)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                    </div>
 
-                                        <h:form id="ps5_3" >
-                                            <h:graphicImage library="img" name="ps5/terminator.png" alt="Terminator resistance"/><br></br>
-                                            <p:commandButton id="ps3" value="Añadir 32€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Terminator resistance', 'ps5/terminator.png', 32)}"/>  
-                                            <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_3" actionListener="#{juegosController.restarUnProducto()}" /> 
-                                            <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
-                                            <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_3" actionListener="#{juegosController.sumarUnProducto()}" /> 
-                                        </h:form>
-                                    </h:panelGrid>
                                 </div>
 
-                                <div class="carousel-item scroll text-center">
-                                    <h:panelGrid columns="3" id="juegosps52">
-                                        <h:form id="ps5_4" >
-                                            <h:graphicImage library="img" name="ps5/final.png" alt="Final fantasy 7"/><br></br>
-                                            <p:commandButton id="ps4" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Final fantasy 7', 'ps5/final.png', 70)}"/>  
-                                            <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_4" actionListener="#{juegosController.restarUnProducto()}" /> 
-                                            <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
-                                            <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_4" actionListener="#{juegosController.sumarUnProducto()}" /> 
-                                        </h:form>
-
-                                        <h:form id="ps5_5" >
-                                            <h:graphicImage library="img" name="ps5/chivalry.png" alt="Chivalry 2"/><br></br>
-                                            <p:commandButton id="ps5" value="Añadir 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Chivalry 2', 'ps5/chivalry.png', 33)}"/>  
-                                            <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_5" actionListener="#{juegosController.restarUnProducto()}" /> 
-                                            <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
-                                            <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_5" actionListener="#{juegosController.sumarUnProducto()}" /> 
-                                        </h:form>
-
-                                        <h:form id="ps5_6" >
-                                            <h:graphicImage library="img" name="ps5/tales.png" alt="Tales of arise"/><br></br>
-                                            <p:commandButton id="ps6" value="Añadir 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Tales of arise', 'ps5/tales.png', 27)}"/>  
-                                            <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.restarUnProducto()}" /> 
-                                            <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
-                                            <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.sumarUnProducto()}" /> 
-                                        </h:form>
-                                    </h:panelGrid>
+                                <div class="carousel-item text-center">
+                                    <div class="row ">
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_4" >
+                                                <h:graphicImage library="img" name="ps5/final.png" alt="Final fantasy 7"/><br></br>
+                                                <p:commandButton id="ps4" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Final fantasy 7', 'ps5/final.png', 70)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_5" >
+                                                <h:graphicImage library="img" name="ps5/chivalry.png" alt="Chivalry 2"/><br></br>
+                                                <p:commandButton id="ps5" value="Añadir 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Chivalry 2', 'ps5/chivalry.png', 33)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_6" >
+                                                <h:graphicImage library="img" name="ps5/tales.png" alt="Tales of arise"/><br></br>
+                                                <p:commandButton id="ps6" value="Añadir 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Tales of arise', 'ps5/tales.png', 27)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

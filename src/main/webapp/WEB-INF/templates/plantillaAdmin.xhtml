@@ -16,7 +16,7 @@
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />        
     </h:head>
 
-    <h:body class="fondoxbox">
+    <h:body class="fondoxbox centrarChat">
         <!-- Menu de nagegación -->
         <div id="top">
             <ui:insert name="top">
@@ -42,9 +42,9 @@
             <br></br><br></br>
         </div>
 
-        <div id="content" class="center_content">
+        <div class=" container">
             <ui:insert name="content">Content</ui:insert>
-        </div>
+       </div>
 
         <div id="bottom" style="text-align: center">
             <ui:insert name="bottom" >
