@@ -224,17 +224,21 @@
                         <p:inputText id="txtApellidos" value="#{usuarioController.persona.apellidos}" required="true" requiredMessage="Introduce apellidos"/>
                         <p:message for="txtApellidos" />
 
+                        <p:outputLabel for="txtFecha" value="Fecha de Nacimiento" />
+                        <!--calendar me permite motrar el calendario este caso español llamo al script abajo del todo recomendable-->
+                        <p:calendar id="txtFecha" value="#{usuarioController.persona.fechaNacimiento}" locale="es" required="true" requiredMessage="Campo obligatorio"/>
+                        <p:message for="txtFecha" />
+                        
+                        <p:outputLabel for="txtDireccion" value="Dirección" />
+                        <p:inputText id="txtDireccion" value="#{usuarioController.persona.direccion}" required="true" requiredMessage="Obligatorio"/>
+                        <p:message for="txtDireccion" />
+                        
                         <p:outputLabel for="rdbSexo" value="Sexo" />
                         <p:selectOneRadio id="rdbSexo" value="#{usuarioController.persona.sexo}" required="true" requiredMessage="Selecciona una opción">
                             <f:selectItem itemValue="M" itemLabel="MASCULINO" />
                             <f:selectItem itemValue="F" itemLabel="FEMENINO" />
                         </p:selectOneRadio>
                         <p:message for="rdbSexo" />
-
-                        <p:outputLabel for="txtFecha" value="Fecha de Nacimiento" />
-                        <!--calendar me permite motrar el calendario este caso español llamo al script abajo del todo recomendable-->
-                        <p:calendar id="txtFecha" value="#{usuarioController.persona.fechaNacimiento}" locale="es" required="true" requiredMessage="Campo obligatorio"/>
-                        <p:message for="txtFecha" />
 
                     </h:panelGrid>
                 </p:fieldset>

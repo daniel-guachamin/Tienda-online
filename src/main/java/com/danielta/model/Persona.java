@@ -34,6 +34,17 @@ public class Persona implements Serializable {
     
     @Column(name = "cuenta")
     private int cuenta;
+    
+    @Column(name = "direccion")
+    private String direccion;
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
     public int getCuenta() {
         return cuenta;
