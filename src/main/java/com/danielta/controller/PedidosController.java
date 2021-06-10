@@ -2,9 +2,7 @@
 package com.danielta.controller;
 
 import com.danielta.ejb.DetallesCompraFacadeLocal;
-import com.danielta.ejb.JuegosUsuariosFacadeLocal;
 import com.danielta.model.DetallesCompra;
-import com.danielta.model.JuegosUsuarios;
 import com.danielta.model.Usuario;
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +20,6 @@ public class PedidosController  implements Serializable{
     
     private List<DetallesCompra> misPedidos; //variable que me permitira mostrar los juegos comprados del usuario
     private DetallesCompra detalles;
-    private int codigo_persona;
 
     public List<DetallesCompra> getMisPedidos() {
         return misPedidos;
@@ -39,12 +36,10 @@ public class PedidosController  implements Serializable{
     public void setDetalles(DetallesCompra detalles) {
         this.detalles = detalles;
     }
-    
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
     @PostConstruct
     public void init() {
-        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        codigo_persona=us.getCodigo().getCodigo();//guardo una variable 
-        misPedidos = detallesUsuariosEJB.encuentraPedidosUsuario(codigo_persona); //Utilizo mi metodo encuentraPedidosUsuario para guardar los pedidos de mi usuario en un array List
+        misPedidos = detallesUsuariosEJB.encuentraPedidosUsuario(us.getCodigo()); //Utilizo mi metodo encuentraPedidosUsuario para guardar los pedidos de mi usuario en un array List
     }
 
 }

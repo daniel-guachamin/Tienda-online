@@ -2,6 +2,7 @@
 package com.danielta.ejb;
 
 import com.danielta.model.Mensaje;
+import com.danielta.model.Persona;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -18,7 +19,7 @@ public interface MensajeFacadeLocal {
 
     List<Mensaje> findAll();
     
-    List<Mensaje> encuentraMensaje(int entra_codigo_persona);
+    List<Mensaje> encuentraMensaje(Persona entra_codigo_persona);
 
     List<Mensaje> findRange(int[] range);
 

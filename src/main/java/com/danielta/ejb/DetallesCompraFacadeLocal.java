@@ -6,6 +6,7 @@
 package com.danielta.ejb;
 
 import com.danielta.model.DetallesCompra;
+import com.danielta.model.Persona;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -26,7 +27,7 @@ public interface DetallesCompraFacadeLocal {
 
     List<DetallesCompra> findAll();
     
-    List<DetallesCompra> encuentraPedidosUsuario(int entra_codigo_persona);
+    List<DetallesCompra> encuentraPedidosUsuario(Persona entra_codigo_persona);
 
     List<DetallesCompra> findRange(int[] range);
 

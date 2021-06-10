@@ -66,16 +66,12 @@ public class UsuarioController implements Serializable{
         }
     }
     
-    public String verMensajes(int codigo) {
-        misUsuarios.clear();
+    public String verMensajes(Persona codigo) {
+       
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        Persona lol=new Persona();
-        lol.setCodigo(codigo);
-        Usuario tu=new Usuario();
-        tu.setCodigo(lol);
-        us.setCodigo(tu.getCodigo());
         
-        
+        us.setCodigo(codigo);
+
         String redireccion = "chatAdmin?faces-redirect=true";          
         
         return redireccion;

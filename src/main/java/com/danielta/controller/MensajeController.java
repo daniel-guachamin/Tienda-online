@@ -30,20 +30,20 @@ public class MensajeController implements Serializable {
 
     private int codigo_persona;//para poder introducir el codigo de la persona que esta comprando cada juego
     private String nombre_usuario;
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
     @PostConstruct
     public void init() {
-        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
+
         nombre_usuario = us.getUsuario();
-        miMensaje = mensajeEJB.encuentraMensaje(codigo_persona);
+        miMensaje = mensajeEJB.encuentraMensaje(us.getCodigo());
     }
 
     public void enviarMensaje() {
 
         try {
-
-            this.mensaje.setPersona(codigo_persona);
+        
+            this.mensaje.setPersona(us.getCodigo());
             this.mensaje.setMensajeAdmin("");
             mensajeEJB.create(mensaje);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso
@@ -57,10 +57,6 @@ public class MensajeController implements Serializable {
     public void enviarMensajeAdmin(Mensaje men) {
 
         try {
-//
-//            this.mensaje.setCodigo(codigo);
-//            this.mensaje.setPersona(per);
-//            this.mensaje.setMensaje(men);
 
             mensajeEJB.edit(men);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Mensaje enviado correctamente")); //para mostrar mensaje de registro exitoso

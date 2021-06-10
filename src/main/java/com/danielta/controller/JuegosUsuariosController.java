@@ -17,10 +17,9 @@ public class JuegosUsuariosController implements Serializable {
 
     @EJB
     private JuegosUsuariosFacadeLocal juegosUsuariosEJB; //
-    
+
     private List<JuegosUsuarios> misJuegosComprados; //variable que me permitira mostrar los juegos comprados del usuario
     private JuegosUsuarios juegos;
-    private int codigo_persona;
 
     public List<JuegosUsuarios> getMisJuegosComprados() {
         return misJuegosComprados;
@@ -37,12 +36,12 @@ public class JuegosUsuariosController implements Serializable {
     public void setJuegos(JuegosUsuarios juegos) {
         this.juegos = juegos;
     }
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
     @PostConstruct
     public void init() {
-        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
-        codigo_persona=us.getCodigo().getCodigo();//guardo una variable 
-        misJuegosComprados = juegosUsuariosEJB.encuentraJuegosUsuarioComprado(codigo_persona); //Utilizo mi metodo encuentraJuegosUsuario guardar los juegos de mi usuario en sesion en un array List
+
+        misJuegosComprados = juegosUsuariosEJB.encuentraJuegosUsuarioComprado(us.getCodigo()); //Utilizo mi metodo encuentraJuegosUsuario guardar los juegos de mi usuario en sesion en un array List
     }
 
 }

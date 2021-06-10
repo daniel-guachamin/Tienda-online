@@ -1,5 +1,6 @@
 package com.danielta.ejb;
 
+import com.danielta.model.Persona;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -41,7 +42,7 @@ public abstract class AbstractFacade<T> { //utiliza datos de tipo generico para 
         return getEntityManager().createQuery(cq).getResultList();
     }
     
-    public List<T> encuentraJuegosUsuarioComprado(int codigo_persona) {
+    public List<T> encuentraJuegosUsuarioComprado(Persona codigo_persona) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
         Root<T> c = cq.from(entityClass);
@@ -50,7 +51,7 @@ public abstract class AbstractFacade<T> { //utiliza datos de tipo generico para 
         return getEntityManager().createQuery(cq).getResultList();
     }
     
-    public List<T> encuentraPedidosUsuario(int codigo_persona) {
+    public List<T> encuentraPedidosUsuario(Persona codigo_persona) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
         Root<T> c = cq.from(entityClass);
@@ -59,7 +60,7 @@ public abstract class AbstractFacade<T> { //utiliza datos de tipo generico para 
         return getEntityManager().createQuery(cq).getResultList();
     }
  
-    public List<T> encuentraMensaje(int codigo_persona) {
+    public List<T> encuentraMensaje(Persona codigo_persona) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
         Root<T> c = cq.from(entityClass);

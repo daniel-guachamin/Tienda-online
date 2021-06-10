@@ -134,10 +134,11 @@ public class JuegosController implements Serializable {
     public void setJuegos(JuegosUsuarios juegos) {
         this.juegos = juegos;
     }
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
     @PostConstruct
     public void init() {
-        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
         datosPersona = personaEJB.encuentraDatosPersona(codigo_persona);
     }
@@ -190,7 +191,7 @@ public class JuegosController implements Serializable {
                 for (Juegos listaJuegos : juegosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
 
                     juegos = new JuegosUsuarios();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
-                    this.juegos.setPersona(codigo_persona);
+                    this.juegos.setPersona(us.getCodigo());
                     this.juegos.setNombre(listaJuegos.getNombre());
                     this.juegos.setImagen(listaJuegos.getImagen());
                     this.juegos.setPrecio(listaJuegos.getPrecio());
@@ -201,7 +202,7 @@ public class JuegosController implements Serializable {
                 for (pedidos listaPedidos : pedidosList) { //añado los juegos no eliminados por el usuario en mi array que guardara los juegos a la bbdd
 
                     detalles = new DetallesCompra();//necesario para guardar mis datos en un objeto nuevo durante la itracion del bucle
-                    this.detalles.setPersona(codigo_persona);
+                    this.detalles.setPersona(us.getCodigo());
                     this.detalles.setProducto(listaPedidos.getProducto());
                     this.detalles.setImagen(listaPedidos.getImagen());
                     this.detalles.setPrecio(listaPedidos.getPrecio());

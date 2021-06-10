@@ -2,6 +2,7 @@
 package com.danielta.ejb;
 
 import com.danielta.model.JuegosUsuarios;
+import com.danielta.model.Persona;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -19,7 +20,7 @@ public interface JuegosUsuariosFacadeLocal {
 
     List<JuegosUsuarios> findAll();
     
-    List<JuegosUsuarios> encuentraJuegosUsuarioComprado(int entra_codigo_persona);
+    List<JuegosUsuarios> encuentraJuegosUsuarioComprado(Persona entra_codigo_persona);
     
     List<JuegosUsuarios> findRange(int[] range);
 

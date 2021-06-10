@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,8 +24,9 @@ public class Mensaje implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
     private int codigo;
 
-    @Column(name = "codigo_persona")
-    private int persona;
+    @ManyToOne
+    @JoinColumn(name = "codigo_persona", nullable = false)
+    private Persona persona;
 
     @Column(name = "mensaje")
     private String mensaje;
@@ -47,11 +50,11 @@ public class Mensaje implements Serializable {
         this.codigo = codigo;
     }
 
-    public int getPersona() {
+    public Persona getPersona() {
         return persona;
     }
 
-    public void setPersona(int persona) {
+    public void setPersona(Persona persona) {
         this.persona = persona;
     }
 
@@ -72,9 +75,6 @@ public class Mensaje implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
