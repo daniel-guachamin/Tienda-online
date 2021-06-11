@@ -216,6 +216,7 @@ public class JuegosController implements Serializable {
                     this.persona.setApellidos(datos.getApellidos());
                     this.persona.setSexo(datos.getSexo());
                     this.persona.setFechaNacimiento(datos.getFechaNacimiento());
+                    this.persona.setDireccion(datos.getDireccion());
                 }
                 personaEJB.edit(persona);
 
