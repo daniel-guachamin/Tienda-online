@@ -18,7 +18,7 @@
 
 
                 <!-- Menu de nagegación -->
-                <div class="container-fluid fondopc">
+                <div class="container-fluid fondopc" id="ini">
 
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
                         <div class="container">
@@ -42,50 +42,62 @@
                     </nav>
 
                     <div class="separadorBlanco container"></div>
+                    <div class="container fondoContainer">
+                        <h:form>
+                            <!--mostrara mensajes de error o exito -->
+                            <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                            <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
 
-                    <h:form>
-                        <!--mostrara mensajes de error o exito -->
-                        <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
-                        <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
-                        <div class="container fondoContainer">
                             <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
                             <div class="row ">
 
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Farcry.png" alt="Farcry new dawn"/>
+                                    <p:link href="#par1">
+                                        <h:graphicImage library="img" name="pc/Farcry.png" alt="Farcry new dawn"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra1" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Farcry new dawn', 'Farcry.png', 40)}"/>                  
                                 </div>                    
 
                                 <div class="col text-center  ">
-                                    <h:graphicImage library="img" name="pc/Hitman3.png" alt="Hitman3"/>
+                                    <p:link href="#par2">
+                                        <h:graphicImage library="img" name="pc/Hitman3.png" alt="Hitman3"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra2" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Hitman 3', 'Hitman3.png', 50)}"/>                     
                                 </div>
 
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Sims4.png" alt="Los Sims 4"/>
+                                    <p:link href="#par3">
+                                        <h:graphicImage library="img" name="pc/Sims4.png" alt="Los Sims 4"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra3" value="Añadir 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Los Sims 4', 'Sims4.png', 35)}"/>                        
                                 </div>
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Fallout.png" alt="Fallout 76"/>
+                                    <p:link href="#par4">
+                                        <h:graphicImage library="img" name="pc/Fallout.png" alt="Fallout 76"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra4" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fallout 76', 'Fallout.png', 40)}"/>                       
                                 </div>
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/DarkAlliange.png" alt="Dark Alliange"/>
+                                    <p:link href="#par5">
+                                        <h:graphicImage library="img" name="pc/DarkAlliange.png" alt="Dark Alliange"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra5" value="Añadir 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Dark Alliange', 'DarkAlliange.png', 60)}"/>                        
                                 </div>
-                                
+
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/total.png" alt="Total war"/>
+                                    <p:link href="#par6">
+                                        <h:graphicImage library="img" name="pc/total.png" alt="Total war"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra51" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Total war', 'total.png', 30)}"/>                        
                                 </div>
                             </div>
-                            <div class="separador"></div>
+                            <div class="separadorBlanco row"></div>
                             <h1 class="text-center">JUEGOS POR MENOS DE 20€</h1>
                             <div class="row">
 
@@ -116,17 +128,259 @@
                                     <br></br>
                                     <p:commandButton id="compra10" value="Añadir 16€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fifa 2021', 'Fifa2.png', 16)}"/>                        
                                 </div>
-                                
+
                                 <div class="col text-center ">
                                     <h:graphicImage library="img" name="pc/f1.png" alt="F1 2021"/>
                                     <br></br>
                                     <p:commandButton id="compra11" value="Añadir 36€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('F1 2021', 'f1.png', 36)}"/>                        
                                 </div>
                             </div>
-                        </div>
-                    </h:form>  
 
+                        </h:form>  
+                        <!--Detalles de juego 1-->
+                        <div class="separadorBlanco row" id="par1"></div>
+
+                        <div class="row container" >
+
+                            <h1>FAR CRY NEW DAWN</h1>
+                            <p>Diecisiete años después de una catástrofe nuclear a nivel global, la civilización resurge del caos para encontrarse con un mundo radicalmente distinto. La población superviviente del condado de Hope se ha agrupado en varias comunidades, cada una con sus propias normas y reglas de convivencia.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete" data-slide-to="1"></li>
+                                <li data-target="#muevete" data-slide-to="2"></li>
+                                <li data-target="#muevete" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/far1.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/far2.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/far3.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/far4.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 2-->
+                        <div class="separadorBlanco row" id="par2"></div>
+
+                        <div class="row container" >
+
+                            <h1>HITMAN III</h1>
+                            <p>Hitman 3, la dramática conclusión de la trilogía de World of Assassination y lleva a los jugadores de todo el mundo a una aventura por unos extensos escenarios de pruebas. El Agente 47 regresa como un profesional despiadado por los contratos más importantes de toda su carrera. La muerte espera.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete2" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete2" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete2" data-slide-to="1"></li>
+                                <li data-target="#muevete2" data-slide-to="2"></li>
+                                <li data-target="#muevete2" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/hit11.png" alt="Hitman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hit2.png" alt="Hitman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hit3.png" alt="Hitman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hit4.png" alt="Hitman" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete2" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete2" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 3-->
+                        <div class="separadorBlanco row" id="par3"></div>
+
+                        <div class="row container" >
+
+                            <h1>LOS SIMS 4 VIDA ISLEÑA</h1>
+                            <p>Explora un mundo desenfadado de sol, arena y diversión ilimitada donde crear tu paraíso particular en Los Sims 4 Vida Isleña. Tanto si contribuyes a la causa de la conservación como si prefieres vivir sin suministros, podrás zambullirte en esta singular cultura y disfrutar de todo lo que ofrece.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        
+
+                        <!--Detalles de juego 4-->
+                        <div class="separadorBlanco row" id="par4"></div>
+
+                        <div class="row container" >
+
+                            <h1>FALLOUT 76 WASTELANDERS</h1>
+                            <p>En Fallout 76 Wastelanders, la gente regresa a Virginia Occidental. Dos facciones enfrentadas compiten por llevar la delantera mientras se revelan los secretos de este territorio.</p>
+                            <p>Los colonos han venido con el propósito de encontrar un nuevo hogar y los saqueadores, para aprovecharse de ellos. Embárcate en una nueva misión para la supervisora, forja alianzas con las facciones rivales y descubre la verdad de lo que se oculta en las montañas. Incluye el juego completo y el bonus con los ítems de Raider y Settler.</p>   
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete4" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete4" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete4" data-slide-to="1"></li>
+                                <li data-target="#muevete4" data-slide-to="2"></li>
+                                <li data-target="#muevete4" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/fall1.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/fall2.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/fall3.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/fall4.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete4" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete4" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 5-->
+                        <div class="separadorBlanco row" id="par5"></div>
+
+                        <div class="row container" >
+
+                            <h1>DUNGEONS AND DRAGONS DARK ALLIANCE</h1>
+                            <p>Únete a hasta 4 amigos y lucha contra monstruos icónicos de Dungeons y Dragons en el nuevo  RPG de acción cooperativa  DUNGEONS y DRAGONS: DARK ALLIANCE. Dark Alliance da vida al mundo de  Dungeons y Dragons  en un RPG de acción explosiva lleno de combate en tiempo real y cooperación dinámica. Gigantes de hielo y dragones vengativos deambulan sin control a través de IcewindDale a medida que los ejércitos invasores del mal se hacen más fuertes cada día. Ahora cuatro héroes deben vencer la embestida de las criaturas y defenderse de la oscuridad.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete5" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete5" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete5" data-slide-to="1"></li>
+                                <li data-target="#muevete5" data-slide-to="2"></li>
+                                <li data-target="#muevete5" data-slide-to="3"></li>
+                                <li data-target="#muevete5" data-slide-to="4"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/dar1.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar2.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar3.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar4.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar5.png" alt="Dark" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete5" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete5" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 6-->
+                        <div class="separadorBlanco row" id="par6"></div>
+
+                        <div class="row container" >
+
+                            <h1>TOTAL WAR WARHAMMER 3</h1>
+                            <p>Se acerca el final cataclísmico de la trilogía de Total War: WARHAMMER con Total War Warhammer 3 Reagrupa a tus fuerzas y adéntrate en el Reino del Caos, una dimensión de terrores horripilantes en la que se decidirá el destino del mundo. ¿Conquistarás a tus demonios... o los dirigirás?</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete6" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete6" data-slide-to="0" class="active"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/war1.png" alt="Total war" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete6" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete6" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                    </div>
                     <div class="separadorBlanco container"></div>
+
+
 
 
                     <!-- Footer --> 
