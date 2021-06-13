@@ -11,47 +11,51 @@
         <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h1 class="text-center">Tus pedidos llegaran a tu casa lo antes posible</h1>
+                <div class="container-fluid fondo2">
+                    <div class="container">
+                        <h1 class="text-center text-white">Tus pedidos llegaran a tu casa lo antes posible</h1>
 
-                <h:form>
+                        <h:form>
 
-                    <p:dataTable value="#{pedidosController.misPedidos}" var="pedidos" paginator="true" rows="7" emptyMessage="¡No has comprado ningun articulo!"
-                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
-                        <p:column headerText="Producto">
-                            <div class="text-center">
-                                <b><h:outputText value="#{pedidos.producto}" /></b>
-                                <br></br>
-                                <h:graphicImage library="img" name="#{pedidos.imagen}"  />    
-                            </div>
+                            <p:dataTable value="#{pedidosController.misPedidos}" var="pedidos" paginator="true" rows="7" emptyMessage="¡No has comprado ningun articulo!"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})">
+                                <p:column headerText="Producto">
+                                    <div class="text-center scroll">
+                                        <b><h:outputText value="#{pedidos.producto}" /></b>
+                                        <br></br>
+                                        <h:graphicImage library="img" name="#{pedidos.imagen}" width="200px"/>    
+                                    </div>
 
-                        </p:column>
+                                </p:column>
 
-                        <p:column headerText="Precio">
-                            <div class="text-center">
-                                <b><h:outputText value="#{pedidos.precio}€" /></b>
-                            </div>
-                        </p:column>
-                        
-                        <p:column headerText="Cantidad">
-                            <div class="text-center">
-                                <b><h:outputText value="Und: #{pedidos.cantidad}" /></b>
-                            </div>
-                        </p:column>
-                        
-                        <p:column headerText="Fecha" >
-                            <h:outputText value="#{pedidos.fecha}" >
-                                <f:convertDateTime pattern="dd/MM/yyyy H:m:s" />
-                            </h:outputText>
-                        </p:column>
-                        
-                        <p:column headerText="Estado" >
-                            <div class="text-center">
-                                <b><h:outputText value="En camino" /></b>
-                            </div>
-                        </p:column>
-                    </p:dataTable>                 
-                </h:form>
+                                <p:column headerText="Precio">
+                                    <div class="text-center">
+                                        <b><h:outputText value="#{pedidos.precio}€" /></b>
+                                    </div>
+                                </p:column>
+
+                                <p:column headerText="Cantidad">
+                                    <div class="text-center">
+                                        <b><h:outputText value="Und: #{pedidos.cantidad}" /></b>
+                                    </div>
+                                </p:column>
+
+                                <p:column headerText="Fecha" >
+                                    <h:outputText value="#{pedidos.fecha}" >
+                                        <f:convertDateTime pattern="dd/MM/yyyy H:m:s" />
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column headerText="Estado" >
+                                    <div class="text-center">
+                                        <b><h:outputText value="En camino" /></b>
+                                    </div>
+                                </p:column>
+                            </p:dataTable>                 
+                        </h:form>
+                    </div>
+                </div>
             </ui:define>
         </ui:composition>
 

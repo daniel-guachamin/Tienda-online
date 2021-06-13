@@ -137,6 +137,32 @@ section {
         background-color: #ffffff;
     }
 }
+@media screen and (max-width: 767px) {
+    .fondo1 {
+        background: url(https://media.game.es/Skin/ps4-seccion-ps4-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondo1 {
+        background: url(https://media.game.es/Skin/ps4-seccion-ps4-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+@media screen and (max-width: 767px) {
+    .fondo2 {
+        background: url("https://media.game.es/Microsites/Static-Source/blizzard-digital/img/SKIN.jpg") 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondo2 {
+        background: url("https://media.game.es/Microsites/Static-Source/blizzard-digital/img/SKIN.jpg") 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
 
 .enfrente{
     z-index: 1;
