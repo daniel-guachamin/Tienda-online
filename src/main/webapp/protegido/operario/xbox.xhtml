@@ -50,6 +50,9 @@
                     <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
 
                     <div class="container enfrente">
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="xboxOne/fotoGrande.jpg" alt="Oferta" width="1140px"/><br></br>
+                        </div>
                         <!-- Galeria de imagenes -->
                         <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
                         <!--demo me permite que funcionen mis botones del carrusel-->
@@ -157,6 +160,74 @@
                             <a class="carousel-control-next bg-dark" href="#demo" data-slide="next" style="height: 25px; width: 10%;">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
+
+                        </div>
+                        
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="xboxOne/fotoGrande2.jpg" alt="Oferta" width="1140px"/><br></br>
+                        </div>
+
+                        <h1 class="text-center">Consola y accesorios</h1>
+
+
+                        <div class="row ">
+
+                            <div class="col text-center ">
+
+                                <h:form id="ar1" >
+                                    <h:graphicImage library="img" name="xboxOne/pro1.png" alt="Consola xbox One"/><br></br>
+                                    <p:commandButton id="ar_1" value="Añadir 265€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Consola xbox One', 'xboxOne/pro1.png', 265)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar2" >
+                                    <h:graphicImage library="img" name="xboxOne/pro2.png" alt="Mando Inalámbrico"/><br></br>
+                                    <p:commandButton id="ar_2" value="Añadir 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando Inalámbricos', 'xboxOne/pro2.png', 60)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar3" >
+                                    <h:graphicImage library="img" name="xboxOne/pro3.png" alt="Mando Inalámbrico"/><br></br>
+                                    <p:commandButton id="ar_3" value="Añadir 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando Inalámbrico', 'xboxOne/pro3.png', 60)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar4" >
+                                    <h:graphicImage library="img" name="xboxOne/pro4.png" alt="Mando por cable"/><br></br>
+                                    <p:commandButton id="ar_4" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando por cable', 'xboxOne/pro4.png', 30)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar5" >
+                                    <h:graphicImage library="img" name="xboxOne/pro5.png" alt="ASTRO A40 TR + MIXAMP PRO TR XONE"/><br></br>
+                                    <p:commandButton id="ar_5" value="Añadir 220€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('ASTRO A40 TR + MIXAMP PRO TR XONE', 'xboxOne/pro5.png', 220)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar6" >
+                                    <h:graphicImage library="img" name="xboxOne/pro6.png" alt="RAZER NARI ULTIMATE XBOX ONE ED. AURICULARES GAMING"/><br></br>
+                                    <p:commandButton id="ar_6" value="Añadir 155" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('RAZER NARI ULTIMATE XBOX ONE ED. AURICULARES GAMING', 'xboxOne/pro6.png', 155)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            
 
                         </div>
 

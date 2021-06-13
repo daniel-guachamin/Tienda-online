@@ -49,7 +49,10 @@
                     <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
                     <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
 
-                    <div class="container enfrente text-center">
+                    <div class="container enfrente">
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="switch/fotoGrande.png" alt="Oferta" width="1140px"/><br></br>
+                        </div>
 
                         <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
                     
@@ -141,6 +144,78 @@
 
                             </div>
 
+                        </div>
+                        
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="switch/fotoGrande2.jpg" alt="Oferta" width="1140px"/><br></br>
+                        </div>
+
+                        <h1 class="text-center">Consola y accesorios</h1>
+
+
+                        <div class="row ">
+
+                            <div class="col text-center ">
+
+                                <h:form id="ar1" >
+                                    <h:graphicImage library="img" name="switch/pro1.png" alt="Consola xbox One"/><br></br>
+                                    <p:commandButton id="ar_1" value="Añadir 330€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Consola xbox One', 'switch/pro1.png', 330)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar2" >
+                                    <h:graphicImage library="img" name="switch/pro2.png" alt="JOY-CON (SET IZDA/DCHA) EDICIÓN FORTNITE"/><br></br>
+                                    <p:commandButton id="ar_2" value="Añadir 80€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('JOY-CON (SET IZDA/DCHA) EDICIÓN FORTNITE', 'switch/pro2.png', 80)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar3" >
+                                    <h:graphicImage library="img" name="switch/pro3.png" alt="JOY-CON (SET IZDA/DCHA) VERDE NEÓN/ROSA NEÓN"/><br></br>
+                                    <p:commandButton id="ar_3" value="Añadir 75€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('JOY-CON (SET IZDA/DCHA) VERDE NEÓN/ROSA NEÓN', 'switch/pro3.png', 75)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar4" >
+                                    <h:graphicImage library="img" name="switch/pro4.png" alt="NINTENDO SWITCH CONTROLLER PRO NEGRO"/><br></br>
+                                    <p:commandButton id="ar_4" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('NINTENDO SWITCH CONTROLLER PRO NEGRO', 'switch/pro4.png', 50)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar5" >
+                                    <h:graphicImage library="img" name="switch/pro5.png" alt="AURICULARES ARDISTEL BLACKFIRE NSX-10 NEÓN"/><br></br>
+                                    <p:commandButton id="ar_5" value="Añadir 18€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('AURICULARES ARDISTEL BLACKFIRE NSX-10 NEÓN', 'switch/pro5.png', 18)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar6" >
+                                    <h:graphicImage library="img" name="switch/pro6.png" alt="MEMORIA SANDISK 128GB"/><br></br>
+                                    <p:commandButton id="ar_6" value="Añadir 22€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('MEMORIA SANDISK 128GB', 'switch/pro6.png', 22)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            
+
+                        </div>
+                        
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="switch/fotoGrande3.jpg" alt="Oferta" width="1140px"/><br></br>
                         </div>
                     </div>
 
