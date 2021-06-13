@@ -128,7 +128,7 @@
                                         <div class="col text-center ">
                                             <h:form id="ps5_6" >
                                                 <p:link href="#par6">
-                                                <h:graphicImage library="img" name="ps5/tales.png" alt="Tales of arise"/><br></br>
+                                                    <h:graphicImage library="img" name="ps5/tales.png" alt="Tales of arise"/><br></br>
                                                 </p:link>
                                                 <p:commandButton id="ps6" value="Añadir 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Tales of arise', 'ps5/tales.png', 27)}"/>  
                                                 <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.restarUnProducto()}" /> 
@@ -148,6 +148,71 @@
                             <a class="carousel-control-next bg-dark" href="#demo" data-slide="next" style="height: 25px; width: 10%;">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
+
+                        </div>
+                        <div class="separadorBlanco row"></div>
+
+                        <h1 class="text-center">Consolas y accesorios</h1>
+
+
+                        <div class="row ">
+
+                            <div class="col text-center ">
+
+                                <h:form id="ar1" >
+                                    <h:graphicImage library="img" name="ps5/ps5.png" alt="Consola PlayStation 5"/><br></br>
+                                    <p:commandButton id="ar_1" value="Añadir 500€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Consola PlayStation 5', 'ps5/ps5.png', 500)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar2" >
+                                    <h:graphicImage library="img" name="ps5/auriculares.png" alt="auriculares"/><br></br>
+                                    <p:commandButton id="ar_2" value="Añadir 100€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Auriculares Inalámbricos', 'ps5/auriculares.png', 100)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar3" >
+                                    <h:graphicImage library="img" name="ps5/mando1.png" alt="Mando"/><br></br>
+                                    <p:commandButton id="ar_3" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando Inalámbrico', 'ps5/mando1.png', 70)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar4" >
+                                    <h:graphicImage library="img" name="ps5/mando2.png" alt="Mando"/><br></br>
+                                    <p:commandButton id="ar_4" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando Inalámbrico', 'ps5/mando2.png', 70)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar5" >
+                                    <h:graphicImage library="img" name="ps5/recarga.png" alt="Estación de recarga de dualsense"/><br></br>
+                                    <p:commandButton id="ar_5" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Estación de recarga de dualsense', 'ps5/recarga.png', 30)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar6" >
+                                    <h:graphicImage library="img" name="ps5/gorra.png" alt="Gorra Playstation 5"/><br></br>
+                                    <p:commandButton id="ar_6" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Gorra Playstation 5', 'ps5/gorra.png', 20)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            
 
                         </div>
 
@@ -179,13 +244,13 @@
                                 <div class="carousel-item active scroll">
                                     <h:graphicImage library="img" name="ps5/01_final.jpg" alt="Final Fantasy" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/02_final.jpg" alt="Final Fantasy" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/03_final.jpg" alt="Final Fantasy" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/04_final.jpg" alt="Final Fantasy" width="1140px"/>
                                 </div>
                             </div>
@@ -226,13 +291,13 @@
                                 <div class="carousel-item active scroll">
                                     <h:graphicImage library="img" name="ps5/01_val.jpg" alt="Valhala" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/02_val.jpg" alt="Valhala" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/03_val.jpg" alt="Valhala" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/04_val.jpg" alt="Valhala" width="1140px"/>
                                 </div>
                             </div>
@@ -273,13 +338,13 @@
                                 <div class="carousel-item active scroll">
                                     <h:graphicImage library="img" name="ps5/ter1.jpg" alt="Terminator" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/ter2.jpg" alt="Terminator" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/ter3.jpg" alt="Terminator" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/ter4.jpg" alt="Terminator" width="1140px"/>
                                 </div>
                             </div>
@@ -320,13 +385,13 @@
                                 <div class="carousel-item active scroll">
                                     <h:graphicImage library="img" name="ps5/spi1.png" alt="Spiderman" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/spi2.png" alt="Spiderman" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/spi3.png" alt="Spiderman" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/spi4.png" alt="Spiderman" width="1140px"/>
                                 </div>
                             </div>
@@ -368,16 +433,16 @@
                                 <div class="carousel-item active scroll">
                                     <h:graphicImage library="img" name="ps5/cli5.jpg" alt="chivalry" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/cli1.jpg" alt="chivalry" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/cli2.jpg" alt="chivalry" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/cli3.jpg" alt="chivalry" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/cli4.jpg" alt="chivalry" width="1140px"/>
                                 </div>
                             </div>
@@ -418,13 +483,13 @@
                                 <div class="carousel-item active scroll">
                                     <h:graphicImage library="img" name="ps5/tal4.png" alt="TALES OF ARISE" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/tal2.png" alt="TALES OF ARISE" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/tal3.png" alt="TALES OF ARISE" width="1140px"/>
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item scroll">
                                     <h:graphicImage library="img" name="ps5/tal1.png" alt="TALES OF ARISE" width="1140px"/>
                                 </div>
                             </div>
@@ -438,12 +503,7 @@
                             </a>
                         </div>
 
-
-
-
-
-
-                    </div>
+                    </div><!--final container-->
 
 
 
