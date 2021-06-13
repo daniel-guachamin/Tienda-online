@@ -124,6 +124,19 @@ section {
         background-color: #ffffff;
     }
 }
+@media screen and (max-width: 767px) {
+    .fondops52 {
+        background: url(https://media.game.es/Skin/ps5-generico-FFVIIRemakeIntergrade-s0722-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondops52 {
+        background: url(https://media.game.es/Skin/ps5-generico-FFVIIRemakeIntergrade-s0722-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
 
 .enfrente{
     z-index: 1;
