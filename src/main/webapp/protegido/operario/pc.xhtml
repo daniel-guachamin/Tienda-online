@@ -42,7 +42,7 @@
                     </nav>
 
                     <div class="separadorBlanco container"></div>
-                    
+
                     <div class="container fondoContainer">
                         <div class="row scroll">
                             <h:graphicImage library="img" name="pc/largoJuego.jpg" alt="Final fantasy 7" width="1140px"/><br></br>
@@ -106,35 +106,47 @@
                             <div class="row">
 
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Nier.png" alt="Nier Replicant"/>
+                                    <p:link href="#par7">
+                                        <h:graphicImage library="img" name="pc/Nier.png" alt="Nier Replicant"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra6" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Nier Replicant', 'Nier.png', 20)}"/>            
                                 </div>                    
 
                                 <div class="col text-center  ">
-                                    <h:graphicImage library="img" name="pc/Chronos.png" alt="Chronos"/>
+                                    <p:link href="#par8">
+                                        <h:graphicImage library="img" name="pc/Chronos.png" alt="Chronos"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra7" value="Añadir 15€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Chronos', 'Chronos.png', 15)}"/>                     
                                 </div>
 
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Hunt.png" alt="Hunt"/>
+                                    <p:link href="#par9">
+                                        <h:graphicImage library="img" name="pc/Hunt.png" alt="Hunt"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra8" value="Añadir 12€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Hunt', 'Hunt.png', 12)}"/>                        
                                 </div>
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Mafia.png" alt="Mafia Trilogy"/>
+                                    <p:link href="#par10">
+                                        <h:graphicImage library="img" name="pc/Mafia.png" alt="Mafia Trilogy"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra9" value="Añadir 10€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Mafia Trilogy', 'Mafia.png', 10)}"/>                       
                                 </div>
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/Fifa2.png" alt="Fifa 2021"/>
+                                    <p:link href="#par11">
+                                        <h:graphicImage library="img" name="pc/Fifa2.png" alt="Fifa 2021"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra10" value="Añadir 16€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fifa 2021', 'Fifa2.png', 16)}"/>                        
                                 </div>
 
                                 <div class="col text-center ">
-                                    <h:graphicImage library="img" name="pc/f1.png" alt="F1 2021"/>
+                                    <p:link href="#par12">
+                                        <h:graphicImage library="img" name="pc/f1.png" alt="F1 2021"/>
+                                    </p:link>
                                     <br></br>
                                     <p:commandButton id="compra11" value="Añadir 36€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('F1 2021', 'f1.png', 36)}"/>                        
                                 </div>
@@ -246,7 +258,7 @@
                                 <button>Volver</button>
                             </p:link>
                         </div>
-                        
+
 
                         <!--Detalles de juego 4-->
                         <div class="separadorBlanco row" id="par4"></div>
@@ -381,7 +393,291 @@
                                 <span class="carousel-control-next-icon"></span>
                             </a>
                         </div>
+
+                        <!--Detalles de juego 7-->
+                        <div class="separadorBlanco row" id="par7"></div>
+
+                        <div class="row container" >
+
+                            <h1>NIER REPLICANT</h1>
+                            <p>El protagonista es un bondadoso joven de una aldea remota que, con el objetivo de salvar a su hermana Yonah, que sufre una enfermedad letal conocida como necrosis rúnica, se dispone a buscar los Versos sellados en compañía del extraño libro parlante Grimoire Weiss.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete7" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete7" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete7" data-slide-to="1"></li>
+                                <li data-target="#muevete7" data-slide-to="2"></li>
+                                <li data-target="#muevete7" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/mi4.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/mi2.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/mi3.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/mi1.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete7" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete7" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 8-->
+                        <div class="separadorBlanco row" id="par8"></div>
+
+                        <div class="row container" >
+
+                            <h1>CHRONOS BEFORE THE ASHES</h1>
+                            <p>Chronos: Before the Ashes es un RPG atmosférico que narra la vida de aventuras de un héroe por salvar su hogar de un terrible mal. Hazte más sabio, fuerte y poderoso a medida que exploras las profundidades del misterioso laberinto, pero ten cuidado: avanzar por el dédalo tiene un alto precio. ¡Cada vezque el héroe muere, pierde un año de vida!</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete8" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete8" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete8" data-slide-to="1"></li>
+                                <li data-target="#muevete8" data-slide-to="2"></li>
+                                <li data-target="#muevete8" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/man4.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/man2.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/man3.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/man1.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete8" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete8" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 9-->
+                        <div class="separadorBlanco row" id="par9"></div>
+
+                        <div class="row container" >
+
+                            <h1>HUNT SHOWDOWN</h1>
+                            <p>Las criaturas se han apoderado de nuestro mundo y su pellejo será tu botín. Eres un cazarrecompensas. Únete a un amigo y elimina monstruos a cambio de oro. Hunt es un juego basado en partidas PVPVE de hasta 10 jugadores donde podrás jugar en equipo o solo. Juega en un mapa de mundo abierto repleto de enemigos y objetivos que te pondrán a prueba.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete12" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete12" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete12" data-slide-to="1"></li>
+                                <li data-target="#muevete12" data-slide-to="2"></li>
+                                <li data-target="#muevete12" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/hun1.png" alt="HUNT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hun2.png" alt="HUNT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hun3.png" alt="HUNT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hun4.png" alt="HUNT" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete12" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete12" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 10-->
+                        <div class="separadorBlanco row" id="par10"></div>
+
+                        <div class="row container" >
+
+                            <h1>MAFIA TRILOGY</h1>
+                            <p>Sumérgete en el brutal mundo del crimen organizado durante tres épocas delictivas en Estados Unidos. Por primera vez, juega a los tres dramas criminales de la franquicia Mafia en una increíble resolución 4K y detalles en Ultra HD, incluida una fiel reinvención del aclamado Mafia original. Incluye los juegos principales y todos los DLC publicados.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete10" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete10" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete10" data-slide-to="1"></li>
+                                <li data-target="#muevete10" data-slide-to="2"></li>
+                                <li data-target="#muevete10" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/maf2.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/maf1.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/maf3.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/maf4.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete10" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete10" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 11-->
+                        <div class="separadorBlanco row" id="par11"></div>
+
+                        <div class="row container" >
+
+                            <h1>FIFA 21</h1>
+                            <p>Siente a otro nivel con FIFA 21, despliega todas tus tácticas de juego, pon a prueba tus dotes defensivas y asegúrate de no dejar de marcar goles para convertirte de nuevo en leyenda en el simulador de fútbol más completo de todos los tiempos.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete11" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete11" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete11" data-slide-to="1"></li>
+                                <li data-target="#muevete11" data-slide-to="2"></li>
+                                <li data-target="#muevete11" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/karr1.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/karr2.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/karr3.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/karr4.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete11" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete11" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 12-->
+                        <div class="separadorBlanco row" id="par12"></div>
+
+                        <div class="row container" >
+
+                            <h1>MOTOGP 21</h1>
+                            <p>Vive la temporada 2021 completa con todas las categorías principales, listas y circuitos oficiales. Más de 120 pilotos y 20 circuitos oficiales y nuevas y mejoradas características como la introducción de la regla de penalización de la vuelta larga. Revive la historia y todas las emociones del MotoGP TM con más de 40 pilotos históricos y sus icónicas motos.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete10" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete10" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete10" data-slide-to="1"></li>
+                                <li data-target="#muevete10" data-slide-to="2"></li>
+                                <li data-target="#muevete10" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/lol1.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/lol2.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/lol3.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/lol4.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete10" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete10" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
                     </div>
+
                     <div class="separadorBlanco container"></div>
 
                     <!-- Footer --> 

@@ -41,7 +41,7 @@
                         </div>
                     </nav>
 
-                    <div class="separadorBlanco container"></div>
+                    <div class="separadorBlanco container" id="ini"></div>
 
 
 
@@ -64,7 +64,9 @@
                                     <h:panelGrid columns="5" id="juegosxbox1" >
 
                                         <h:form id="xbox_1" >
-                                            <h:graphicImage library="img" name="xboxOne/nightmares2.png" alt="Nightmares 2"/><br></br>
+                                            <p:link href="#par1">
+                                                <h:graphicImage library="img" name="xboxOne/nightmares2.png" alt="Nightmares 2"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox1" value="Añadir 53€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Nightmares 2', 'xboxOne/nightmares2.png', 53)}"/> 
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_1" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
@@ -72,7 +74,9 @@
                                         </h:form>
 
                                         <h:form id="xbox_2" >
-                                            <h:graphicImage library="img" name="xboxOne/halo.png" alt="Halo Infinite"/><br></br>
+                                            <p:link href="#par2">
+                                                <h:graphicImage library="img" name="xboxOne/halo.png" alt="Halo Infinite"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox2" value="Añadir 42€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Halo Infinite', 'xboxOne/halo.png', 42)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_2" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
@@ -80,7 +84,9 @@
                                         </h:form>
 
                                         <h:form id="xbox_3" >
-                                            <h:graphicImage library="img" name="xboxOne/grand.png" alt="Grand theft auto"/><br></br>
+                                            <p:link href="#par3">
+                                                <h:graphicImage library="img" name="xboxOne/grand.png" alt="Grand theft auto"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox3" value="Añadir 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Grand theft auto', 'xboxOne/grand.png', 27)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_3" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
@@ -88,7 +94,9 @@
                                         </h:form>
 
                                         <h:form id="xbox_4" >
-                                            <h:graphicImage library="img" name="xboxOne/farcry6.png" alt="Farcry 6"/><br></br>
+                                            <p:link href="#par4">
+                                                <h:graphicImage library="img" name="xboxOne/farcry6.png" alt="Farcry 6"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox4" value="Añadir 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Farcry 6', 'xboxOne/farcry6.png', 60)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_4" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
@@ -96,7 +104,9 @@
                                         </h:form>
 
                                         <h:form id="xbox_5" >
-                                            <h:graphicImage library="img" name="xboxOne/prince.png" alt="Prince of persia"/><br></br>
+                                            <p:link href="#par5">
+                                                <h:graphicImage library="img" name="xboxOne/prince.png" alt="Prince of persia"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox5" value="Añadir 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Prince of persia', 'xboxOne/prince.png', 33)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_5" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
@@ -108,39 +118,49 @@
                                     <h:panelGrid columns="5" id="juegosxbox2" >
 
                                         <h:form id="xbox_6" >
-                                            <h:graphicImage library="img" name="xboxOne/red.png" alt="Red dead redemption"/><br></br>
+                                            <p:link href="#par6">
+                                                <h:graphicImage library="img" name="xboxOne/red.png" alt="Red dead redemption"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox6" value="Añadir 55€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Red dead redemption', 'xboxOne/red.png', 55)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_6" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
                                             <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_6" actionListener="#{juegosController.sumarUnProducto()}" /> 
                                         </h:form>
-                                        
+
                                         <h:form id="xbox_7" >
-                                            <h:graphicImage library="img" name="xboxOne/biomutant.png" alt="Biomutant"/><br></br>
+                                            <p:link href="#par7">
+                                                <h:graphicImage library="img" name="xboxOne/biomutant.png" alt="Biomutant"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox7" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Biomutant', 'xboxOne/biomutant.png', 20)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_7" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
                                             <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_7" actionListener="#{juegosController.sumarUnProducto()}" /> 
                                         </h:form>
-                                        
+
                                         <h:form id="xbox_8" >
-                                            <h:graphicImage library="img" name="xboxOne/spiner.png" alt="Spiner contracts 2"/><br></br>
+                                            <p:link href="#par8">
+                                                <h:graphicImage library="img" name="xboxOne/spiner.png" alt="Spiner contracts 2"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox8" value="Añadir 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Spiner contracts 2', 'xboxOne/spiner.png', 60)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_8" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
                                             <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_8" actionListener="#{juegosController.sumarUnProducto()}" /> 
                                         </h:form>
-                                        
+
                                         <h:form id="xbox_9" >
-                                            <h:graphicImage library="img" name="xboxOne/fifa21.png" alt="Fifa 2021"/><br></br>
+                                            <p:link href="#par9">
+                                                <h:graphicImage library="img" name="xboxOne/fifa21.png" alt="Fifa 2021"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox9" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Fifa 2021', 'xboxOne/fifa21.png', 30)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_9" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
                                             <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,xbox_9" actionListener="#{juegosController.sumarUnProducto()}" /> 
                                         </h:form>
-                                        
+
                                         <h:form id="xbox_10" >
-                                            <h:graphicImage library="img" name="xboxOne/motogp.png" alt="Moto gp 2021"/><br></br>
+                                            <p:link href="#par10">
+                                                <h:graphicImage library="img" name="xboxOne/motogp.png" alt="Moto gp 2021"/><br></br>
+                                            </p:link>
                                             <p:commandButton id="xbox10" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Moto gp 2021', 'xboxOne/motogp.png', 20)}"/>  
                                             <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,xbox_10" actionListener="#{juegosController.restarUnProducto()}" /> 
                                             <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
@@ -162,7 +182,7 @@
                             </a>
 
                         </div>
-                        
+
                         <div class="row scroll">
                             <h:graphicImage library="img" name="xboxOne/fotoGrande2.jpg" alt="Oferta" width="1140px"/><br></br>
                         </div>
@@ -227,8 +247,448 @@
                                     <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar6" actionListener="#{juegosController.sumarUnProducto()}" /> 
                                 </h:form>
                             </div>
-                            
+                        </div>
 
+                        <!--Detalles de juego 1-->
+                        <div class="separadorBlanco row" id="par1"></div>
+
+                        <div class="row container" >
+
+                            <h1>LITTLE NIGHTMARES II DAY ONE ED</h1>
+                            <p>Little Nightmares II es un juego de aventura de suspense en el que juegas como Mono, un joven chico atrapado en un mundo que ha sido tergiversado por la resonante transmisión de una lejana torre.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete" data-slide-to="1"></li>
+                                <li data-target="#muevete" data-slide-to="2"></li>
+                                <li data-target="#muevete" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/ni1.png" alt="NIGHTMARES" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/ni2.png" alt="NIGHTMARES" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/ni3.png" alt="NIGHTMARES" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/ni4.png" alt="NIGHTMARES" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+
+                        <!--Detalles de juego 2-->
+                        <div class="separadorBlanco row" id="par2"></div>
+
+                        <div class="row container" >
+
+                            <h1>HALO INFINITE</h1>
+                            <p>Cuando se pierde toda esperanza y el destino de la humanidad pende de un hilo, el Jefe Maestro está listo para luchar contra el enemigo más despiadado que jamás haya enfrentado.</p>
+                            <p>Comienza de nuevo y ponte en la armadura del mayor héroe de la humanidad para vivir una aventura épica y explorar por fin la magnitud del anillo de Halo.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>         
+
+                        <!--Detalles de juego 3-->
+                        <div class="separadorBlanco row" id="par3"></div>
+
+                        <div class="row container" >
+
+                            <h1>GRAND THEFT AUTO V</h1>
+                            <p>Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se meten en problemas, deberán llevar a cabo una serie de peligrosos atracos para sobrevivir en una ciudad en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete3" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete3" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete3" data-slide-to="1"></li>
+                                <li data-target="#muevete3" data-slide-to="2"></li>
+                                <li data-target="#muevete3" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/pok1.jpg" alt="GRAND" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/pok2.jpg" alt="GRAND" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/pok3.jpg" alt="GRAND" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/pok4.jpg" alt="GRAND" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete3" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete3" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 4-->
+                        <div class="separadorBlanco row" id="par4"></div>
+
+                        <div class="row container" >
+
+                            <h1>FAR CRY 6 YARA EDITION</h1>
+                            <p>Lucha por la libertad Encarna a Dani Rojas, habitante de Yara que se convertirá en guerrillero para liberar su nación.</p>
+                            <p>Potencia de fuego guerrillera Sírvete de armas improvisadas, vehículos y amigos, los nuevos colmillos de alquiler, para reducir el tiránico régimen.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete4" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete4" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete4" data-slide-to="1"></li>
+                                <li data-target="#muevete4" data-slide-to="2"></li>
+                                <li data-target="#muevete4" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/hun1.png" alt="FARCRY" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/hun2.png" alt="FARCRY" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/hun3.png" alt="FARCRY" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/hun4.png" alt="FARCRY" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete4" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete4" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 5-->
+                        <div class="separadorBlanco row" id="par5"></div>
+
+                        <div class="row container" >
+
+                            <h1>PRINCE OF PERSIA: LAS ARENAS DEL TIEMPO REMAKE</h1>
+                            <p>Prince of Persia: Las Arenas del Tiempo, publicado originalmente en 2003, dejó una huella imborrable en los jugadores gracias a sus innovadoras características de juego, a su historia cautivadora y a unos carismáticos personajes.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete5" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete5" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete5" data-slide-to="1"></li>
+                                <li data-target="#muevete5" data-slide-to="2"></li>
+                                <li data-target="#muevete5" data-slide-to="3"></li>
+                                <li data-target="#muevete5" data-slide-to="4"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mar1.png" alt="PRINCE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mar2.png" alt="PRINCE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mar3.png" alt="PRINCE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mar4.png" alt="PRINCE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mar5.png" alt="PRINCE" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete5" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete5" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 6-->
+                        <div class="separadorBlanco row" id="par6"></div>
+
+                        <div class="row container" >
+
+                            <h1>RED DEAD REDEMPTION II</h1>
+                            <p>De los creadores de Grand Theft Auto V y Red Dead Redemption, Red Dead Redemption 2 es una historia épica sobre la vida en América en el umbral de una nueva era. Red Dead Redemption 2 es un videojuego de acción-aventura western, en un mundo abierto y en perspectiva de primera y tercera persona, con componentes para un jugador y multijugador.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete6" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete6" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete6" data-slide-to="1"></li>
+                                <li data-target="#muevete6" data-slide-to="2"></li>
+                                <li data-target="#muevete6" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mit4.jpg" alt="RED" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mit2.jpg" alt="RED" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mit3.jpg" alt="RED" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mit1.jpg" alt="RED" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete6" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete6" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 7-->
+                        <div class="separadorBlanco row" id="par7"></div>
+
+                        <div class="row container" >
+
+                            <h1>BIOMUTANT</h1>
+                            <p>Al más puro estilo de las artes marciales, este nuevo sistema de combate te permitirá una libertad de movimientos y agilidad increíbles. Mezcla disparos, cuerpo a cuerpo, poderes mutantes y progresa en tu aprendizaje gracias a los maestros que iras encontrando en tu camino. Evita que tu estilo de combate se quede anticuado si quieres sobrevivir.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete7" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete7" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete7" data-slide-to="1"></li>
+                                <li data-target="#muevete7" data-slide-to="2"></li>
+                                <li data-target="#muevete7" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mi4.jpg" alt="BIOMUTANT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mi2.jpg" alt="BIOMUTANT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mi3.jpg" alt="BIOMUTANT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/mi1.jpg" alt="BIOMUTANT" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete7" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete7" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 8-->
+                        <div class="separadorBlanco row" id="par8"></div>
+
+                        <div class="row container" >
+
+                            <h1>SNIPER GHOST WARRIOR CONTRACTS 2</h1>
+                            <p>En el papel de Raven, un francotirador a sueldo, completa una serie de contratos en una región sin ley de Oriente Medio cerca de las fronteras del Líbano y de Siria</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete8" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete8" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete8" data-slide-to="1"></li>
+                                <li data-target="#muevete8" data-slide-to="2"></li>
+                                <li data-target="#muevete8" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/man4.png" alt="SNIPER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/man2.png" alt="SNIPER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/man3.png" alt="SNIPER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/man1.png" alt="SNIPER" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete8" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete8" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 9-->
+                        <div class="separadorBlanco row" id="par9"></div>
+
+                        <div class="row container" >
+
+                            <h1>FIFA 21</h1>
+                            <p>Siente a otro nivel con FIFA 21, despliega todas tus tácticas de juego, pon a prueba tus dotes defensivas y asegúrate de no dejar de marcar goles para convertirte de nuevo en leyenda en el simulador de fútbol más completo de todos los tiempos.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete9" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete9" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete9" data-slide-to="1"></li>
+                                <li data-target="#muevete9" data-slide-to="2"></li>
+                                <li data-target="#muevete9" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/karr1.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/karr2.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/karr3.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/karr4.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete9" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete9" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                        
+                        <!--Detalles de juego 10-->
+                        <div class="separadorBlanco row" id="par10"></div>
+
+                        <div class="row container" >
+
+                            <h1>MOTOGP 21</h1>
+                            <p>Vive la temporada 2021 completa con todas las categorías principales, listas y circuitos oficiales. Más de 120 pilotos y 20 circuitos oficiales y nuevas y mejoradas características como la introducción de la regla de penalización de la vuelta larga. Revive la historia y todas las emociones del MotoGP TM con más de 40 pilotos históricos y sus icónicas motos.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete10" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete10" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete10" data-slide-to="1"></li>
+                                <li data-target="#muevete10" data-slide-to="2"></li>
+                                <li data-target="#muevete10" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="xboxOne/lol1.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/lol2.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/lol3.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="xboxOne/lol4.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete10" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete10" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
                         </div>
 
                     </div>
