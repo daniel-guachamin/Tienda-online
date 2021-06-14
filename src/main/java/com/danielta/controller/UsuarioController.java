@@ -11,6 +11,8 @@ import com.danielta.model.Mensaje;
 import com.danielta.model.Persona;
 import com.danielta.model.Usuario;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -86,11 +88,15 @@ public class UsuarioController implements Serializable {
     public void registrar() {
         try {
             this.usuario.setCodigo(persona);
+            this.usuario.setClave(encriptar(usuario.getClave()));
             usuarioEJB.create(usuario);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Usuario registrado correctamente")); //para mostrar mensaje de registro exitoso
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error al registrar!"));
         }
+    }
+    private static String encriptar(String s) throws UnsupportedEncodingException {
+        return Base64.getEncoder().encodeToString(s.getBytes("utf-8"));
     }
 
     public String verMensajes(Persona codigo) {
