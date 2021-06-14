@@ -141,6 +141,10 @@ public class JuegosController implements Serializable {
         
         codigo_persona = us.getCodigo().getCodigo();//guardo una variable 
         datosPersona = personaEJB.encuentraDatosPersona(codigo_persona);
+        for (Persona direc : datosPersona) {
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("datosPersona", direc.getDireccion()); 
+        }
+        
     }
 
     public int totalPrecio() {
