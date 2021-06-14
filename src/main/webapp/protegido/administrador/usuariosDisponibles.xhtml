@@ -26,6 +26,9 @@
                             <p:column headerText="Mensajes" class="text-center">
                                 <p:commandButton icon="ui-icon-mail-closed" value="Ver mensajes" action="#{usuarioController.verMensajes(usuario.codigo)}" />
                             </p:column>
+                            <p:column headerText="Eliminar usuario" class="text-center">
+                                <p:commandButton icon="ui-icon-trash" actionListener="#{mensajeController.reload()}" action="#{usuarioController.eliminarUsuario(usuario,usuario.codigo)}" />
+                            </p:column>
 
                         </p:dataTable>
 

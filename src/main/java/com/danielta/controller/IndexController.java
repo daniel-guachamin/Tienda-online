@@ -39,7 +39,7 @@ public class IndexController implements Serializable { //Serializable ponerlo pa
             if (us != null) {     //si existe el usuario entra
                 //Almacenar en la sesión de JSF,es lo mismo que en los servlet cuando uso session y guardo
                 //un objeto de tipo session y ese atributo podia utilizarlos en toda la aplicacion pero ahora con JSF
-                if (us.getUsuario().equals("d")) {
+                if (us.getUsuario().equals("daniel")) {
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us); //añado mi variable al apodo usuario
                     redireccion = "/protegido/administrador/usuariosDisponibles?faces-redirect=true"; //?faces-redirect=true me permite ver la ruta de navegacion en la url
                 } else {
