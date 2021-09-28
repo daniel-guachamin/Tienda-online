@@ -1,0 +1,733 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="content">
+
+
+                <!-- Menu de nagegación -->
+                <div class="container-fluid fondopc" id="ini">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
+                        <div class="container">
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                                    </li>     
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <div class="separadorBlanco container"></div>
+
+                    <div class="container fondoContainer">
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="pc/largoJuego.jpg" alt="Final fantasy 7" width="1140px"/><br></br>
+                        </div>
+                        <h:form>
+                            <!--mostrara mensajes de error o exito -->
+                            <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                            <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+
+                            <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+                            <div class="row ">
+
+                                <div class="col text-center ">
+                                    <p:link href="#par1">
+                                        <h:graphicImage library="img" name="pc/Farcry.png" alt="Farcry new dawn"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra1" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Farcry new dawn', 'Farcry.png', 40)}"/>                  
+                                </div>                    
+
+                                <div class="col text-center  ">
+                                    <p:link href="#par2">
+                                        <h:graphicImage library="img" name="pc/Hitman3.png" alt="Hitman3"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra2" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Hitman 3', 'Hitman3.png', 50)}"/>                     
+                                </div>
+
+                                <div class="col text-center ">
+                                    <p:link href="#par3">
+                                        <h:graphicImage library="img" name="pc/Sims4.png" alt="Los Sims 4"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra3" value="Añadir 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Los Sims 4', 'Sims4.png', 35)}"/>                        
+                                </div>
+                                <div class="col text-center ">
+                                    <p:link href="#par4">
+                                        <h:graphicImage library="img" name="pc/Fallout.png" alt="Fallout 76"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra4" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fallout 76', 'Fallout.png', 40)}"/>                       
+                                </div>
+                                <div class="col text-center ">
+                                    <p:link href="#par5">
+                                        <h:graphicImage library="img" name="pc/DarkAlliange.png" alt="Dark Alliange"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra5" value="Añadir 60€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Dark Alliange', 'DarkAlliange.png', 60)}"/>                        
+                                </div>
+
+                                <div class="col text-center ">
+                                    <p:link href="#par6">
+                                        <h:graphicImage library="img" name="pc/total.png" alt="Total war"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra51" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Total war', 'total.png', 30)}"/>                        
+                                </div>
+                            </div>
+                            <div class="separadorBlanco row"></div>
+                            <h1 class="text-center">JUEGOS POR MENOS DE 20€</h1>
+                            <div class="row">
+
+                                <div class="col text-center ">
+                                    <p:link href="#par7">
+                                        <h:graphicImage library="img" name="pc/Nier.png" alt="Nier Replicant"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra6" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Nier Replicant', 'Nier.png', 20)}"/>            
+                                </div>                    
+
+                                <div class="col text-center  ">
+                                    <p:link href="#par8">
+                                        <h:graphicImage library="img" name="pc/Chronos.png" alt="Chronos"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra7" value="Añadir 15€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Chronos', 'Chronos.png', 15)}"/>                     
+                                </div>
+
+                                <div class="col text-center ">
+                                    <p:link href="#par9">
+                                        <h:graphicImage library="img" name="pc/Hunt.png" alt="Hunt"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra8" value="Añadir 12€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Hunt', 'Hunt.png', 12)}"/>                        
+                                </div>
+                                <div class="col text-center ">
+                                    <p:link href="#par10">
+                                        <h:graphicImage library="img" name="pc/Mafia.png" alt="Mafia Trilogy"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra9" value="Añadir 10€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Mafia Trilogy', 'Mafia.png', 10)}"/>                       
+                                </div>
+                                <div class="col text-center ">
+                                    <p:link href="#par11">
+                                        <h:graphicImage library="img" name="pc/Fifa2.png" alt="Fifa 2021"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra10" value="Añadir 16€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('Fifa 2021', 'Fifa2.png', 16)}"/>                        
+                                </div>
+
+                                <div class="col text-center ">
+                                    <p:link href="#par12">
+                                        <h:graphicImage library="img" name="pc/f1.png" alt="F1 2021"/>
+                                    </p:link>
+                                    <br></br>
+                                    <p:commandButton id="compra11" value="Añadir 36€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarJuegoAlCarrito('F1 2021', 'f1.png', 36)}"/>                        
+                                </div>
+                            </div>
+
+                        </h:form>  
+                        <!--Detalles de juego 1-->
+                        <div class="separadorBlanco row" id="par1"></div>
+
+                        <div class="row container" >
+
+                            <h1>FAR CRY NEW DAWN</h1>
+                            <p>Diecisiete años después de una catástrofe nuclear a nivel global, la civilización resurge del caos para encontrarse con un mundo radicalmente distinto. La población superviviente del condado de Hope se ha agrupado en varias comunidades, cada una con sus propias normas y reglas de convivencia.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete" data-slide-to="1"></li>
+                                <li data-target="#muevete" data-slide-to="2"></li>
+                                <li data-target="#muevete" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/far1.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/far2.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/far3.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/far4.jpg" alt="Farcry" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 2-->
+                        <div class="separadorBlanco row" id="par2"></div>
+
+                        <div class="row container" >
+
+                            <h1>HITMAN III</h1>
+                            <p>Hitman 3, la dramática conclusión de la trilogía de World of Assassination y lleva a los jugadores de todo el mundo a una aventura por unos extensos escenarios de pruebas. El Agente 47 regresa como un profesional despiadado por los contratos más importantes de toda su carrera. La muerte espera.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete2" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete2" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete2" data-slide-to="1"></li>
+                                <li data-target="#muevete2" data-slide-to="2"></li>
+                                <li data-target="#muevete2" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/hit11.png" alt="Hitman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hit2.png" alt="Hitman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hit3.png" alt="Hitman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hit4.png" alt="Hitman" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete2" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete2" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 3-->
+                        <div class="separadorBlanco row" id="par3"></div>
+
+                        <div class="row container" >
+
+                            <h1>LOS SIMS 4 VIDA ISLEÑA</h1>
+                            <p>Explora un mundo desenfadado de sol, arena y diversión ilimitada donde crear tu paraíso particular en Los Sims 4 Vida Isleña. Tanto si contribuyes a la causa de la conservación como si prefieres vivir sin suministros, podrás zambullirte en esta singular cultura y disfrutar de todo lo que ofrece.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+
+
+                        <!--Detalles de juego 4-->
+                        <div class="separadorBlanco row" id="par4"></div>
+
+                        <div class="row container" >
+
+                            <h1>FALLOUT 76 WASTELANDERS</h1>
+                            <p>En Fallout 76 Wastelanders, la gente regresa a Virginia Occidental. Dos facciones enfrentadas compiten por llevar la delantera mientras se revelan los secretos de este territorio.</p>
+                            <p>Los colonos han venido con el propósito de encontrar un nuevo hogar y los saqueadores, para aprovecharse de ellos. Embárcate en una nueva misión para la supervisora, forja alianzas con las facciones rivales y descubre la verdad de lo que se oculta en las montañas. Incluye el juego completo y el bonus con los ítems de Raider y Settler.</p>   
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete4" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete4" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete4" data-slide-to="1"></li>
+                                <li data-target="#muevete4" data-slide-to="2"></li>
+                                <li data-target="#muevete4" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/fall1.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/fall2.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/fall3.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/fall4.jpg" alt="Spiderman" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete4" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete4" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 5-->
+                        <div class="separadorBlanco row" id="par5"></div>
+
+                        <div class="row container" >
+
+                            <h1>DUNGEONS AND DRAGONS DARK ALLIANCE</h1>
+                            <p>Únete a hasta 4 amigos y lucha contra monstruos icónicos de Dungeons y Dragons en el nuevo  RPG de acción cooperativa  DUNGEONS y DRAGONS: DARK ALLIANCE. Dark Alliance da vida al mundo de  Dungeons y Dragons  en un RPG de acción explosiva lleno de combate en tiempo real y cooperación dinámica. Gigantes de hielo y dragones vengativos deambulan sin control a través de IcewindDale a medida que los ejércitos invasores del mal se hacen más fuertes cada día. Ahora cuatro héroes deben vencer la embestida de las criaturas y defenderse de la oscuridad.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete5" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete5" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete5" data-slide-to="1"></li>
+                                <li data-target="#muevete5" data-slide-to="2"></li>
+                                <li data-target="#muevete5" data-slide-to="3"></li>
+                                <li data-target="#muevete5" data-slide-to="4"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/dar1.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar2.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar3.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar4.png" alt="Dark" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/dar5.png" alt="Dark" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete5" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete5" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 6-->
+                        <div class="separadorBlanco row" id="par6"></div>
+
+                        <div class="row container" >
+
+                            <h1>TOTAL WAR WARHAMMER 3</h1>
+                            <p>Se acerca el final cataclísmico de la trilogía de Total War: WARHAMMER con Total War Warhammer 3 Reagrupa a tus fuerzas y adéntrate en el Reino del Caos, una dimensión de terrores horripilantes en la que se decidirá el destino del mundo. ¿Conquistarás a tus demonios... o los dirigirás?</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete6" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete6" data-slide-to="0" class="active"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/war1.png" alt="Total war" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete6" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete6" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 7-->
+                        <div class="separadorBlanco row" id="par7"></div>
+
+                        <div class="row container" >
+
+                            <h1>NIER REPLICANT</h1>
+                            <p>El protagonista es un bondadoso joven de una aldea remota que, con el objetivo de salvar a su hermana Yonah, que sufre una enfermedad letal conocida como necrosis rúnica, se dispone a buscar los Versos sellados en compañía del extraño libro parlante Grimoire Weiss.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete7" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete7" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete7" data-slide-to="1"></li>
+                                <li data-target="#muevete7" data-slide-to="2"></li>
+                                <li data-target="#muevete7" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/mi4.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/mi2.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/mi3.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/mi1.jpg" alt="NIER" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete7" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete7" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 8-->
+                        <div class="separadorBlanco row" id="par8"></div>
+
+                        <div class="row container" >
+
+                            <h1>CHRONOS BEFORE THE ASHES</h1>
+                            <p>Chronos: Before the Ashes es un RPG atmosférico que narra la vida de aventuras de un héroe por salvar su hogar de un terrible mal. Hazte más sabio, fuerte y poderoso a medida que exploras las profundidades del misterioso laberinto, pero ten cuidado: avanzar por el dédalo tiene un alto precio. ¡Cada vezque el héroe muere, pierde un año de vida!</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete8" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete8" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete8" data-slide-to="1"></li>
+                                <li data-target="#muevete8" data-slide-to="2"></li>
+                                <li data-target="#muevete8" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/man4.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/man2.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/man3.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/man1.png" alt="CHRONOS" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete8" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete8" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 9-->
+                        <div class="separadorBlanco row" id="par9"></div>
+
+                        <div class="row container" >
+
+                            <h1>HUNT SHOWDOWN</h1>
+                            <p>Las criaturas se han apoderado de nuestro mundo y su pellejo será tu botín. Eres un cazarrecompensas. Únete a un amigo y elimina monstruos a cambio de oro. Hunt es un juego basado en partidas PVPVE de hasta 10 jugadores donde podrás jugar en equipo o solo. Juega en un mapa de mundo abierto repleto de enemigos y objetivos que te pondrán a prueba.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete12" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete12" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete12" data-slide-to="1"></li>
+                                <li data-target="#muevete12" data-slide-to="2"></li>
+                                <li data-target="#muevete12" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/hun1.png" alt="HUNT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hun2.png" alt="HUNT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hun3.png" alt="HUNT" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/hun4.png" alt="HUNT" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete12" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete12" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 10-->
+                        <div class="separadorBlanco row" id="par10"></div>
+
+                        <div class="row container" >
+
+                            <h1>MAFIA TRILOGY</h1>
+                            <p>Sumérgete en el brutal mundo del crimen organizado durante tres épocas delictivas en Estados Unidos. Por primera vez, juega a los tres dramas criminales de la franquicia Mafia en una increíble resolución 4K y detalles en Ultra HD, incluida una fiel reinvención del aclamado Mafia original. Incluye los juegos principales y todos los DLC publicados.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete10" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete10" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete10" data-slide-to="1"></li>
+                                <li data-target="#muevete10" data-slide-to="2"></li>
+                                <li data-target="#muevete10" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/maf2.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/maf1.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/maf3.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/maf4.png" alt="MAFIA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete10" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete10" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 11-->
+                        <div class="separadorBlanco row" id="par11"></div>
+
+                        <div class="row container" >
+
+                            <h1>FIFA 21</h1>
+                            <p>Siente a otro nivel con FIFA 21, despliega todas tus tácticas de juego, pon a prueba tus dotes defensivas y asegúrate de no dejar de marcar goles para convertirte de nuevo en leyenda en el simulador de fútbol más completo de todos los tiempos.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete11" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete11" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete11" data-slide-to="1"></li>
+                                <li data-target="#muevete11" data-slide-to="2"></li>
+                                <li data-target="#muevete11" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/karr1.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/karr2.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/karr3.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/karr4.jpg" alt="FIFA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete11" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete11" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 12-->
+                        <div class="separadorBlanco row" id="par12"></div>
+
+                        <div class="row container" >
+
+                            <h1>MOTOGP 21</h1>
+                            <p>Vive la temporada 2021 completa con todas las categorías principales, listas y circuitos oficiales. Más de 120 pilotos y 20 circuitos oficiales y nuevas y mejoradas características como la introducción de la regla de penalización de la vuelta larga. Revive la historia y todas las emociones del MotoGP TM con más de 40 pilotos históricos y sus icónicas motos.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete10" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete10" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete10" data-slide-to="1"></li>
+                                <li data-target="#muevete10" data-slide-to="2"></li>
+                                <li data-target="#muevete10" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="pc/lol1.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/lol2.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/lol3.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="pc/lol4.jpg" alt="MOTOGP" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete10" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete10" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="separadorBlanco container"></div>
+
+                    <!-- Footer --> 
+                    <footer class="py-5 bg-dark container" style="text-align: center">
+
+                        <div class="container">
+                            <div class="row">
+                                <ui:insert name="enlacesFooter" >
+                                    <div class="col text-center  ">
+                                        <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                    </div>
+                                </ui:insert>
+                            </div>
+                            <br></br>
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <p:link href="https://www.facebook.com/" target="_blank">
+                                        <h:graphicImage library="img" name="face.png" alt="Facebook"/>
+                                    </p:link>
+                                    <p:link href="https://www.instagram.com/" target="_blank"> 
+                                        <h:graphicImage library="img" name="insta2.png" alt="Instagram"/>
+                                    </p:link>
+                                    <p:link href="https://www.twitter.com/" target="_blank">
+                                        <h:graphicImage library="img" name="twiter.png" alt="Twitter"/>
+                                    </p:link> 
+                                </div>
+                            </div>
+
+                        </div>
+                        <br></br>
+                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
+                    </footer>
+                    <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
+                </div>
+
+            </ui:define>
+            <ui:define name="bottom">
+                <!--vacio por la plantilla--> 
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+

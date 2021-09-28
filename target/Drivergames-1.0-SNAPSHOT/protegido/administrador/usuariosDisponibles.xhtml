@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/plantillaAdmin.xhtml">
+
+            <ui:define name="content">
+                <div class="container">
+                    <h:form id="admin">
+                        
+                        <!--first me permite no mostrar mi usuario admin en esta tabla-->
+                        <p:dataTable value="#{usuarioController.misUsuarios}" var="usuario" rendered="#{usuarioController.misUsuarios.size() >= 0 eq true}" emptyMessage="¡No se encontro ningun usuario registrado!" first="1">
+                            
+                            <p:column headerText="Clientes registrados">
+                                <div class="text-center">
+                                    <b><h:outputText value="#{usuario.usuario}" /></b>
+                                    <br></br>
+                                </div> 
+                            </p:column>
+                            <p:column headerText="Mensajes" class="text-center">
+                                <p:commandButton icon="ui-icon-mail-closed" value="Ver mensajes" action="#{usuarioController.verMensajes(usuario.codigo)}" />
+                            </p:column>
+                            <p:column headerText="Eliminar usuario" class="text-center">
+                                <p:commandButton icon="ui-icon-trash" actionListener="#{mensajeController.reload()}" action="#{usuarioController.eliminarUsuario(usuario,usuario.codigo)}" />
+                            </p:column>
+
+                        </p:dataTable>
+
+
+                    </h:form>
+                </div>
+            </ui:define>
+        
+
+        </ui:composition>
+
+    </body>
+</html>

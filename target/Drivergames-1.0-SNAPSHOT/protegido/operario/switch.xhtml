@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body >
+
+        <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="content">
+
+
+                <!-- Menu de nagegación -->
+                <div class="container-fluid fondoswitch">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
+                        <div class="container">
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                                    </li>     
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <div class="separadorBlanco container" id="ini"></div>
+
+
+
+                    <!--mostrara mensajes de error o exito -->
+                    <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                    <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+
+                    <div class="container enfrente" >
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="switch/fotoGrande.png" alt="Oferta" width="1140px"/><br></br>
+                        </div>
+
+                        <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+
+
+                        <div class="row ">
+
+                            <div class="col text-center ">
+
+                                <h:form id="switch_1" >
+                                    <p:link href="#par1">
+                                        <h:graphicImage library="img" name="switch/crash.png" alt="Crash bandicoot 4"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch1" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Crash bandicoot 4', 'switch/crash.png', 50)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_2" >
+                                    <p:link href="#par2">
+                                        <h:graphicImage library="img" name="switch/evergate.png" alt="Evergate"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch2" value="Añadir 35€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Evergate', 'switch/evergate.png', 35)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_3" >
+                                    <p:link href="#par3">
+                                        <h:graphicImage library="img" name="switch/pokemon.png" alt="Pokemon diamante brillante"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch3" value="Añadir 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Pokemon diamante brillante', 'switch/pokemon.png', 33)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_4" >
+                                    <p:link href="#par4">
+                                        <h:graphicImage library="img" name="switch/monster.png" alt="Monster hunter stories 2"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch4" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Monster hunter stories 2', 'switch/monster.png', 40)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+
+                            <div class="col text-center ">
+                                <h:form id="switch_5" >
+                                    <p:link href="#par5">
+                                        <h:graphicImage library="img" name="switch/mario.png" alt="Mario golf"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch5" value="Añadir 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mario golf', 'switch/mario.png', 33)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form> 
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_6" >
+                                    <p:link href="#par6">
+                                        <h:graphicImage library="img" name="switch/mitopia.png" alt="Miitopia"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch6" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Miitopia', 'switch/mitopia.png', 50)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_7" >
+                                    <p:link href="#par7">
+                                        <h:graphicImage library="img" name="switch/kazes.png" alt="Kase ante wild mask"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch7" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Kase ante wild mask', 'switch/kazes.png', 20)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_7" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_7" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_8" >
+                                    <p:link href="#par8">
+                                        <h:graphicImage library="img" name="switch/maneater.png" alt="Maneater"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch8" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Maneater', 'switch/maneater.png', 40)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_8" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_8" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="switch_9" >
+                                    <p:link href="#par9">
+                                        <h:graphicImage library="img" name="switch/kart.png" alt="Super mario kart 8"/><br></br>
+                                    </p:link>
+                                    <p:commandButton id="switch9" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Super mario kart 8', 'switch/kart.png', 30)}"/>  
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,switch_9" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,switch_9" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="switch/fotoGrande2.jpg" alt="Oferta" width="1140px"/><br></br>
+                        </div>
+
+                        <h1 class="text-center">Consola y accesorios</h1>
+
+
+                        <div class="row ">
+
+                            <div class="col text-center ">
+
+                                <h:form id="ar1" >
+                                    <h:graphicImage library="img" name="switch/pro1.png" alt="Consola xbox One"/><br></br>
+                                    <p:commandButton id="ar_1" value="Añadir 330€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Consola xbox One', 'switch/pro1.png', 330)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar2" >
+                                    <h:graphicImage library="img" name="switch/pro2.png" alt="JOY-CON (SET IZDA/DCHA) EDICIÓN FORTNITE"/><br></br>
+                                    <p:commandButton id="ar_2" value="Añadir 80€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('JOY-CON (SET IZDA/DCHA) EDICIÓN FORTNITE', 'switch/pro2.png', 80)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar3" >
+                                    <h:graphicImage library="img" name="switch/pro3.png" alt="JOY-CON (SET IZDA/DCHA) VERDE NEÓN/ROSA NEÓN"/><br></br>
+                                    <p:commandButton id="ar_3" value="Añadir 75€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('JOY-CON (SET IZDA/DCHA) VERDE NEÓN/ROSA NEÓN', 'switch/pro3.png', 75)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar4" >
+                                    <h:graphicImage library="img" name="switch/pro4.png" alt="NINTENDO SWITCH CONTROLLER PRO NEGRO"/><br></br>
+                                    <p:commandButton id="ar_4" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('NINTENDO SWITCH CONTROLLER PRO NEGRO', 'switch/pro4.png', 50)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar5" >
+                                    <h:graphicImage library="img" name="switch/pro5.png" alt="AURICULARES ARDISTEL BLACKFIRE NSX-10 NEÓN"/><br></br>
+                                    <p:commandButton id="ar_5" value="Añadir 18€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('AURICULARES ARDISTEL BLACKFIRE NSX-10 NEÓN', 'switch/pro5.png', 18)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar6" >
+                                    <h:graphicImage library="img" name="switch/pro6.png" alt="MEMORIA SANDISK 128GB"/><br></br>
+                                    <p:commandButton id="ar_6" value="Añadir 22€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('MEMORIA SANDISK 128GB', 'switch/pro6.png', 22)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row scroll" id="par1">
+                            <h:graphicImage library="img" name="switch/fotoGrande3.jpg" alt="Oferta" width="1140px"/><br></br>
+                        </div>
+
+                        <!--Detalles de juego 1-->
+
+
+                        <div class="row container" >
+
+                            <h1>CRASH BANDICOOT 4</h1>
+                            <p>Neo Cortex y N. Tropy han vuelto a las andadas y esta vez no planean darle la tabarra al universo, ¡su objetivo es el multiverso entero! Crash y Coco tendrán que reunir cuatro máscaras cuánticas y trastocar las leyes de la realidad para salvar el mundo.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+
+
+                        <!--Detalles de juego 2-->
+                        <div class="separadorBlanco row" id="par2"></div>
+
+                        <div class="row container" >
+
+                            <h1>EVERGATE</h1>
+                            <p>Enciende tu Llama del Alma y emprende un peligroso viaje a través de la vida eterna en este desafiante juego de plataformas de acción y rompecabezas con una mecánica genuinamente única. ¡Empuña tu Llama del Alma para romper los misteriosos cristales y desatar poderes extraordinarios!</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete2" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete2" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete2" data-slide-to="1"></li>
+                                <li data-target="#muevete2" data-slide-to="2"></li>
+                                <li data-target="#muevete2" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/eve6.jpg" alt="even" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/eve5.jpg" alt="even" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/eve7.jpg" alt="even" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/eve8.jpg" alt="even" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete2" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete2" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 3-->
+                        <div class="separadorBlanco row" id="par3"></div>
+
+                        <div class="row container" >
+
+                            <h1>POKÉMON DIAMANTE BRILLANTE</h1>
+                            <p>Se han respetado tanto la historia como la escala de los pueblos y las rutas originales. Quienes disfrutaron de Pokémon Diamante y Pokémon Perla podrán volver a los lugares que ya conocen para revivir momentos muy especiales. Los jugadores que se adentren en la región de Sinnoh por primera vez tendrán un montón de combates y sorpresas esperándoles.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete3" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete3" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete3" data-slide-to="1"></li>
+                                <li data-target="#muevete3" data-slide-to="2"></li>
+                                <li data-target="#muevete3" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/pok1.png" alt="Pokemon" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/pok2.png" alt="Pokemon" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/pok3.png" alt="Pokemon" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/pok4.png" alt="Pokemon" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete3" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete3" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 4-->
+                        <div class="separadorBlanco row" id="par4"></div>
+
+                        <div class="row container" >
+
+                            <h1>MONSTER HUNTER STORIES 2</h1>
+                            <p>Este épico relato da comienzo con la masiva desaparición de Rathalos alrededor del mundo. Al comienzo de tus aventuras, te encuentras con una joven wyveriana que conocía a Red, tu ilustre abuelo. Se le ha encomendado la misión de proteger un huevo, pero ¿qué se oculta en su interior? Descubre cómo el destino del mundo pende de un hilo a medida que va desarrollándose la fascinante historia de las alas de la ruina.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete4" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete4" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete4" data-slide-to="1"></li>
+                                <li data-target="#muevete4" data-slide-to="2"></li>
+                                <li data-target="#muevete4" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/hun1.png" alt="Monster" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/hun2.png" alt="Monster" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/hun3.png" alt="Monster" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/hun4.png" alt="Monster" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete4" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete4" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 5-->
+                        <div class="separadorBlanco row" id="par5"></div>
+
+                        <div class="row container" >
+
+                            <h1>MARIO GOLF SUPER RUSH</h1>
+                            <p>En el modo historia, tu personaje Mii comenzará su andadura como principiante y podrá convertirse en profesional enfrentándose a varios personajes del Reino Champiñón. Sube de nivel al obtener puntos de experiencia en las competiciones, y luego asígnalos a diferentes atributos para desarrollar el personaje.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete5" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete5" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete5" data-slide-to="1"></li>
+                                <li data-target="#muevete5" data-slide-to="2"></li>
+                                <li data-target="#muevete5" data-slide-to="3"></li>
+                                <li data-target="#muevete5" data-slide-to="4"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/mar1.jpg" alt="Mario" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mar2.jpg" alt="Mario" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mar3.jpg" alt="Mario" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mar4.jpg" alt="Mario" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mar5.jpg" alt="Mario" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete5" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete5" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 6-->
+                        <div class="separadorBlanco row" id="par6"></div>
+
+                        <div class="row container" >
+
+                            <h1>MIITOPIA</h1>
+                            <p>¡El mundo de Miitopia está habitado por personajes Mii! Ya se trate de un valiente héroe, una bella princesa o incluso el malvado Archimago, ¡tú decides qué papel desempeña cada personaje en la historia! Puedes llevarte a tus mejores amigos contigo para que te echen una mano en los combates, disfrazar a tu abuelo de rey o convertir a tu madre en la mala del juego. ¡La elección está en tus manos!</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete6" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete6" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete6" data-slide-to="1"></li>
+                                <li data-target="#muevete6" data-slide-to="2"></li>
+                                <li data-target="#muevete6" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/mit4.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mit2.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mit3.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mit1.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete6" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete6" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 7-->
+                        <div class="separadorBlanco row" id="par7"></div>
+
+                        <div class="row container" >
+
+                            <h1>KAZE AND THE WILD MASK</h1>
+                            <p>En Kaze y las Máscaras Salvajes, nuestra conejita necesita convertirse en una héroína cuando un cometa golpea la pacífica Carrotland, convirtiendo sus plantas en formas vivas enfurecidas, trayendo caos alrededor del lugar.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete7" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete7" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete7" data-slide-to="1"></li>
+                                <li data-target="#muevete7" data-slide-to="2"></li>
+                                <li data-target="#muevete7" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/mi4.png" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mi2.png" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mi3.png" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/mi1.png" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete7" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete7" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 8-->
+                        <div class="separadorBlanco row" id="par8"></div>
+
+                        <div class="row container" >
+
+                            <h1>MANEATER</h1>
+                            <p>Explora la experiencia de poder definitiva al ponerte en la piel de un terrorífico Tiburón, el superdepredador de los mares. Maneater es un juego de rol y acción de mundo abierto para un jugador en el que encarnas a un tiburón.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete8" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete8" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete8" data-slide-to="1"></li>
+                                <li data-target="#muevete8" data-slide-to="2"></li>
+                                <li data-target="#muevete8" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/man4.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/man2.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/man3.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/man1.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete8" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete8" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 9-->
+                        <div class="separadorBlanco row" id="par9"></div>
+
+                        <div class="row container" >
+
+                            <h1>MARIO KART 8 DELUXE</h1>
+                            <p>El modo batalla se renueva por completo con nuevas opciones multijugador en la batalla de globos y el añadido de circuitos inéditos como el Parque Viaducto o el Estado de Batalla, que se unen a viejos conocidos como la Mansión de Luigi de Mario Kart: Double Dash!! (GameCube) y el Circuito de Batalla 1 de Super Mario Kart (NES).</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete9" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete9" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete9" data-slide-to="1"></li>
+                                <li data-target="#muevete9" data-slide-to="2"></li>
+                                <li data-target="#muevete9" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="switch/kar1.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/kar2.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/kar3.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="switch/kar4.jpg" alt="MIITOPIA" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete9" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete9" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+                    <!-- Footer --> 
+                    <footer class="py-5 bg-dark container" style="text-align: center">
+
+                        <div class="container">
+                            <div class="row">
+                                <ui:insert name="enlacesFooter" >
+                                    <div class="col text-center  ">
+                                        <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                    </div>
+                                </ui:insert>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <p:link href="https://www.facebook.com/" target="_blank">
+                                        <h:graphicImage library="img" name="face.png" alt="Facebook"/>
+                                    </p:link>
+                                    <p:link href="https://www.instagram.com/" target="_blank"> 
+                                        <h:graphicImage library="img" name="insta2.png" alt="Instagram"/>
+                                    </p:link>
+                                    <p:link href="https://www.twitter.com/" target="_blank">
+                                        <h:graphicImage library="img" name="twiter.png" alt="Twitter"/>
+                                    </p:link> 
+                                </div>
+                            </div>
+
+                        </div>
+                        <br></br>
+                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
+                    </footer>
+                    <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
+                </div>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                <!--vacio por la plantilla--> 
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+

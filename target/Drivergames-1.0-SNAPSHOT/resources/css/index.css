@@ -1,0 +1,179 @@
+#principal{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#cuadro{    
+    margin: 100px auto;
+    width: 40%;
+    text-align: center;
+}
+header {
+    padding: 156px 0 100px;
+    /* background-image: url("../img/Divergames.gif") ; 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 450px; */
+}
+section {
+    padding: 150px 0;
+}
+.ui-growl {
+    margin-top: 50px;
+}
+
+.rojo{
+    color: red;
+}
+
+#clock {
+    font-size: 5em;
+    text-align: center;
+    margin: 1em;
+}
+
+.navegacion{
+    clear: both;
+    float: left;
+}
+
+.scroll {
+    display: block;
+    overflow-y: auto;
+}
+.separadorBlanco{
+    height: 55px;
+    background-color: aliceblue;
+}
+
+.separador{
+
+    height: 40px;
+    background-color: gray;
+}
+
+.fondoContainer{
+    background-color: aliceblue;
+}
+@media screen and (max-width: 767px) {
+    .fondoindex {
+        background: url(https://media.game.es/Skin/mult-Daysofplay-skin-s0522-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondoindex {
+        background: url(https://media.game.es/Skin/mult-Daysofplay-skin-s0522-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fondopc {
+        background: url(https://media.game.es/Skin/pchsw-seccion-gamepcdigital-s3518-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondopc {
+        background: url(https://media.game.es/Skin/pchsw-seccion-gamepcdigital-s3518-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fondops5 {
+        background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondops5 {
+        background: url(https://media.game.es/Skin/ps5-generico-RatchetClankDimensionAparte-s5121-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fondoxbox {
+        background: url(https://media.game.es/Skin/xone-seccion-xboxone-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondoxbox {
+        background: url(https://media.game.es/Skin/xone-seccion-xboxone-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fondoswitch {
+        background: url(https://media.game.es/Skin/nsw-seccion-nintendoswitch-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondoswitch {
+        background: url(https://media.game.es/Skin/nsw-seccion-nintendoswitch-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+@media screen and (max-width: 767px) {
+    .fondops52 {
+        background: url(https://media.game.es/Skin/ps5-generico-FFVIIRemakeIntergrade-s0722-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondops52 {
+        background: url(https://media.game.es/Skin/ps5-generico-FFVIIRemakeIntergrade-s0722-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+@media screen and (max-width: 767px) {
+    .fondo1 {
+        background: url(https://media.game.es/Skin/ps4-seccion-ps4-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondo1 {
+        background: url(https://media.game.es/Skin/ps4-seccion-ps4-s1817-s.jpg) 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+@media screen and (max-width: 767px) {
+    .fondo2 {
+        background: url("https://media.game.es/Microsites/Static-Source/blizzard-digital/img/SKIN.jpg") 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fondo2 {
+        background: url("https://media.game.es/Microsites/Static-Source/blizzard-digital/img/SKIN.jpg") 50% 0% no-repeat fixed;
+        background-color: #ffffff;
+    }
+}
+
+.enfrente{
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+.centrarChat{
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.colorGris{
+    background-color: gray;
+}

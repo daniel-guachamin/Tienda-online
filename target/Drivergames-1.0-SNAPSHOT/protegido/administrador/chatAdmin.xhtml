@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/plantillaAdmin.xhtml">
+
+            <ui:define name="content">
+                <h2 class="text-center text-white">Pagina de soporte web</h2>
+                
+                    <p:growl class="ui-growl" id="mensajes" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+
+                    <h:form id="Form_Mensaje">
+                        <p:dataTable value="#{mensajeController.miMensaje}" var="mensaje" emptyMessage="¡El usuario no ha enviado ningun mensaje!" editable="true">
+                            <p:column headerText="Mensajes Usuario">
+                                <div class="text-center" style="color: aqua">
+                                    <b><h:outputText value="#{mensaje.mensaje}" /></b>
+                                </div>
+                            </p:column>
+                            <p:column headerText="Mensaje Admin">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <div class="text-center" style="color: activeborder">
+                                            <b><p:outputLabel value="#{mensaje.mensajeAdmin}" styleClass="scroll"/></b> 
+                                        </div>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <div class="text-center" style="color: activeborder">
+                                            <p:inputText value="#{mensaje.mensajeAdmin}"/>
+                                        </div>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column style="width: 12em;" visible="true" headerText="Responder mensaje">
+                                
+                                <p:rowEditor />
+                                
+                            </p:column>
+                            <p:ajax event="rowEdit" listener="#{mensajeController.enviarMensajeAdmin(mensaje)}" update="mensajes"/>
+
+                        </p:dataTable>
+
+
+                    </h:form>
+           
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+        <title>Drivergames</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
+        <h:outputStylesheet library="css" name="index.css" /><!--llamamos a mi archivo css-->
+    </h:head>
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <!-- Menu de nagegación -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+                    <div class="container">
+                        <ui:insert name="logo">
+                            <a class="navbar-brand js-scroll-trigger" href="./../../index.xhtml" title="volver a portada">Drivergames</a>
+                        </ui:insert>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <p:commandButton value="Iniciar Sesión" onclick="PF('dialogoSesion').show();" icon="ui-icon-key"/>
+                                </li>     
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </ui:insert>
+        </div>
+
+      
+            <ui:insert name="content">
+                <div class="container-fluid fondops5">
+                    <div class="container enfrente">
+                        <!-- Encabezado -->
+                      
+                        <header class="bg-dark text-white">
+                            <div class="text-center">
+                                <h:graphicImage library="img" name="Drivergames5.gif" class="img-fluid" alt="Responsive image"/>
+                                <!--<img src="img/Divergames.gif" class="img-fluid" alt="Responsive image">-->
+                                <h1>Bienvenido a Drivergames</h1>
+                            </div>
+                        </header>
+
+
+                        <!-- Acerca de nosotros -->
+                        <section id="nosotros">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto">
+                                        <h2>Acerca de nosotros</h2>
+                                        <p class="lead">Nos dedicamos a la venta de videojuegos.
+                                            En este sitio web encontraras los juegos más populares en el mundo </p>
+
+
+                                        <!-- Galeria de imagenes -->
+                                        <div id="demo" class="carousel slide" data-ride="carousel">
+
+                                            <!-- Indicadores -->
+                                            <ul class="carousel-indicators">
+                                                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                                <li data-target="#demo" data-slide-to="1"></li>
+                                                <li data-target="#demo" data-slide-to="2"></li>
+                                                <li data-target="#demo" data-slide-to="3"></li>
+                                                <li data-target="#demo" data-slide-to="4"></li>
+                                                <li data-target="#demo" data-slide-to="5"></li>
+                                            </ul>
+
+                                            <!-- La presentación de imagenes -->
+                                            <div class="carousel-inner text-center">
+                                                <div class="carousel-item active">
+                                                    <h:graphicImage library="img" name="pc/Farcry.png" alt="Detroit Become Human"/>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <h:graphicImage library="img" name="pc/Hitman3.png" alt="Hitman 3"/>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <h:graphicImage library="img" name="pc/Sims4.png" alt="Los Sims 4"/>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <h:graphicImage library="img" name="pc/Fifa2.png" alt="Fifa 2020"/>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <h:graphicImage library="img" name="pc/Fallout.png" alt="Fallout 76"/>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <h:graphicImage library="img" name="pc/Imperator.png" alt="Cyberpunk"/>
+                                                </div>
+                                            </div>
+
+                                            <!-- Controles izquierdo y derecho -->
+                                            <a class="carousel-control-prev bg-dark" href="#demo" data-slide="prev">
+                                                <span class="carousel-control-prev-icon"></span>
+                                            </a>
+                                            <a class="carousel-control-next bg-dark" href="#demo" data-slide="next">
+                                                <span class="carousel-control-next-icon"></span>
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>  
+
+
+                        <!-- Servicios -->
+                        <section id="servicios" class="bg-light">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto">
+                                        <h2>Servicios que ofrecemos</h2>
+                                        <ul>
+                                            <li>Podrás comprar facilmente el juego que quieras y jugarlo en tu PC</li>
+                                            <li>Si necesitas información sobre el funcionamiento de esta aplicación tiene un chat disponible las 24
+                                                horas del día</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Contactos -->
+                        <section id="contactos">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto">
+                                        <h2>Puedes contactarnos y obtener mas informacióm a travez de nuestras redes sociales</h2>
+                                        <p class="lead"><b>Teléfono: </b> 665847302</p>
+                                        <p class="lead"><b>Dirrección: </b> Ronda de la plazuela Nº5</p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </ui:insert>
+      
+
+        <div id="bottom" style="text-align: center">
+            <ui:insert name="bottom" >
+                <!-- Footer -->
+                <footer class="py-5 bg-dark">
+                    <div class="container">
+                        <div class="row">
+                            <ui:insert name="enlacesFooter">
+                                <div class="col text-center  ">
+                                    <a href="/Drivergames/footer/footerIndex/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="/Drivergames/footer/footerIndex/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="/Drivergames/footer/footerIndex/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                </div>
+                            </ui:insert>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+
+                                <p:link href="https://www.facebook.com/" target="_blank">
+                                    <h:graphicImage library="img" name="face.png" alt="Facebook"/>
+                                </p:link>
+                                <p:link href="https://www.instagram.com/" target="_blank"> 
+                                    <h:graphicImage library="img" name="insta2.png" alt="Instagram"/>
+                                </p:link>
+                                <p:link href="https://www.twitter.com/" target="_blank">
+                                    <h:graphicImage library="img" name="twiter.png" alt="Twitter"/>
+                                </p:link> 
+                            </div>
+                        </div>
+
+                    </div>
+                    <br></br>
+                    <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
+                </footer>
+            </ui:insert>
+        </div>
+
+        <!--Muestra mi formulario de iniciar session en forma de dialogo-->
+        <p:dialog id="diaolog" widgetVar="dialogoSesion" header="Iniciar Sesión" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode">
+            <h:form>
+                <p:messages id="mensajeCredenciales" autoUpdate="false" severity="warn" showDetail="true" closable="true"/><!--closable=me permite quitar manualmente el mensaje de error-->
+                <h:panelGrid columns="3" id="Iniciar">
+                    <p:outputLabel for="txtUsuario" value="Usuario"/>
+                    <p:inputText id="txtUsuario" value="#{indexController.usuario.usuario}" required="true" requiredMessage="Introduce un usuario"/>
+                    <p:message for="txtUsuario" />
+                    <p:outputLabel for="txtClave" value="Clave"/>
+                    <p:password id="txtClave" value="#{indexController.usuario.clave}" required="true" requiredMessage="Introduce una contraseña"/>
+                    <p:message for="txtClave" />
+                </h:panelGrid>
+                <br></br>
+                <p:commandButton icon="ui-icon-key" value="Entrar" update="mensajeCredenciales, Iniciar"  action="#{indexController.iniciarSesion()}"/>
+                <p:commandButton value="Crear cuenta nueva" onclick="PF('dialogoRegistro').show();" icon="ui-icon-pencil"/>
+            </h:form>   
+        </p:dialog>
+
+
+        <!--Muestra mi formulario de Registro en forma de dialogo-->
+        <p:dialog id="diaolog2" widgetVar="dialogoRegistro" header="Registrarte" closeOnEscape="true" modal="true" appendTo="@(body)" hideEffect="explode" height="400px">
+            <p>Es rápido y fácil</p>
+            <h:form>
+                <!--mostrara mensajes de error o exito -->
+                <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error que he declarado en mi usuarioController-->
+                <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
+
+                <p:fieldset legend="Datos Personales" > <!--permite la separacion entre unos campos y otros-->
+                    <h:panelGrid columns="3" id="DatosPersonales"> <!--agrupa los elementos de acuerdo al numero de columnas-->
+                        <p:outputLabel for="txtNombres" value="Nombres" />
+                        <p:inputText id="txtNombres" value="#{usuarioController.persona.nombres}" required="true" requiredMessage="Introduce nombres"/>
+                        <p:message for="txtNombres" /> <!--mensajes individuales de cada input -->
+
+                        <p:outputLabel for="txtApellidos" value="Apellidos" />            
+                        <p:inputText id="txtApellidos" value="#{usuarioController.persona.apellidos}" required="true" requiredMessage="Introduce apellidos"/>
+                        <p:message for="txtApellidos" />
+
+                        <p:outputLabel for="txtFecha" value="Fecha de Nacimiento" />
+                        <!--calendar me permite motrar el calendario este caso español llamo al script abajo del todo recomendable-->
+                        <p:calendar id="txtFecha" value="#{usuarioController.persona.fechaNacimiento}" locale="es" required="true" requiredMessage="Campo obligatorio"/>
+                        <p:message for="txtFecha" />
+
+                        <p:outputLabel for="txtDireccion" value="Dirección" />
+                        <p:inputText id="txtDireccion" value="#{usuarioController.persona.direccion}" required="true" requiredMessage="Obligatorio"/>
+                        <p:message for="txtDireccion" />
+
+                        <p:outputLabel for="rdbSexo" value="Sexo" />
+                        <p:selectOneRadio id="rdbSexo" value="#{usuarioController.persona.sexo}" required="true" requiredMessage="Selecciona una opción">
+                            <f:selectItem itemValue="M" itemLabel="MASCULINO" />
+                            <f:selectItem itemValue="F" itemLabel="FEMENINO" />
+                        </p:selectOneRadio>
+                        <p:message for="rdbSexo" />
+
+                    </h:panelGrid>
+                </p:fieldset>
+                <br></br>
+                <p:fieldset legend="Datos de la cuenta">
+                    <h:panelGrid columns="3" id="DatosCuenta">
+
+                        <p:outputLabel for="txtUsuario" value="Usuario" />
+                        <p:inputText id="txtUsuario" value="#{usuarioController.usuario.usuario}" required="true" requiredMessage="Introduce una nombre"/>
+                        <p:message for="txtUsuario" />
+
+                        <p:outputLabel for="clave1" value="Clave"/>
+                        <!--validatorMessage me permite mostrar el mensaje de error que quiera weakLabel,etc opciones de clave buena-->
+                        <p:password id="clave1" value="#{usuarioController.usuario.clave}" required="true" requiredMessage="Introduce una contraseña"
+                                    validatorMessage="Las claves no coinciden." weakLabel="Débil" strongLabel="Fuerte" goodLabel="Bueno"
+                                    match="clave2" feedback="true" promptLabel="Ingrese una clave"/>
+                        <p:message for="clave1" />
+
+                        <p:outputLabel for="clave2" value="Repetir Clave" />
+                        <p:password id="clave2" required="true" requiredMessage="Introduce una contraseña"/>
+                        <p:message for="clave2" />
+
+                    </h:panelGrid>
+
+                </p:fieldset>    
+                <br></br>
+                <!--update=DatosPersonales, DatosCuenta, mensaje me permite actulizar estos id -->
+                <p:commandButton icon="ui-icon-check" value="Registrarte" update="DatosPersonales, DatosCuenta, mensaje" actionListener="#{usuarioController.registrar()}"/>
+                <p:commandButton value="Cancelar" icon="ui-icon-close"  onclick="PF('dialogoRegistro').hide();"/>
+            </h:form>   
+        </p:dialog>
+
+
+        <h:outputScript library="js" name="spanishLocale.js" /> <!--script que me permitira usar un calendario español--> 
+        <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
+
+    </h:body>
+
+</html>

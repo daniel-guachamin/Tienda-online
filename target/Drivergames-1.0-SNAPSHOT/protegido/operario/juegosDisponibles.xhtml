@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <div class="container-fluid  fondo2">
+                    <div class="container">
+                        <h1 class="text-center text-white">Juegos digitales comprados</h1>
+
+                        <h:form>
+
+                            <p:dataTable value="#{juegosUsuariosController.misJuegosComprados}" var="juegos" paginator="true" rows="7" emptyMessage="¡No has comprado ningun juego digital!"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="1,2,3,4,5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})" >
+                                <p:column headerText="Buscar videojuego por nombre" filterBy="#{juegos.nombre}" filterMatchMode="contains">
+                                    <div class="text-center scroll">
+                                        <b><h:outputText value="#{juegos.nombre}" /></b>
+                                        <br></br>
+                                        <h:graphicImage library="img" name="pc/#{juegos.imagen}" width="250px" />    
+                                    </div>
+
+                                </p:column>
+
+                                <p:column>
+                                    <div class="text-center">
+                                        <p:commandButton icon="ui-icon-play" value="Jugar juego" action="snake?faces-redirect=true"/>
+                                    </div>
+                                </p:column>
+                            </p:dataTable>                 
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
+

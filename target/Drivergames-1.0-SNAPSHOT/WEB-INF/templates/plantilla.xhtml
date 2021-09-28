@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+        <title>Facelets Template</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
+        <h:outputStylesheet library="css" name="index.css" /><!--llamamos a mi archivo css-->
+        <h:outputStylesheet library="css" name="snake.css" />
+        <!--verificamos que la variable almacenada en mi session este activa si no lo esta no mostrara esta pagina nunca-->
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />        
+    </h:head>
+
+    <h:body>
+        <!-- Menu de nagegación -->
+
+        <ui:insert name="top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+                <div class="container">
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
+                            </li>
+                            <li class="nav-item">
+                                <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                            </li>     
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="separadorBlanco container"></div>
+        </ui:insert>
+
+
+        
+            <ui:insert name="content">Content</ui:insert>
+        
+
+        <div id="bottom" style="text-align: center">
+            <ui:insert name="bottom" >
+                <!-- Footer -->
+                <footer class="py-5 bg-dark">
+                    <div class="container">
+                        <div class="row">
+                            <ui:insert name="enlacesFooter" >
+                                <div class="col text-center  ">
+                                    <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                </div>
+                                <div class="col text-center ">
+                                    <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                </div>
+                            </ui:insert>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+
+                                <p:link href="https://www.facebook.com/" target="_blank">
+                                    <h:graphicImage library="img" name="face.png" alt="Facebook"/>
+                                </p:link>
+                                <p:link href="https://www.instagram.com/" target="_blank"> 
+                                    <h:graphicImage library="img" name="insta2.png" alt="Instagram"/>
+                                </p:link>
+                                <p:link href="https://www.twitter.com/" target="_blank">
+                                    <h:graphicImage library="img" name="twiter.png" alt="Twitter"/>
+                                </p:link> 
+                            </div>
+                        </div>
+
+                    </div>
+                    <br></br>
+                    <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
+                </footer>
+
+                <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
+            </ui:insert>
+        </div>
+
+        <!--Dialogo que me mostrara las compras y alquileres de mis juegos para luego comprarlos-->
+        <p:dialog id="carrito" widgetVar="dialogoCarrito" header="Productos añadidos a tu cesta" closeOnEscape="true" modal="true" hideEffect="clip" width="600px"  height="400px" fitViewport="true" showEffect="blind">
+            <h:form id="Juegos_comprados">
+                <p:growl class="ui-growl" id="mensajeCarrito" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/><!--closable=me permite quitar manualmente el mensaje de error-->
+                <p:dataTable value="#{juegosController.juegosList}" var="juego" rendered="#{juegosController.juegosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun juego digital a tu carrito">
+
+                    <p:column headerText="Juegos digitales">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center  ">
+                                    <h:graphicImage library="img" name="pc/#{juego.imagen}"  width="200px"/>
+                                </div>
+                                <div class="col text-center ">
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="#{juego.nombre}" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="Precio: #{juego.precio}€" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarJuego(juego)}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </p:column>
+                </p:dataTable>
+
+                <p:dataTable value="#{juegosController.pedidosList}" var="pedido" rendered="#{juegosController.pedidosList.size() >= 0 eq true}" emptyMessage="No has añadido ningun producto a tu carrito">
+
+                    <p:column  headerText="Productos que enviaremos a tu casa">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center  ">
+                                    <h:graphicImage library="img" name="#{pedido.imagen}" width="200px"/>
+                                </div>
+                                <div class="col text-center ">
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="#{pedido.producto}" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value="Precio: #{pedido.precio}€" /></b>
+                                    <br></br>
+                                    <br></br>
+                                    <b><h:outputText value=" Und: #{pedido.cantidad}" /></b>
+                                    <br></br>
+                                    <br></br>
+
+                                    <p:commandButton value="Eliminar" icon="ui-icon-trash" update="Juegos_comprados" actionListener="#{juegosController.eliminarPedido(pedido)}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </p:column>
+                </p:dataTable>
+                <br></br>
+                <b><p class="text-center">Total a pagar: #{juegosController.totalPrecio()}€</p></b>
+            </h:form>   
+            <h:form id="pagar">
+                <p:growl class="ui-growl" id="mensajeCompra" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+                <h:panelGrid columns="3" id="DatosCuenta">
+                    <p:outputLabel for="cuenta" value="Cuenta de banco" />
+                    <p:inputText id="cuenta" maxlength="9" value="#{juegosController.persona.cuenta}" required="true" requiredMessage="Obligatorio">
+                        <f:validateLength minimum="9"/>
+                    </p:inputText>
+
+                    <p:message for="cuenta" />
+                </h:panelGrid>
+                <br></br>
+
+                <p:commandButton value="Pedir y pagar" icon="ui-icon-cart" update="mensajeCompra,pagar,Juegos_comprados" action="#{juegosController.finalizarCompra()}"/>
+                <p:commandButton value="Cerrar" onclick="PF('dialogoCarrito').hide();" icon="ui-icon-close"/>
+            </h:form>
+        </p:dialog>
+        <h:outputScript library="js" name="hora.js" /> 
+    </h:body>
+
+</html>

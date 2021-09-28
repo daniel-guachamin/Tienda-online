@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body >
+
+        <ui:composition template="./../../WEB-INF/templates/plantilla.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="content">
+
+
+                <!-- Menu de nagegación -->
+                <div class="container-fluid fondops52" id="ini">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container" id="mainNav">
+                        <div class="container">
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <p:menubar  model="#{menuController.model}"/>  <!--modificar.........-->                   
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <p:commandButton value="Carrito" onclick="PF('dialogoCarrito').show();" icon="ui-icon-cart" title="Carrito de Compra"/>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p:commandButton actionListener="#{menuController.cerrarSesion()}" icon="ui-icon-power" value="Cerrar Sesión" action="/index?faces-redirect=true" title="Cerrar Sesión"/> 
+                                    </li>     
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <div class="separadorBlanco container"></div>
+
+
+
+                    <!--mostrara mensajes de error o exito -->
+                    <!--severity="info, fatal" showSummary="true" showDetail="true" me muestra mis mensajes de exito y error -->
+                    <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" life="2000"/>
+
+                    <div class="container enfrente">
+                        <div class="row scroll">
+                            <h:graphicImage library="img" name="ps5/finalFantasyGrande.jpg" alt="Final fantasy 7" width="1140px"/><br></br>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <h1 class="text-center">¡LO MÁS VENDIDO!</h1>
+                        <!--demo me permite que funcionen mis botones del carrusel-->
+                        <div id="demo" class="carousel slide" data-ride="carousel">
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner"> 
+                                <div class="carousel-item active text-center">
+
+                                    <div class="row ">
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_4" >
+                                                <p:link href="#par1">
+                                                    <h:graphicImage library="img" name="ps5/final.png" alt="Final fantasy 7"/><br></br>
+                                                </p:link>
+                                                <p:commandButton id="ps4" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Final fantasy 7', 'ps5/final.png', 70)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_2" >
+                                                <p:link href="#par2">
+                                                    <h:graphicImage library="img" name="ps5/assassin.png" alt="Assassin valhalla"/><br></br>
+                                                </p:link>
+                                                <p:commandButton id="ps2" value="Añadir 40€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Assassin valhalla', 'ps5/assassin.png', 40)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_3" >
+                                                <p:link href="#par3">
+                                                    <h:graphicImage library="img" name="ps5/terminator.png" alt="Terminator resistance"/><br></br>
+                                                </p:link>
+                                                <p:commandButton id="ps3" value="Añadir 32€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Terminator resistance', 'ps5/terminator.png', 32)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="carousel-item text-center">
+                                    <div class="row ">
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_1" >
+                                                <p:link href="#par4">
+                                                    <h:graphicImage library="img" name="ps5/spiderman.png" alt="Spiderman" onclick="#par1"/><br></br>
+                                                </p:link>
+                                                <p:commandButton id="ps1" value="Añadir 50€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Spiderman', 'ps5/spiderman.png', 50)}"/> 
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_5" >
+                                                <p:link href="#par5">
+                                                    <h:graphicImage library="img" name="ps5/chivalry.png" alt="Chivalry 2"/><br></br>
+                                                </p:link>
+                                                <p:commandButton id="ps5" value="Añadir 33€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Chivalry 2', 'ps5/chivalry.png', 33)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <h:form id="ps5_6" >
+                                                <p:link href="#par6">
+                                                    <h:graphicImage library="img" name="ps5/tales.png" alt="Tales of arise"/><br></br>
+                                                </p:link>
+                                                <p:commandButton id="ps6" value="Añadir 27€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Tales of arise', 'ps5/tales.png', 27)}"/>  
+                                                <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                                <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                                <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ps5_6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev bg-dark" href="#demo" data-slide="prev" style="height: 25px; width: 10%;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next bg-dark" href="#demo" data-slide="next" style="height: 25px; width: 10%;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+
+                        </div>
+                        <div class="separadorBlanco row"></div>
+
+                        <h1 class="text-center">Consola y accesorios</h1>
+
+
+                        <div class="row ">
+
+                            <div class="col text-center ">
+
+                                <h:form id="ar1" >
+                                    <h:graphicImage library="img" name="ps5/ps5.png" alt="Consola PlayStation 5"/><br></br>
+                                    <p:commandButton id="ar_1" value="Añadir 500€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Consola PlayStation 5', 'ps5/ps5.png', 500)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar1" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar1" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar2" >
+                                    <h:graphicImage library="img" name="ps5/auriculares.png" alt="auriculares"/><br></br>
+                                    <p:commandButton id="ar_2" value="Añadir 100€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Auriculares Inalámbricos', 'ps5/auriculares.png', 100)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar2" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar2" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar3" >
+                                    <h:graphicImage library="img" name="ps5/mando1.png" alt="Mando"/><br></br>
+                                    <p:commandButton id="ar_3" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando Inalámbrico', 'ps5/mando1.png', 70)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar3" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar3" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar4" >
+                                    <h:graphicImage library="img" name="ps5/mando2.png" alt="Mando"/><br></br>
+                                    <p:commandButton id="ar_4" value="Añadir 70€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Mando Inalámbrico', 'ps5/mando2.png', 70)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar4" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar4" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar5" >
+                                    <h:graphicImage library="img" name="ps5/recarga.png" alt="Estación de recarga de dualsense"/><br></br>
+                                    <p:commandButton id="ar_5" value="Añadir 30€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Estación de recarga de dualsense', 'ps5/recarga.png', 30)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar5" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar5" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            <div class="col text-center ">
+                                <h:form id="ar6" >
+                                    <h:graphicImage library="img" name="ps5/gorra.png" alt="Gorra Playstation 5"/><br></br>
+                                    <p:commandButton id="ar_6" value="Añadir 20€" icon="ui-icon-cart" update="mensaje,carrito" actionListener="#{juegosController.agregarPedidoAlCarrito('Gorra Playstation 5', 'ps5/gorra.png', 20)}"/> 
+                                    <p:commandButton icon="ui-icon-minus" update="mensaje,carrito,ar6" actionListener="#{juegosController.restarUnProducto()}" /> 
+                                    <p:inputText class="text-center" value="#{juegosController.pedido.cantidad}" style="width: 40px"/> 
+                                    <p:commandButton icon="ui-icon-plus" update="mensaje,carrito,ar6" actionListener="#{juegosController.sumarUnProducto()}" /> 
+                                </h:form>
+                            </div>
+                            
+
+                        </div>
+
+                        <!--Detalles de juego 1-->
+                        <div class="separadorBlanco row" id="par1"></div>
+
+                        <div class="row container" >
+
+                            <h1>FINAL FANTASY VII REMAKE INTERGRADE</h1>
+                            <p>Final Fantasy VII Remake Integrade es una versión mejorada y ampliada para PlayStation 5 de Final Fantasy VII Remake , título que ha recibido múltiples premios y críticas positivas. Final Fantasy VII Remake Intergrade incluye un episodio inédito protagonizado por Yuffie que introduce un nuevo y emocionante arco narrativo, además de numerosas adiciones en materia de jugabilidad.</p>
+                            <p>El mundo está dominado por la compañía eléctrica Shinra, una siniestra corporación que controla la energía mako, la fuerza vital del planeta. En la enorme ciudad de Midgar, una organización contraria a Shinra llamada Avalancha intensifica su resistencia. Cloud Strife, un antiguo miembro de la unidad de élite Soldado convertido en mercenario, presta su ayuda al grupo sin saber las épicas consecuencias que esto acarreará.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete" data-slide-to="1"></li>
+                                <li data-target="#muevete" data-slide-to="2"></li>
+                                <li data-target="#muevete" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="ps5/01_final.jpg" alt="Final Fantasy" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/02_final.jpg" alt="Final Fantasy" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/03_final.jpg" alt="Final Fantasy" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/04_final.jpg" alt="Final Fantasy" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 2-->
+                        <div class="separadorBlanco row" id="par2"></div>
+
+                        <div class="row container" >
+
+                            <h1>ASSASSIN’S CREED VALHALLA</h1>
+                            <p>En Assassin's Creed Valhalla encarnarás a Eivor, una feroz leyenda vikinga criada entre historias de batallas y gloria. Explora un hermoso mundo abierto y cambiante ambientado en la despiadada Inglaterra de los años oscuros. Saquea a tus enemigos, haz prosperar tu asentamiento y consolida tu poder político mientras luchas por ganarte un sitio entre los dioses en el Valhalla.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete2" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete2" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete2" data-slide-to="1"></li>
+                                <li data-target="#muevete2" data-slide-to="2"></li>
+                                <li data-target="#muevete2" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="ps5/01_val.jpg" alt="Valhala" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/02_val.jpg" alt="Valhala" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/03_val.jpg" alt="Valhala" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/04_val.jpg" alt="Valhala" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete2" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete2" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 3-->
+                        <div class="separadorBlanco row" id="par3"></div>
+
+                        <div class="row container" >
+
+                            <h1>TERMINATOR: RESISTANCE ENHANCED </h1>
+                            <p>La historia toma lugar en los Ángeles post-apocalíptica, unos 30 años después de Judgment Day y presenta a un nuevo héroe en el universo de Terminator, Jacob Rivers, un soldado de la resistencia dirigido por John Connor. A pesar de que Jacob es tan solo un soldado raso, pronto descubrirá que ha sido localizado por el último error de Skynet y marcado para ser eliminado.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete3" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete3" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete3" data-slide-to="1"></li>
+                                <li data-target="#muevete3" data-slide-to="2"></li>
+                                <li data-target="#muevete3" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="ps5/ter1.jpg" alt="Terminator" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/ter2.jpg" alt="Terminator" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/ter3.jpg" alt="Terminator" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/ter4.jpg" alt="Terminator" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete3" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete3" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 4-->
+                        <div class="separadorBlanco row" id="par4"></div>
+
+                        <div class="row container" >
+
+                            <h1>MARVEL'S SPIDER-MAN MILES MORALES</h1>
+                            <p>En esta nueva aventura del universo de Marvel’s Spider-Man, el adolescente Miles Morales se va haciendo a su nuevo hogar mientras sigue los pasos de su mentor Peter Parker como el nuevo Spider-Man. Sin embargo, una encarnizada lucha destruye su nuevo hogar, tras lo que el héroe en ciernes descubre que un gran poder conlleva una gran responsabilidad. Para salvar la Nueva York de Marvel, Miles deberá heredar el traje de Spider-Man y hacerlo suyo.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete4" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete4" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete4" data-slide-to="1"></li>
+                                <li data-target="#muevete4" data-slide-to="2"></li>
+                                <li data-target="#muevete4" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="ps5/spi1.png" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/spi2.png" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/spi3.png" alt="Spiderman" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/spi4.png" alt="Spiderman" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete4" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete4" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 5-->
+                        <div class="separadorBlanco row" id="par5"></div>
+
+                        <div class="row container" >
+
+                            <h1>CHIVALRY 2</h1>
+                            <p>¡Prepara tu espada y une todas tus fuerzas para combatir con las batallas medievales más espectaculares! Hazte en GAME con Chivalry 2, el multijugador por excelencia de batallas medievales en primera persona. Los jugadores se ven inmersos en la acción de cada momento icónico de la era, desde el combate de espadas hasta las tormentas de flechas en llamas, los asedios de castillos y mucho más.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete5" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete5" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete5" data-slide-to="1"></li>
+                                <li data-target="#muevete5" data-slide-to="2"></li>
+                                <li data-target="#muevete5" data-slide-to="3"></li>
+                                <li data-target="#muevete5" data-slide-to="4"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="ps5/cli5.jpg" alt="chivalry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/cli1.jpg" alt="chivalry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/cli2.jpg" alt="chivalry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/cli3.jpg" alt="chivalry" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/cli4.jpg" alt="chivalry" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete5" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete5" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                        <!--Detalles de juego 6-->
+                        <div class="separadorBlanco row" id="par6"></div>
+
+                        <div class="row container" >
+
+                            <h1>TALES OF ARISE</h1>
+                            <p>Alphen y Shionne son los dos jóvenes que determinarán el destino de dos mundos muy distintos, Dahna y Rena. Junto a un excepcional plantel de personajes, harán frente a la adversidad en su lucha por la liberación. En ciertos momentos clave, podrás disfrutar de las increíbles escenas animadas por ufotable, que aportan más color a la aventura de nuestros protagonistas.</p>
+                            <p:link href="#ini">
+                                <button>Volver</button>
+                            </p:link>
+                        </div>
+                        <!-- Galeria de imagenes -->
+                        <div id="muevete6" class="carousel slide row " data-ride="carousel">
+
+                            <!-- Indicadores -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#muevete6" data-slide-to="0" class="active"></li>
+                                <li data-target="#muevete6" data-slide-to="1"></li>
+                                <li data-target="#muevete6" data-slide-to="2"></li>
+                                <li data-target="#muevete6" data-slide-to="3"></li>
+                            </ul>
+
+                            <!-- La presentación de imagenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active scroll">
+                                    <h:graphicImage library="img" name="ps5/tal4.png" alt="TALES OF ARISE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/tal2.png" alt="TALES OF ARISE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/tal3.png" alt="TALES OF ARISE" width="1140px"/>
+                                </div>
+                                <div class="carousel-item scroll">
+                                    <h:graphicImage library="img" name="ps5/tal1.png" alt="TALES OF ARISE" width="1140px"/>
+                                </div>
+                            </div>
+
+                            <!-- Controles izquierdo y derecho -->
+                            <a class="carousel-control-prev " href="#muevete6" data-slide="prev" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#muevete6" data-slide="next" style="height: 25px; width: 10%; padding-top: 300px;">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                    </div><!--final container-->
+
+
+
+                    <!-- Footer --> 
+                    <footer class="py-5 bg-dark container" style="text-align: center">
+
+                        <div class="container">
+                            <div class="row">
+                                <ui:insert name="enlacesFooter" >
+                                    <div class="col text-center  ">
+                                        <a href="./../../footer/cookies.xhtml" title="Volver a la página principal">Política de cookies</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/privacidad.xhtml" title="Volver a la página principal">Politica de privacidad</a>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <a href="./../../footer/legal.xhtml" title="Volver a la página principal">Información legal</a>
+                                    </div>
+                                </ui:insert>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <p:link href="https://www.facebook.com/" target="_blank">
+                                        <h:graphicImage library="img" name="face.png" alt="Facebook"/>
+                                    </p:link>
+                                    <p:link href="https://www.instagram.com/" target="_blank"> 
+                                        <h:graphicImage library="img" name="insta2.png" alt="Instagram"/>
+                                    </p:link>
+                                    <p:link href="https://www.twitter.com/" target="_blank">
+                                        <h:graphicImage library="img" name="twiter.png" alt="Twitter"/>
+                                    </p:link> 
+                                </div>
+                            </div>
+
+                        </div>
+                        <br></br>
+                        <p class="m-0 text-center text-white">Copyright &copy; Derechos reservados por Daniel Tasintuña</p>
+                    </footer>
+                    <h:outputScript library="js" name="bootstrap.bundle.min.js" /><!--script que me permitira usar el carrusel de imagenes--> 
+                </div>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                <!--vacio por la plantilla--> 
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+
